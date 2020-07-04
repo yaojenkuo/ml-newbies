@@ -1,0 +1,1435 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>機器學習入門 &#8212; 新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="數值預測的任務" href="05-regression.html" />
+    <link rel="prev" title="資料探索" href="03-matplotlib.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="00-preface.html">關於本書</a>
+  </li>
+  <li class="">
+    <a href="01-introduction.html">關於視覺化與機器學習</a>
+  </li>
+  <li class="">
+    <a href="02-numpy.html">數列運算</a>
+  </li>
+  <li class="">
+    <a href="03-matplotlib.html">資料探索</a>
+  </li>
+  <li class="active">
+    <a href="">機器學習入門</a>
+  </li>
+  <li class="">
+    <a href="05-regression.html">數值預測的任務</a>
+  </li>
+  <li class="">
+    <a href="06-classification.html">類別預測的任務</a>
+  </li>
+  <li class="">
+    <a href="07-performance.html">表現的評估</a>
+  </li>
+  <li class="">
+    <a href="08-deep-learning.html">深度學習入門</a>
+  </li>
+  <li class="">
+    <a href="09-appendix-a.html">附錄 A</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/04-sklearn.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/spatialaudio/nbsphinx"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/spatialaudio/nbsphinx/issues/new?title=Issue%20on%20page%20%2F04-sklearn.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/04-sklearn.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#關於-Scikit-Learn" class="nav-link">關於 Scikit-Learn</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#為何-Scikit-Learn" class="nav-link">為何 Scikit-Learn</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#五個核心理念" class="nav-link">五個核心理念</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#提供合理的預設參數" class="nav-link">提供合理的預設參數</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#模組化" class="nav-link">模組化</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#一致性" class="nav-link">一致性</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#檢查性" class="nav-link">檢查性</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#不自行創建類別" class="nav-link">不自行創建類別</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#機器學習的資料表達" class="nav-link">機器學習的資料表達</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#Scikit-Learn-的支援場景" class="nav-link">Scikit-Learn 的支援場景</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#關於訓練、驗證與測試資料" class="nav-link">關於訓練、驗證與測試資料</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#延伸閱讀" class="nav-link">延伸閱讀</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/04-sklearn.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="機器學習入門">
+<h1>機器學習入門<a class="headerlink" href="#機器學習入門" title="Permalink to this headline">¶</a></h1>
+<p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pyvizml</span> <span class="kn">import</span> <span class="n">CreateNBAData</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="關於-Scikit-Learn">
+<h2>關於 Scikit-Learn<a class="headerlink" href="#關於-Scikit-Learn" title="Permalink to this headline">¶</a></h2>
+<p>Scikit-Learn 是 Python 使用者入門機器學習的一個高階、設計成熟且友善的套件模組，其建構於 NumPy、SciPy 與 Matplotlib，是開源並可作為商業使用的套件模組，主要的撰寫程式語言是 Python，並在其中廣泛使用 NumPy 進行線性代數、陣列運算。此外，也有運用 Cython 撰寫了部分核心演算法提高運算的效能。Scikit-learn 與我們已經介紹過的套件模組諸如 NumPy 以及 Matplotlib 能夠產生非常良好的綜效，其應用場景可以被簡單分類為：</p>
+<ul class="simple">
+<li><p>預處理（Preprocessing）</p></li>
+<li><p>監督式學習（Supervised learning）</p>
+<ul>
+<li><p>分類（Classification）</p></li>
+<li><p>迴歸（Regression）</p></li>
+</ul>
+</li>
+<li><p>非監督式學習（Unsupervised learning）</p>
+<ul>
+<li><p>分群（Clustering）</p></li>
+<li><p>降維（Dimensionality reduction）</p></li>
+</ul>
+</li>
+<li><p>模型選擇（Model selection）</p></li>
+</ul>
+<p>預處理的功能呼應了資料科學專案中的整併以及轉換；監督式學習、非監督式學習與模型選擇的功能則呼應了專案中的預測。</p>
+</div>
+<div class="section" id="為何-Scikit-Learn">
+<h2>為何 Scikit-Learn<a class="headerlink" href="#為何-Scikit-Learn" title="Permalink to this headline">¶</a></h2>
+<p>Scikit-Learn 設計對於使用者非常友善，在開發上圍繞著五個核心理念打造：</p>
+<ul class="simple">
+<li><p>一致性（Consistency）</p></li>
+<li><p>檢查性（Inspection）</p></li>
+<li><p>不自行創建類別（Nonproliferation of classes）</p></li>
+<li><p>模組化（Composition）</p></li>
+<li><p>提供合理的預設參數（Sensible defaults）</p></li>
+</ul>
+<p>其中，一致性指的是 Scikit-Learn 定義的類別都具有相同的 API 介面，像是進行資料預處理的轉換器（Transformer）都具備 <code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code> 方法；進行資料預測的預測器（Predictor）都具備 <code class="docutils literal notranslate"><span class="pre">fit()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">predict()</span></code> 方法；檢查性指的是 Scikit-Learn 定義的類別所依據的參數、結果都可以透過屬性擷取出來檢視；不自行創建類別指的是輸入與輸出的資料型態或結構，多數都以內建資料與 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 來處理；模組化指的是同為 Scikit-Learn
+的類別可以進行組裝，像是將轉換器與預測器組裝成為一個稱為管線（<code class="docutils literal notranslate"><span class="pre">Pipeline</span></code>）的類別；提供合理的預設參數指的是在初始化轉換器與預測器時，都會使用一組預設參數作為初始化的依據，而這些依據通常是多數使用者習慣的參數設計或基本標竿。</p>
+</div>
+<div class="section" id="五個核心理念">
+<h2>五個核心理念<a class="headerlink" href="#五個核心理念" title="Permalink to this headline">¶</a></h2>
+<p>我們使用 NBA 球員的範例資料來演繹 Scikit-Learn 的五個核心理念。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cnb</span> <span class="o">=</span> <span class="n">CreateNBAData</span><span class="p">(</span><span class="mi">2019</span><span class="p">)</span>
+<span class="n">players</span> <span class="o">=</span> <span class="n">cnb</span><span class="o">.</span><span class="n">create_players_df</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;heightMeters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;weightKilograms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Creating players df...
+</pre></div></div>
+</div>
+<div class="section" id="提供合理的預設參數">
+<h3>提供合理的預設參數<a class="headerlink" href="#提供合理的預設參數" title="Permalink to this headline">¶</a></h3>
+<p>初始化 <code class="docutils literal notranslate"><span class="pre">ss</span></code> 轉換器與 <code class="docutils literal notranslate"><span class="pre">lr</span></code> 預測器時可以選擇採用預設參數。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="模組化">
+<h3>模組化<a class="headerlink" href="#模組化" title="Permalink to this headline">¶</a></h3>
+<p>可以將 <code class="docutils literal notranslate"><span class="pre">ss</span></code> 轉換器與 <code class="docutils literal notranslate"><span class="pre">lr</span></code> 預測器組裝起來成為一個管線（Pipeline）類別。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">ss</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;lr&#39;</span><span class="p">,</span> <span class="n">lr</span><span class="p">)])</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+sklearn.pipeline.Pipeline
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="一致性">
+<h3>一致性<a class="headerlink" href="#一致性" title="Permalink to this headline">¶</a></h3>
+<p>包含預測器的管線類別具有 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 與 <code class="docutils literal notranslate"><span class="pre">predict</span></code> 方法。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="檢查性">
+<h3>檢查性<a class="headerlink" href="#檢查性" title="Permalink to this headline">¶</a></h3>
+<p>在訓練完成之後，可以 <code class="docutils literal notranslate"><span class="pre">intercept_</span></code> 屬性提取常數項、以 <code class="docutils literal notranslate"><span class="pre">coef_</span></code> 屬性提取係數項觀察。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+98.44183976261127
+[8.93801801]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="不自行創建類別">
+<h3>不自行創建類別<a class="headerlink" href="#不自行創建類別" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">lr</span></code> 在訓練完成之後，其 <code class="docutils literal notranslate"><span class="pre">intercept_</span></code> 屬性是 <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>、 <code class="docutils literal notranslate"><span class="pre">coef_</span></code> 屬性則是 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;numpy.float64&#39;&gt;
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="機器學習的資料表達">
+<h2>機器學習的資料表達<a class="headerlink" href="#機器學習的資料表達" title="Permalink to this headline">¶</a></h2>
+<p>機器學習的資料表達意象有兩個分類：特徵矩陣（Feature matrix）與目標向量（Target vector），特徵矩陣是二維的數值陣列，外型為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>，意指有 <code class="docutils literal notranslate"><span class="pre">m</span></code> 個觀測值、每個觀測值具有 <code class="docutils literal notranslate"><span class="pre">n</span></code> 個特徵，慣常以 <span class="math notranslate nohighlight">\(X\)</span> 做為標註；目標向量是一維的數值陣列，外型為 <code class="docutils literal notranslate"><span class="pre">(m,)</span></code>，意指有 <code class="docutils literal notranslate"><span class="pre">m</span></code> 個觀測值，慣常以 <span class="math notranslate nohighlight">\(y\)</span> 作為標註。</p>
+<p>舉例來說，前述範例中的 <code class="docutils literal notranslate"><span class="pre">players</span></code> 資料框外觀是：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">players</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(503, 20)
+</pre></div></div>
+</div>
+<p>假如我們改以身高（呎）與身高（吋）做為預測體重（磅）的依據：</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">players</span><span class="p">[[</span><span class="s1">&#39;heightFeet&#39;</span><span class="p">,</span> <span class="s1">&#39;heightInches&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;weightPounds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>特徵矩陣與目標向量的維度數及其外觀就分別為：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 特徵矩陣</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2
+(503, 2)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 目標向量</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+(503,)
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Scikit-Learn-的支援場景">
+<h2>Scikit-Learn 的支援場景<a class="headerlink" href="#Scikit-Learn-的支援場景" title="Permalink to this headline">¶</a></h2>
+<p>一個資料科學專案中包含有資料的獲取、整併、轉換、探索、預測以及溝通等環節，而 Scikit-Learn 能夠支援資料獲取、轉換與預測這三個主要應用場景，針對這些階段以包裝妥善的函式、自定義類別來協助使用者。</p>
+<p>在資料獲取的環節，<code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code> 提供三種介面讓讓使用者可以載入玩具資料集、現實世界資料集與生成資料集：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fetch_dataset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_dataset()</span></code></p></li>
+</ul>
+<p>一如「機器學習的資料表達」所述，資料獲取功能所回傳的特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 符合 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code> 外觀、目標向量 <span class="math notranslate nohighlight">\(y\)</span> 符合 <code class="docutils literal notranslate"><span class="pre">(m,)</span></code> 外觀；其中在載入玩具資料集與現實世界資料集中，Scikit-Learn 預設是以 <code class="docutils literal notranslate"><span class="pre">bunch</span></code> 這樣類似 <code class="docutils literal notranslate"><span class="pre">dict</span></code> 的資料結構回傳，指定參數 <code class="docutils literal notranslate"><span class="pre">return_X_y=True</span></code> 能夠直接獲得 <span class="math notranslate nohighlight">\(X\)</span> 與 <span class="math notranslate nohighlight">\(y\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 載入玩具資料集</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(506, 13)
+(506,)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 載入現實世界資料集</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(20640, 8)
+(20640,)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 載入生成資料集</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(100, 20)
+(100,)
+</pre></div></div>
+</div>
+<p>在資料轉換的環節，<code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing</span></code> 提供一種稱為轉換器（Transformer）的自定義類別，初始化後可以透過 <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> 方法將輸入資料轉換為指定的輸出格式。常用的轉換器有高次項特徵與標準化，其中高次項特徵轉換器可以為特徵矩陣中的特徵生成截距項（即 <span class="math notranslate nohighlight">\(x_0 = 1\)</span>）、高次項與交叉項：</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">players</span><span class="p">[[</span><span class="s1">&#39;heightFeet&#39;</span><span class="p">,</span> <span class="s1">&#39;heightInches&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">X_before_poly</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">()</span>
+<span class="n">X_after_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_before_poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 輸入高次項特徵轉換器之前的 X: x_1, x_2</span>
+<span class="n">X_before_poly</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 6,  0],
+       [ 6, 11],
+       [ 6,  9],
+       [ 6, 11],
+       [ 6, 10],
+       [ 6,  5],
+       [ 6,  4],
+       [ 6, 11],
+       [ 6,  8],
+       [ 6,  9]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 高次項特徵轉換器輸出的 X: x_0, x_1, x_2, x_1**2, x_1*x_2, x_2**2</span>
+<span class="n">X_after_poly</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[  1.,   6.,   0.,  36.,   0.,   0.],
+       [  1.,   6.,  11.,  36.,  66., 121.],
+       [  1.,   6.,   9.,  36.,  54.,  81.],
+       ...,
+       [  1.,   6.,  11.,  36.,  66., 121.],
+       [  1.,   6.,  10.,  36.,  60., 100.],
+       [  1.,   7.,   0.,  49.,   0.,   0.]])
+</pre></div></div>
+</div>
+<p>而標準化轉換器則是可以為特徵矩陣中的特徵進行量度的標準化，像是最小最大標準化（Min-max scaler）或者常態標準化（Standard scaler）。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_before_scaled</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ms</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_after_ms</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_before_scaled</span><span class="p">)</span>
+<span class="n">X_after_ss</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_before_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_before_scaled</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 6,  0],
+       [ 6, 11],
+       [ 6,  9],
+       [ 6, 11],
+       [ 6, 10],
+       [ 6,  5],
+       [ 6,  4],
+       [ 6, 11],
+       [ 6,  8],
+       [ 6,  9]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_after_ms</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0.5       , 0.        ],
+       [0.5       , 1.        ],
+       [0.5       , 0.81818182],
+       [0.5       , 1.        ],
+       [0.5       , 0.90909091],
+       [0.5       , 0.45454545],
+       [0.5       , 0.36363636],
+       [0.5       , 1.        ],
+       [0.5       , 0.72727273],
+       [0.5       , 0.81818182]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_after_ss</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[-0.15164926, -1.88887461],
+       [-0.15164926,  1.6276608 ],
+       [-0.15164926,  0.98829072],
+       [-0.15164926,  1.6276608 ],
+       [-0.15164926,  1.30797576],
+       [-0.15164926, -0.29044943],
+       [-0.15164926, -0.61013446],
+       [-0.15164926,  1.6276608 ],
+       [-0.15164926,  0.66860568],
+       [-0.15164926,  0.98829072]])
+</pre></div></div>
+</div>
+<p>在資料預測的環節，<code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing</span></code> 提供一種稱為預測器（Predictor）的自定義類別，初始化後可以透過 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 方法對訓練資料進行「配適」，透過 <code class="docutils literal notranslate"><span class="pre">predict</span></code> 方法對驗證或測試資料進行「預測」。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">players</span><span class="p">[[</span><span class="s1">&#39;heightFeet&#39;</span><span class="p">,</span> <span class="s1">&#39;heightInches&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;weightKilograms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 初始化</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1"># 對訓練資料進行「配適」</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span>  <span class="n">y_train</span><span class="p">)</span>
+<span class="c1"># 對驗證或測試資料進行「預測」</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="關於訓練、驗證與測試資料">
+<h2>關於訓練、驗證與測試資料<a class="headerlink" href="#關於訓練、驗證與測試資料" title="Permalink to this headline">¶</a></h2>
+<p>訓練資料（Training data，前述的 <code class="docutils literal notranslate"><span class="pre">X_train</span></code> 與 <code class="docutils literal notranslate"><span class="pre">y_train</span></code>）是具有實際值或標籤的已實現歷史資料，作用是讓演算法能夠在其中尋找出一組能夠讓 <span class="math notranslate nohighlight">\(h\)</span> 與 <span class="math notranslate nohighlight">\(f\)</span> 的係數組合，訓練過程中透過比較預測結果與已實現的實際值或標籤，在能力可及範圍下尋找出一組相似度最高的係數組合；就像求學時課本中附有詳解的練習題一般，訓練我們對一個觀念的暸解。</p>
+<p>驗證資料（Validation data，前述的 <code class="docutils literal notranslate"><span class="pre">X_valid</span></code> 與 <code class="docutils literal notranslate"><span class="pre">y_valid</span></code>）同樣是具有實際值或標籤的已實現歷史資料，但是在使用上偽裝成不具有實際值或標籤的待預測資料，作用是在把 <span class="math notranslate nohighlight">\(h\)</span> 拿去面對未知資料之前，就能夠對 <span class="math notranslate nohighlight">\(h\)</span> 的可能表現心底有數；就像求學時參加模擬考試一般，在過程中就像真的參加考試一般，但是在之後有解答可以參考。</p>
+<p>測試資料（Test data）是不具有實際值或標籤的待預測資料，作用是輸入訓練完成、驗證結果良好的 <span class="math notranslate nohighlight">\(h\)</span>，藉此達成資料預測目的；就像求學時參加的大型考試一般。</p>
+<p>以 <a class="reference external" href="https://www.kaggle.com/">Kaggle</a> 網站所下載回來的資料為例，我們會將具有實際值或標籤的已實現歷史資料 <code class="docutils literal notranslate"><span class="pre">train.csv</span></code> 分割為訓練與驗證資料；不具有實際值或標籤的待預測資料 <code class="docutils literal notranslate"><span class="pre">test.csv</span></code> 就是測試資料，兩個資料在維度上的差別就是實際值或標籤的已實現歷史資料：目標向量 <span class="math notranslate nohighlight">\(y\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://kaggle-getting-started.s3-ap-northeast-1.amazonaws.com/titanic/train.csv&quot;</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://kaggle-getting-started.s3-ap-northeast-1.amazonaws.com/titanic/test.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(891, 12)
+(418, 11)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 差別在 Survived 這個目標向量</span>
+<span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
+</pre></div></div>
+</div>
+<p>使用 Scikit-Learn 包裝妥善的函式 <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> 可以將輸入分割為訓練與驗證資料，常見的觀測值比例由 <code class="docutils literal notranslate"><span class="pre">6:4</span></code> 到 <code class="docutils literal notranslate"><span class="pre">9:1</span></code> 不等，原則是訓練資料筆數應該大過於驗證資料筆數，透過函式中的 <code class="docutils literal notranslate"><span class="pre">test_size</span></code> 參數來設定驗證資料的比例。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">players_train</span><span class="p">,</span> <span class="n">players_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">players</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">players_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>temporaryDisplayName</th>
+      <th>personId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>116</th>
+      <td>Terence</td>
+      <td>Davis</td>
+      <td>Davis, Terence</td>
+      <td>1629056</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Bojan</td>
+      <td>Bogdanovic</td>
+      <td>Bogdanovic, Bojan</td>
+      <td>202711</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Trevor</td>
+      <td>Ariza</td>
+      <td>Ariza, Trevor</td>
+      <td>2772</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Moritz</td>
+      <td>Wagner</td>
+      <td>Wagner, Moritz</td>
+      <td>1629021</td>
+    </tr>
+    <tr>
+      <th>358</th>
+      <td>Elie</td>
+      <td>Okobo</td>
+      <td>Okobo, Elie</td>
+      <td>1629059</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">players_valid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>temporaryDisplayName</th>
+      <th>personId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>268</th>
+      <td>Skal</td>
+      <td>Labissiere</td>
+      <td>Labissiere, Skal</td>
+      <td>1627746</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Trey</td>
+      <td>Burke</td>
+      <td>Burke, Trey</td>
+      <td>203504</td>
+    </tr>
+    <tr>
+      <th>289</th>
+      <td>Timothe</td>
+      <td>Luwawu-Cabarrot</td>
+      <td>Luwawu-Cabarrot, Timothe</td>
+      <td>1627789</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>Wenyen</td>
+      <td>Gabriel</td>
+      <td>Gabriel, Wenyen</td>
+      <td>1629117</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Pat</td>
+      <td>Connaughton</td>
+      <td>Connaughton, Pat</td>
+      <td>1626192</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>分割訓練與驗證資料的原則有二，先做資料集的隨機排序，像是我們玩撲克牌時所操作的洗牌（Shuffle），再來是依據 <code class="docutils literal notranslate"><span class="pre">test_size</span></code> 參數將具有實際值或標籤的已實現歷史資料水平切割，上方分配給驗證資料、下方分配給訓練資料；隨機排序是為避免訓練過程 <span class="math notranslate nohighlight">\(h\)</span> 的配適受到資料源本來的排序樣態所影響；依據這兩個原則自行定義一個 <code class="docutils literal notranslate"><span class="pre">trainTestSplit</span></code> 函式看是否可以獲得與前述相同的分割結果。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">trainTestSplit</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="p">):</span>
+    <span class="n">df_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">df_index</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">df_index</span><span class="p">)</span>
+    <span class="n">test_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">test_size</span><span class="p">))</span>
+    <span class="n">test_indices</span> <span class="o">=</span> <span class="n">df_index</span><span class="p">[:</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">train_indices</span> <span class="o">=</span> <span class="n">df_index</span><span class="p">[</span><span class="n">test_index</span><span class="p">:]</span>
+    <span class="n">df_valid</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_indices</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_indices</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="k">return</span> <span class="n">df_train</span><span class="p">,</span> <span class="n">df_valid</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">players_train</span><span class="p">,</span> <span class="n">players_valid</span> <span class="o">=</span> <span class="n">trainTestSplit</span><span class="p">(</span><span class="n">players</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">players_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>temporaryDisplayName</th>
+      <th>personId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>116</th>
+      <td>Terence</td>
+      <td>Davis</td>
+      <td>Davis, Terence</td>
+      <td>1629056</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Bojan</td>
+      <td>Bogdanovic</td>
+      <td>Bogdanovic, Bojan</td>
+      <td>202711</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Trevor</td>
+      <td>Ariza</td>
+      <td>Ariza, Trevor</td>
+      <td>2772</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>Moritz</td>
+      <td>Wagner</td>
+      <td>Wagner, Moritz</td>
+      <td>1629021</td>
+    </tr>
+    <tr>
+      <th>358</th>
+      <td>Elie</td>
+      <td>Okobo</td>
+      <td>Okobo, Elie</td>
+      <td>1629059</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">players_valid</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>temporaryDisplayName</th>
+      <th>personId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>268</th>
+      <td>Skal</td>
+      <td>Labissiere</td>
+      <td>Labissiere, Skal</td>
+      <td>1627746</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Trey</td>
+      <td>Burke</td>
+      <td>Burke, Trey</td>
+      <td>203504</td>
+    </tr>
+    <tr>
+      <th>289</th>
+      <td>Timothe</td>
+      <td>Luwawu-Cabarrot</td>
+      <td>Luwawu-Cabarrot, Timothe</td>
+      <td>1627789</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>Wenyen</td>
+      <td>Gabriel</td>
+      <td>Gabriel, Wenyen</td>
+      <td>1629117</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Pat</td>
+      <td>Connaughton</td>
+      <td>Connaughton, Pat</td>
+      <td>1626192</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>比對資料框的索引值可以驗證自行定義的 <code class="docutils literal notranslate"><span class="pre">trainTestSplit</span></code> 與 Scikit-Learn 的 <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> 分割邏輯相同。</p>
+</div>
+<div class="section" id="延伸閱讀">
+<h2>延伸閱讀<a class="headerlink" href="#延伸閱讀" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Getting Started - scikit-learn (<a class="reference external" href="https://scikit-learn.org/stable/getting_started.html">https://scikit-learn.org/stable/getting_started.html</a>)</p></li>
+<li><p>Kaggle (<a class="reference external" href="https://www.kaggle.com">https://www.kaggle.com</a>)</p></li>
+<li><p>Introducing Scikit-Learn In: Jake VanderPlas, Python Data Science Handbook (<a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/05.02-introducing-scikit-learn.html">https://jakevdp.github.io/PythonDataScienceHandbook/05.02-introducing-scikit-learn.html</a>)</p></li>
+<li><p>Sebastian Raschka, Vahid Mirjalili: Python Machine Learning (<a class="reference external" href="https://www.amazon.com/Python-Machine-Learning-scikit-learn-TensorFlow/dp/1789955750/">https://www.amazon.com/Python-Machine-Learning-scikit-learn-TensorFlow/dp/1789955750/</a>)</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="03-matplotlib.html" title="previous page">資料探索</a>
+    <a class='right-next' id="next-link" href="05-regression.html" title="next page">數值預測的任務</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By 郭耀仁<br/>
+        
+            &copy; Copyright 2020, 郭耀仁.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

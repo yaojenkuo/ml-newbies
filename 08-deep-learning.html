@@ -1,0 +1,1430 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>深度學習入門 &#8212; 新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="附錄 A" href="09-appendix-a.html" />
+    <link rel="prev" title="表現的評估" href="07-performance.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="00-preface.html">關於本書</a>
+  </li>
+  <li class="">
+    <a href="01-introduction.html">關於視覺化與機器學習</a>
+  </li>
+  <li class="">
+    <a href="02-numpy.html">數列運算</a>
+  </li>
+  <li class="">
+    <a href="03-matplotlib.html">資料探索</a>
+  </li>
+  <li class="">
+    <a href="04-sklearn.html">機器學習入門</a>
+  </li>
+  <li class="">
+    <a href="05-regression.html">數值預測的任務</a>
+  </li>
+  <li class="">
+    <a href="06-classification.html">類別預測的任務</a>
+  </li>
+  <li class="">
+    <a href="07-performance.html">表現的評估</a>
+  </li>
+  <li class="active">
+    <a href="">深度學習入門</a>
+  </li>
+  <li class="">
+    <a href="09-appendix-a.html">附錄 A</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/08-deep-learning.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/spatialaudio/nbsphinx"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/spatialaudio/nbsphinx/issues/new?title=Issue%20on%20page%20%2F08-deep-learning.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/08-deep-learning.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#什麼是深度學習" class="nav-link">什麼是深度學習</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#為何深度學習" class="nav-link">為何深度學習</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#什麼是-Keras" class="nav-link">什麼是 Keras</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#為何-Keras" class="nav-link">為何 Keras</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#撰寫-Keras-的步驟" class="nav-link">撰寫 Keras 的步驟</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#前向傳播" class="nav-link">前向傳播</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#反向傳播" class="nav-link">反向傳播</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#自訂深度學習類別-DeepLearning" class="nav-link">自訂深度學習類別 DeepLearning</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#MNIST-資料與時裝-MNIST-資料" class="nav-link">MNIST 資料與時裝 MNIST 資料</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#延伸閱讀" class="nav-link">延伸閱讀</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/08-deep-learning.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="深度學習入門">
+<h1>深度學習入門<a class="headerlink" href="#深度學習入門" title="Permalink to this headline">¶</a></h1>
+<p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pyvizml</span> <span class="kn">import</span> <span class="n">CreateNBAData</span>
+<span class="kn">from</span> <span class="nn">pyvizml</span> <span class="kn">import</span> <span class="n">ImshowSubplots</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">Input</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="什麼是深度學習">
+<h2>什麼是深度學習<a class="headerlink" href="#什麼是深度學習" title="Permalink to this headline">¶</a></h2>
+<p>深度學習是機器學習領域中的一個分支，以集合概念來說明的話，深度學習包含於機器學習之中，是機器學習集合的子集合。深度學習使用連續且多層的數值轉換從訓練資料中同時進行特徵工程（Feature engineering）以及係數 <span class="math notranslate nohighlight">\(w\)</span> 的最適化，與機器學習最大的差異點在於係數的個數是使用者<strong>直接</strong>或者<strong>間接</strong>所決定。面對數值或類別的預測任務，若是採用機器學習技巧，係數<strong>直接</strong>由特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 的欄位個數決定；然而若採用深度學習的手法，係數會改由深度（Depth）、或者稱為層數（Number of
+layers）決定，換言之，使用者乃是透過結構層數<strong>間接</strong>地決定。簡言之，我們可以將深度學習視為一種不需要使用者直接進行「特徵工程」（Feature engineering）的最適化方法，使用者透過定義層數來間接決定特徵工程的規模，當深度學習的層數愈多、單位愈多，意味著特徵工程的規模愈大。</p>
+<p><img alt="層數愈多、單位愈多，意味著特徵工程的規模愈大" src="_images/08-deep-learning_01_0.png" /></p>
+<p>當深度學習的層數愈少、單位愈少，意味著特徵工程的規模愈小。</p>
+<p><img alt="層數愈少、單位愈少，意味著特徵工程的規模愈小" src="_images/08-deep-learning_01_1.png" /></p>
+<p>使用者除了以層數定義結構決定特徵工程的規模，也需要決定每個層數的單位數量，獨一單位是由「感知器」（Perceptron），有的時候也被稱呼為「神經元」（Neuron）演變而來，感知器概念由 Frank Rosenblatt 於 1957 年提出，是深度學習模型的雛型，它是一種具有門檻值（Threshlod）的線性單位，由特徵 <span class="math notranslate nohighlight">\(x\)</span>、係數 <span class="math notranslate nohighlight">\(w\)</span> 、誤差 <span class="math notranslate nohighlight">\(b\)</span> 與階躍函式 <span class="math notranslate nohighlight">\(\chi\)</span> 組合而成。</p>
+<p><span class="math">\begin{equation}
+\hat{y} = \chi(x^Tw + b)
+\end{equation}</span></p>
+<p>其中階躍函數 <span class="math notranslate nohighlight">\(\chi\)</span> 為：</p>
+<p><span class="math">\begin{equation}
+\chi(z) = 0, \quad if \: z < 0
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\chi(z) = 1, \quad if \: z \geq 0
+\end{equation}</span></p>
+<p>感知器與羅吉斯迴歸有異曲同工之妙，差別在於羅吉斯迴歸多了 Sigmoid 函式的轉換才輸入階躍函式，感知器則沒有這一道手續。事實上，感知器概念之所以未能發揚光大，就是缺乏能將線性輸入 <span class="math notranslate nohighlight">\(w^Tx\)</span> 轉換為非線性的啟動函式（Activation function），因此不論添加多少感知器，依舊只能解決線性的數值、類別預測任務。</p>
+<p>現代的基礎深度學習模型可以透過充滿單位的層數堆疊而成，每層的多個單位會因為目的性而有不同的相連狀態，基本的是把結構中某一層的所有單位都與前一層以及後一層的所有單位相連，稱為完全連接層（Fully-connected layers）或密集層（Dense layers）。深度學習模型的目標與先前在數值預測、類別預測任務中所介紹的迴歸模型和羅吉思迴歸分類器一致：利用 <span class="math notranslate nohighlight">\(h\)</span> 來逼近某個函式 <span class="math notranslate nohighlight">\(f\)</span>，但由於深度學習模型具備了層數的結構，需要近似的函式 <span class="math notranslate nohighlight">\(h\)</span> 也成為了有鏈結的關係。</p>
+<p><span class="math">\begin{align}
+\hat{y} &= h(X; W, B) \\
+&= h^{(n)}(...h^{(2)}(h^{(1)}(X; W^{(1)}, B^{(1)})))
+\end{align}</span></p>
+<p>其中 <span class="math notranslate nohighlight">\(h^{(1)}\)</span> 稱為「輸入層」（Input layer），$ h^{(n)}$ 稱為「輸出層」（Output layer），介於這兩層之間的 <span class="math notranslate nohighlight">\(h^{(i)}\)</span> 則稱為「隱藏層」（Hidden layer），深度學習模型與傳統機器學習模型最大的差別，就在於是否有隱藏層的存在，意即一個最基本、最淺的深度學習模型至少具有三層。</p>
+<p>隱藏層的存在也造就了當我們在尋找深度學習模型最適的 <span class="math notranslate nohighlight">\(W\)</span> 與 <span class="math notranslate nohighlight">\(B\)</span> 時，跟先前於數值預測、類別預測任務中所使用的「梯度遞減」演算方法有些大同小異的地方，同樣都會隨機初始化一組係數向量，不過深度學習的係數多寡不再是由特徵矩陣的欄位數決定，而是由深度學習的結構層數來決定。在起始隨機配置的 <span class="math notranslate nohighlight">\(W\)</span> 與 <span class="math notranslate nohighlight">\(B\)</span> 下，深度學習的預測目標向量 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 會與實際目標向量 <span class="math notranslate nohighlight">\(y\)</span>
+相差甚遠，兩者之間的誤差也會很大，這時就會透過「反向傳播」（Backpropagation）的演算方法來進行梯度遞減、微調每層的係數向量，而之所以必須透過特殊的「反向傳播」演算方法，就是因為深度學習模型中至少有一個「隱藏層」的存在，導致了 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 與 <span class="math notranslate nohighlight">\(y\)</span> 之間的誤差僅能回饋到前一個隱藏層與輸出層之間的 <span class="math notranslate nohighlight">\(W\)</span> 與 <span class="math notranslate nohighlight">\(B\)</span> 作為更新依據，更前段層數之間 <span class="math notranslate nohighlight">\(W\)</span> 與 <span class="math notranslate nohighlight">\(B\)</span> 的更新依據，則改由後段層數回饋。簡言之，我們可以將反向傳播類比為專門設計給深度學習模型的梯度遞減演算方法。</p>
+</div>
+<div class="section" id="為何深度學習">
+<h2>為何深度學習<a class="headerlink" href="#為何深度學習" title="Permalink to this headline">¶</a></h2>
+<p>以機器學習的技巧進行數值或類別預測任務常遭遇到的瓶頸在於規則的撰寫或者特徵的定義，使用者被要求需要先釐清特徵矩陣和目標向量之間的可能關聯，例如我們預期了身高是體重的正相關因素、爭搶籃板球是前鋒在場上的核心任務或者傳球助攻是後衛在場上的核心任務。但是當由資料中提取出特徵這件事情成為了與預測一樣困難的時候，套用機器學習的技巧就突然顯得雞肋。深度學習透過多層感知器（Multi-layer perceptron,
+MLP）的機制允許電腦程式將相對單純的輸入構建成複雜的函數映射系統，藉此讓使用者能在不釐清特徵矩陣與目標向量之間關聯的情況下，依然可以進行數值或類別的預測任務。</p>
+<p>前述我們提到深度學習與機器學習最大的差異在於<strong>直接</strong>或者<strong>間接</strong>實施特徵工程，深度學習在特定領域諸如影像分類、語音識別或機器翻譯等廣受歡迎而迅速發展的主要緣由其實就應對了與機器學習的最大差異，對於難以進行特徵工程的領域，深度學習只要求使用者定義深度（或層數）而將特徵工程交給了演算方法來處理。</p>
+<p>綜觀深度學習目前蓬勃發展的領域，我們可以發現到深度學習挑戰的領域反而是人類相對於電腦程式容易執行的任務，對人們來說影像分類、語音識別或語言翻譯是很直觀的事情，但對於電腦程式來說，解決這些問題的邏輯、規則都無法用程式語言描述，那些要求規則撰寫、自行定義特徵的傳統處理技巧就顯得了窒礙難行，因此轉而求助自動運行特徵工程的深度學習。</p>
+</div>
+<div class="section" id="什麼是-Keras">
+<h2>什麼是 Keras<a class="headerlink" href="#什麼是-Keras" title="Permalink to this headline">¶</a></h2>
+<p>Keras 是 Python 的深度學習框架，提供科學計算研究人員與機器學習工程師利用簡潔且一致的應用程式介面（Application Programming Interface, API），由於其易用、靈活和良善的設計，迅速受到使用者的喜愛，Keras 在執行深度學習時對張量進行運算和微分依賴於三個後端引擎：TensorFlow、Theano 與 Microsoft Cognitive Toolkit(CNTK)。Keras 並沒有限定使用任何一個後端引擎，不過由於目前已經被整合至 TensorFlow 2.0 並且作為關鍵核心的一個高階功能，稱為 <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code>，也預設使用 TensorFlow 作為後端引擎，並能無縫接軌
+TensorFlow 2.0 其他的核心功能模組，包含資料管理、超參數訓練或部署等。Keras 由 <a class="reference external" href="https://twitter.com/fchollet">François Chollet</a> 開發，於 2015 年 3 月以開源專案的形式發行，</p>
+</div>
+<div class="section" id="為何-Keras">
+<h2>為何 Keras<a class="headerlink" href="#為何-Keras" title="Permalink to this headline">¶</a></h2>
+<p>選擇 Keras 作為深度學習框架最直觀原因就是它的受歡迎程度，從 Stack Overflow Trends 的時間序列圖可見一斑。</p>
+<p><img alt="受歡迎程度高的 TensorFlow 與 Keras" src="https://i.imgur.com/6n3uTOi.png?1" /></p>
+<p>Keras 的哲學是以簡單性、低使用門檻與使用者友善為出發點設計，但是它提供的功能可以滿足入門使用者到專業研究人員與工程師，這使得它的使用者遍佈學術界、新創公司、大型企業與研究單位，像是 Google、Netflix、Uber、Yelp、Square、歐洲核子研究組織（CERN）、美國國家航空太空總署（NASA）、美國國立衛生研究院（NIH）還有世界上許多知名科學組織。</p>
+<p>讓這些學術界、新創公司、大型企業與研究單位能夠放心使用 Keras 的原因還有：</p>
+<ul class="simple">
+<li><p>Keras 採用 MIT 授權條款與其他常見的軟體授權條款相比，這是相對寬鬆的且能被自由使用在商業專案之中</p></li>
+<li><p>確保同樣的 Keras 程式碼在 CPU 與 GPU 的硬體環境上都能執行，在 CPU 上會運作 BLAS、Eigen 套件，在 GPU 上則會運作 CUDA、cuDNN 套件，來進行自動微分和張量運算</p></li>
+<li><p>具備友善的應用程式介面設計，讓使用者可以快速建構深度學習模型</p></li>
+<li><p>內建應用於電腦視覺或應用於時間序列資料的深度學習模型</p></li>
+</ul>
+</div>
+<div class="section" id="撰寫-Keras-的步驟">
+<h2>撰寫 Keras 的步驟<a class="headerlink" href="#撰寫-Keras-的步驟" title="Permalink to this headline">¶</a></h2>
+<p>使用 Keras 創建深度學習模型的基本步驟可以區分為四個：</p>
+<ol class="arabic simple">
+<li><p>定義訓練資料</p></li>
+<li><p>定義深度學習模型的結構：包含深度（Depth）或者說層數（Number of layers），也包含每個層的感知器個數</p></li>
+<li><p>定義評估指標：選擇用來衡量 <span class="math notranslate nohighlight">\(y\)</span> 與 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 之間誤差的函式、更新 <span class="math notranslate nohighlight">\(W\)</span> 的演算方法以及評估 <span class="math notranslate nohighlight">\(h\)</span> 的指標</p></li>
+<li><p>最適化係數向量：呼叫深度學習模型的 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 方法迭代訓練資料</p></li>
+</ol>
+<p>使用 Keras 利用 <code class="docutils literal notranslate"><span class="pre">player_stats</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">apg</span></code> 與 <code class="docutils literal notranslate"><span class="pre">rpg</span></code> 來預測 <code class="docutils literal notranslate"><span class="pre">pos</span></code>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 定義訓練資料</span>
+<span class="c1"># create_player_stats_df() 方法要對 data.nba.net 發出數百次的 HTTP 請求，等待時間會較長，要請讀者耐心等候</span>
+<span class="n">cnd</span> <span class="o">=</span> <span class="n">CreateNBAData</span><span class="p">(</span><span class="mi">2019</span><span class="p">)</span>
+<span class="n">player_stats</span> <span class="o">=</span> <span class="n">cnd</span><span class="o">.</span><span class="n">create_player_stats_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Creating players df...
+Creating players df...
+Creating player stats df...
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pos_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;F&#39;</span>
+<span class="p">}</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">pos_binary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;G&#39;</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pos</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[[</span><span class="s1">&#39;apg&#39;</span><span class="p">,</span> <span class="s1">&#39;rpg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pos_binary</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>創建一個最淺、具有三層結構的深度學習模型，輸入層有兩個單位負責接收球員的場均助攻、場均籃板，隱藏層有四個單位，輸出層有一個單位輸出球員預測為前鋒的機率。這個結構的指派，間接地定義了在「輸入至隱藏」的階段將會有特徵 <span class="math notranslate nohighlight">\(W^{(1)} = [w_0, w_1, w_2, w_3, w_4, w_5, w_6, w_7]\)</span> 以及 <span class="math notranslate nohighlight">\(B^{(1)} = [b_0, b_1, b_2, b_3]\)</span>、在「隱藏至輸出」的階段將會有特徵 <span class="math notranslate nohighlight">\(W^{(2)} = [w_8, w_{9}, w_{10}, w_{11}]\)</span> 以及 <span class="math notranslate nohighlight">\(B^{(2)} = [b_4]\)</span>，這個深度學習模型總共有 17 個係數會在迭代訓練過程中最適化。</p>
+<p><img alt="總共有 17 個係數" src="_images/08-deep-learning_01_1.png" /></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 定義深度學習模型的結構</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Model: &#34;sequential&#34;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense (Dense)                (None, 4)                 12
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 5
+=================================================================
+Total params: 17
+Trainable params: 17
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 定義評估指標</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 最適化係數向量</span>
+<span class="n">n_iters</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+          <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span>
+          <span class="n">epochs</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/5
+11/11 [==============================] - 0s 30ms/step - loss: 6.1196e-08 - accuracy: 0.4866 - val_loss: 6.4632e-08 - val_accuracy: 0.4578
+Epoch 2/5
+11/11 [==============================] - 0s 5ms/step - loss: 6.1196e-08 - accuracy: 0.4866 - val_loss: 6.4632e-08 - val_accuracy: 0.4578
+Epoch 3/5
+11/11 [==============================] - 0s 6ms/step - loss: 6.1196e-08 - accuracy: 0.4866 - val_loss: 6.4632e-08 - val_accuracy: 0.4578
+Epoch 4/5
+11/11 [==============================] - 0s 5ms/step - loss: 6.1196e-08 - accuracy: 0.4866 - val_loss: 6.4632e-08 - val_accuracy: 0.4578
+Epoch 5/5
+11/11 [==============================] - 0s 5ms/step - loss: 6.1196e-08 - accuracy: 0.4866 - val_loss: 6.4632e-08 - val_accuracy: 0.4578
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tensorflow.python.keras.callbacks.History at 0x7fd7145d1a58&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[array([[ 0.07236648,  0.33068013, -0.11336875,  0.12589383],
+        [ 0.04715586,  0.9050956 ,  0.14129925, -0.3976891 ]],
+       dtype=float32),
+ array([0., 0., 0., 0.], dtype=float32),
+ array([[ 0.09493172],
+        [-1.0410525 ],
+        [-0.6736306 ],
+        [ 1.0668004 ]], dtype=float32),
+ array([0.], dtype=float32)]
+</pre></div></div>
+</div>
+<p>一如往常讓我們最關注的是最適化各層 <span class="math notranslate nohighlight">\(W\)</span> 與 <span class="math notranslate nohighlight">\(B\)</span> 的關鍵方法 <code class="docutils literal notranslate"><span class="pre">fit</span></code>，究竟這個 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 是如何決定 <code class="docutils literal notranslate"><span class="pre">X_train</span></code> 與 <code class="docutils literal notranslate"><span class="pre">y_train</span></code> 之間的關聯？接下來試圖理解它。</p>
+</div>
+<div class="section" id="前向傳播">
+<h2>前向傳播<a class="headerlink" href="#前向傳播" title="Permalink to this headline">¶</a></h2>
+<p>我們提過一個最基礎的深度學習模型會有輸入層、隱藏層與輸出層至少三層的深度，透過各層之間的單位相連接，可以得到由權重矩陣 <span class="math notranslate nohighlight">\(W\)</span> 與誤差矩陣 <span class="math notranslate nohighlight">\(B\)</span> 所組成的係數，這組係數經過訓練之後，可以將輸入的特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 映射為目標矩陣 <span class="math notranslate nohighlight">\(\hat{Y}\)</span>。每層都是由啟動函式、前一層的輸出、當層的權重矩陣與誤差矩陣結合，然後成為下一層的輸入。</p>
+<p><span class="math">\begin{align}
+Z^{(1)} &= W^{(1)}A^{(0)} + B^{(1)} = W^{(1)}X^{T} + B^{(1)} \\
+A^{(1)} &= \sigma(Z^{(1)}) \\
+Z^{(2)} &= W^{(2)}A^{(1)} + B^{(2)} \\
+A^{(2)} &= \sigma(Z^{(2)}) = \hat{Y}
+\end{align}</span></p>
+<p>以前述使用 Keras 創建的深度學習模型為例，輸入層單位數 2、隱藏層單位數 4 以及輸出層單位數 1，截至於此，資料（Experiment）與任務（Task）已經被定義妥善，特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">2)</span></code>，目標向量 <span class="math notranslate nohighlight">\(y\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(m,)</span></code>，<span class="math notranslate nohighlight">\(W^{(1)}\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">2)</span></code>，<span class="math notranslate nohighlight">\(B^{(1)}\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">1)</span></code>，<span class="math notranslate nohighlight">\(W^{(2)}\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">4)</span></code>，<span class="math notranslate nohighlight">\(B^{(2)}\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">1)</span></code>。從「輸入層到隱藏層」<span class="math notranslate nohighlight">\(W^{(1)}\)</span> 和 <span class="math notranslate nohighlight">\(X^T\)</span> 相乘再加上 <span class="math notranslate nohighlight">\(B^{(1)}\)</span>，<span class="math notranslate nohighlight">\(A^{(1)}\)</span> 外觀是
+<code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">m)</span></code>；從「隱藏層到輸出層」<span class="math notranslate nohighlight">\(W^{(2)}\)</span> 和 <span class="math notranslate nohighlight">\(A^{(1)}\)</span> 相乘再加上 <span class="math notranslate nohighlight">\(B^{(2)}\)</span>，<span class="math notranslate nohighlight">\(A^{(2)}\)</span> 外觀是 <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">m)</span></code>。</p>
+</div>
+<div class="section" id="反向傳播">
+<h2>反向傳播<a class="headerlink" href="#反向傳播" title="Permalink to this headline">¶</a></h2>
+<p>接下來還需要定義評估（Performance），深度學習模型完成一次前向傳播，特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 就會依賴當下的權重矩陣 <span class="math notranslate nohighlight">\(W^{(i)}\)</span> 和誤差矩陣 <span class="math notranslate nohighlight">\(B^{(i)}\)</span> 跟隨著結構由輸入層、隱藏層移動到輸出層成為 <span class="math notranslate nohighlight">\(\hat{y}\)</span>，這時就能夠計算 <span class="math notranslate nohighlight">\(y\)</span> 與 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 之間的誤差量值，如果是數值預測的任務，使用均方誤差評估。</p>
+<p><span class="math">\begin{align}
+J(W, N) &= \frac{1}{m}\parallel Y - \hat{Y} \parallel^2 \\
+&= \frac{1}{m}\parallel Y - h(X; W, B) \parallel^2
+\end{align}</span></p>
+<p>若是類別預測的任務，使用交叉熵評估。</p>
+<p><span class="math">\begin{align}
+J(W, B) &= \frac{1}{m}(-Ylog(\hat{Y}) - (1-Y)log(1-\hat{Y})) \\
+&= \frac{1}{m}(-Ylog(h(X; W, B)) - (1-Y)log(1-h(X; W, B)))
+\end{align}</span></p>
+<p>接下來模型可以分別計算誤差函式 <span class="math notranslate nohighlight">\(J(W, B)\)</span> 關於各層中的權重矩陣與誤差矩陣之偏微分，並且返回各層決定該如何更新權重矩陣與誤差矩陣，目標在下一次前向傳播結束之後能夠讓誤差下降，這樣的技巧稱為「反向傳播」（Backpropagation），是一種專門使用在深度學習模型中的梯度遞減演算方法，<span class="math notranslate nohighlight">\(\alpha\)</span> 同樣用來標註學習速率。</p>
+<p><span class="math">\begin{align}
+W^{(i)} := W^{(i)} - \alpha \frac{\partial J(W, B)}{\partial W^{(i)}} \\
+B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
+\end{align}</span></p>
+<p>我們可以應用在類別預測任務中介紹過的連鎖法則（Chain rule）求解它關於各層中的權重矩陣與誤差向量之偏微分，以一個具有三層結構的深度學習模型為例，反向傳播會先更新「隱藏至輸出」階段中的 <span class="math notranslate nohighlight">\(W^{(1)}\)</span> 以及 <span class="math notranslate nohighlight">\(B^{(1)}\)</span>。</p>
+<p><span class="math">\begin{align}
+\frac{\partial J}{\partial W^{(1)}} = \frac{\partial J}{\partial A^{(1)}} \frac{\partial A^{(1)}}{\partial Z^{(1)}} \frac{\partial Z^{(1)}}{\partial W^{(1)}} \\
+\frac{\partial J}{\partial B^{(1)}} = \frac{\partial J}{\partial A^{(1)}} \frac{\partial A^{(1)}}{\partial Z^{(1)}} \frac{\partial Z^{(1)}}{\partial B^{(1)}}
+\end{align}</span></p>
+<p>再返回更新「輸入至隱藏」階段中的 <span class="math notranslate nohighlight">\(W^{(0)}\)</span> 以及 <span class="math notranslate nohighlight">\(B^{(0)}\)</span>。</p>
+<p><span class="math">\begin{align}
+\frac{\partial J}{\partial W^{(0)}} = \frac{\partial J}{\partial A^{(1)}} \frac{\partial A^{(1)}}{\partial Z^{(1)}} \frac{\partial Z^{(1)}}{\partial A^{(0)}} \frac{\partial A^{(0)}}{\partial Z^{(0)}} \frac{\partial Z^{(0)}}{\partial W^{(0)}} \\
+\frac{\partial J}{\partial B^{(0)}} = \frac{\partial J}{\partial A^{(1)}} \frac{\partial A^{(1)}}{\partial Z^{(1)}} \frac{\partial Z^{(1)}}{\partial A^{(0)}} \frac{\partial A^{(0)}}{\partial Z^{(0)}} \frac{\partial Z^{(0)}}{\partial B^{(0)}}
+\end{align}</span></p>
+<p>寫成一個泛化的式子來定義在單層的反向傳播需要求解哪些偏微分的項目，這裡我們改使用 <span class="math notranslate nohighlight">\(J^{(i)}\)</span> 表示單層的輸出，在「輸入至隱藏」或「隱藏至隱藏」階段，可以想像只是部分的誤差。</p>
+<p><span class="math">\begin{equation}
+\frac{\partial J^{(i)}}{\partial W^{(i)}} = \frac{\partial J^{(i)}}{\partial A^{(i)}} \frac{\partial A^{(i)}}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial W^{(i)}}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\frac{\partial J^{(i)}}{\partial B^{(i)}} = \frac{\partial J^{(i)}}{\partial A^{(i)}} \frac{\partial A^{(i)}}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial B^{(i)}}
+\end{equation}</span></p>
+<p>到這裡我們終於能體會為何深度學習模型的梯度遞減演算方法必須特別以反向傳播實踐，這是由於在更新「輸入至隱藏」階段中的 <span class="math notranslate nohighlight">\(W^{(0)}\)</span> 以及<span class="math notranslate nohighlight">\(B^{(0)}\)</span>，必須倚賴「隱藏至輸出」階段中的 <span class="math notranslate nohighlight">\(A^{(1)}\)</span> 以及 <span class="math notranslate nohighlight">\(Z^{(1)}\)</span>，意即第 <span class="math notranslate nohighlight">\(i\)</span> 層的權重矩陣和誤差矩陣的更新是依據第 <span class="math notranslate nohighlight">\(i+1\)</span> 層的輸出。</p>
+<p>最後我們需要推導在 <span class="math notranslate nohighlight">\(J(W, B)\)</span> 關於輸出層的權重矩陣與誤差向量之偏微分，經由連鎖法則展開的偏微分各別為何。首先計算「輸出至隱藏」階段的 <span class="math notranslate nohighlight">\(\frac{\partial J}{\partial \hat{Y}}\)</span>，由於接著希望自訂類別重現前述的 Keras 二元分類範例，誤差函式採用交叉熵。</p>
+<p><span class="math">\begin{align}
+\frac{\partial J}{\partial \hat{Y}} &= \frac{\partial}{\partial \hat{Y}}(\frac{1}{m} (-Ylog(\hat{Y}) - (1 - Y)log(1 - \hat{Y}))) \\
+&= \frac{1}{m}(-Y\frac{1}{\hat{Y}} - (1 - Y)\frac{1}{1 - \hat{Y}}(-1)) \\
+&= \frac{1}{m}(-\frac{Y}{\hat{Y}} + \frac{1-Y}{1 - \hat{Y}}) \\
+&= -\frac{1}{m}(\frac{Y}{\hat{Y}} - \frac{1-Y}{1 - \hat{Y}}) \\
+\end{align}</span></p>
+<p>接著是在單層反向傳播需要求解的偏微分項目。</p>
+<p><span class="math">\begin{align}
+\frac{\partial J^{(i)}}{\partial A^{(i)}} \frac{\partial A^{(i)}}{\partial Z^{(i)}} &= \frac{\partial J^{(i)}}{\partial A^{(i)}} \sigma'(Z^{(i)}) = dZ^{(i)} \\
+\frac{\partial J^{(i)}}{\partial W^{(i)}} &= \frac{\partial J^{(i)}}{\partial A^{(i)}} \frac{\partial A^{(i)}}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial W^{(i)}} = dZ^{(i)}A^{(i-1)} \\
+\frac{\partial J^{(i)}}{\partial B^{(i)}} &= \frac{\partial J^{(i)}}{\partial A^{(i)}} \frac{\partial A^{(i)}}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial B^{(i)}} = dZ^{(i)} \\
+\frac{\partial J^{(i)}}{\partial A^{(i-1)}} &= \frac{\partial J^{(i)}}{\partial A^{(i)}} \frac{\partial A^{(i)}}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial A^{(i-1)}} = dZ^{(i)} W^{(i)}
+\end{align}</span></p>
+</div>
+<div class="section" id="自訂深度學習類別-DeepLearning">
+<h2>自訂深度學習類別 DeepLearning<a class="headerlink" href="#自訂深度學習類別-DeepLearning" title="Permalink to this headline">¶</a></h2>
+<p>我們可以前向傳播與反向傳播的定義自訂 DeepLearning 類別，檢視迭代後是否也能最適化各層的 <span class="math notranslate nohighlight">\(W\)</span> 與 <span class="math notranslate nohighlight">\(B\)</span>，首先是依據使用者的輸入初始化深度學習模型的結構。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_of_units</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">layer_of_units</span><span class="p">)</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;W</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">layer_of_units</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">layer_of_units</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;B</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">layer_of_units</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span> <span class="o">=</span> <span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<p>接著定義前向傳播方法 <code class="docutils literal notranslate"><span class="pre">forward_propagation</span></code>。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Z</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">single_layer_forward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">):</span>
+    <span class="n">Z_current</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">)</span> <span class="o">+</span> <span class="n">B_current</span>
+    <span class="n">A_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">Z_current</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">A_current</span><span class="p">,</span> <span class="n">Z_current</span>
+<span class="k">def</span> <span class="nf">forward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">X_train_T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">A_current</span> <span class="o">=</span> <span class="n">X_train_T</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">A_previous</span> <span class="o">=</span> <span class="n">A_current</span>
+        <span class="n">W_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;W</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="n">B_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;B</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="n">A_current</span><span class="p">,</span> <span class="n">Z_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_layer_forward_propagation</span><span class="p">(</span><span class="n">A_previous</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">)</span>
+        <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;A</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">A_previous</span>
+        <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;Z</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Z_current</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="n">cache</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_A_current</span> <span class="o">=</span> <span class="n">A_current</span>
+</pre></div>
+</div>
+</div>
+<p>然後定義反向傳播方法 <code class="docutils literal notranslate"><span class="pre">backward_propagation</span></code>。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">derivative_sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
+    <span class="n">sig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sig</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sig</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">single_layer_backward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dA_current</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">,</span> <span class="n">Z_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">):</span>
+    <span class="n">dZ_current</span> <span class="o">=</span> <span class="n">dA_current</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">derivative_sigmoid</span><span class="p">(</span><span class="n">Z_current</span><span class="p">)</span>
+    <span class="n">dW_current</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dZ_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+    <span class="n">dB_current</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ_current</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+    <span class="n">dA_previous</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W_current</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dZ_current</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dA_previous</span><span class="p">,</span> <span class="n">dW_current</span><span class="p">,</span> <span class="n">dB_current</span>
+<span class="k">def</span> <span class="nf">backward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">forward_propagation</span><span class="p">()</span>
+    <span class="n">Y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A_current</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">Y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span>
+    <span class="n">dA_previous</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_hat</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y_train</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">Y_hat</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">dl</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="n">dA_current</span> <span class="o">=</span> <span class="n">dA_previous</span>
+        <span class="n">A_previous</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="s2">&quot;A</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+        <span class="n">Z_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="s2">&quot;Z</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">W_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;W</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">B_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;B</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">dA_previous</span><span class="p">,</span> <span class="n">dW_current</span><span class="p">,</span> <span class="n">dB_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_layer_backward_propagation</span><span class="p">(</span><span class="n">dA_current</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">,</span> <span class="n">Z_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">)</span>
+        <span class="n">gradients</span><span class="p">[</span><span class="s2">&quot;dW</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">dW_current</span>
+        <span class="n">gradients</span><span class="p">[</span><span class="s2">&quot;dB</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">dB_current</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_gradients</span> <span class="o">=</span> <span class="n">gradients</span>
+</pre></div>
+</div>
+</div>
+<p>接著應用梯度遞減定義每一層的權重與誤差的更新方法 <code class="docutils literal notranslate"><span class="pre">gradient_descent</span></code>。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;W</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_learning_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradients</span><span class="p">[</span><span class="s2">&quot;dW</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;B</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_learning_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradients</span><span class="p">[</span><span class="s2">&quot;dB</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<p>最後是訓練的方法 <code class="docutils literal notranslate"><span class="pre">fit</span></code>。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
+    <span class="n">loss_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">accuracy_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">n_prints</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">print_iter</span> <span class="o">=</span> <span class="n">epochs</span> <span class="o">//</span> <span class="n">n_prints</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">forward_propagation</span><span class="p">()</span>
+        <span class="n">ce</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">()</span>
+        <span class="n">accuracy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">()</span>
+        <span class="n">loss_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ce</span><span class="p">)</span>
+        <span class="n">accuracy_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backward_propagation</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gradient_descent</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">print_iter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteration: </span><span class="si">{:6}</span><span class="s2"> - cost: </span><span class="si">{:.6f}</span><span class="s2"> - accuracy: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ce</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_loss_history</span> <span class="o">=</span> <span class="n">loss_history</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_accuracy_history</span> <span class="o">=</span> <span class="n">accuracy_history</span>
+</pre></div>
+</div>
+</div>
+<p>再加上定義誤差函式交叉熵 <code class="docutils literal notranslate"><span class="pre">cross_entropy</span></code> 以及模型的評估指標 <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">Y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A_current</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_Y_hat</span> <span class="o">=</span> <span class="n">Y_hat</span>
+    <span class="n">Y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span>
+    <span class="n">ce</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Y_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y_hat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ce</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">accuracy_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">p_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Y_hat</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">p_pred</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_true</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">size</span>
+    <span class="k">return</span> <span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+<p>將前述的方法整合到 <code class="docutils literal notranslate"><span class="pre">DeepLearning</span></code> 類別中。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">DeepLearning</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class defines the vanilla optimization of a deep learning model.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        layer_of_units (list): A list to specify the number of units in each layer.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_of_units</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">layer_of_units</span><span class="p">)</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;W</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">layer_of_units</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">layer_of_units</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;B</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">layer_of_units</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span> <span class="o">=</span> <span class="n">parameters</span>
+    <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the Sigmoid output.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            Z (ndarray): The multiplication of weights and output from previous layer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Z</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">single_layer_forward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the output of a single layer of forward propagation.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            A_previous (ndarray): The Sigmoid output from previous layer.</span>
+<span class="sd">            W_current (ndarray): The weights of current layer.</span>
+<span class="sd">            B_current (ndarray): The bias of current layer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Z_current</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">)</span> <span class="o">+</span> <span class="n">B_current</span>
+        <span class="n">A_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">Z_current</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">A_current</span><span class="p">,</span> <span class="n">Z_current</span>
+    <span class="k">def</span> <span class="nf">forward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the output of a complete round of forward propagation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">X_train_T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">A_current</span> <span class="o">=</span> <span class="n">X_train_T</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">A_previous</span> <span class="o">=</span> <span class="n">A_current</span>
+            <span class="n">W_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;W</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+            <span class="n">B_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;B</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+            <span class="n">A_current</span><span class="p">,</span> <span class="n">Z_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_layer_forward_propagation</span><span class="p">(</span><span class="n">A_previous</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">)</span>
+            <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;A</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">A_previous</span>
+            <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;Z</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Z_current</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="n">cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_A_current</span> <span class="o">=</span> <span class="n">A_current</span>
+    <span class="k">def</span> <span class="nf">derivative_sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the output of the derivative of Sigmoid function.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            Z (ndarray): The multiplication of weights, bias and output from previous layer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sig</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sig</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">single_layer_backward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dA_current</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">,</span> <span class="n">Z_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the output of a single layer of backward propagation.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            dA_current (ndarray): The output of the derivative of Sigmoid function from previous layer.</span>
+<span class="sd">            W_current (ndarray): The weights of current layer.</span>
+<span class="sd">            B_current (ndarray): The bias of current layer.</span>
+<span class="sd">            Z_current (ndarray): The multiplication of weights, bias and output from previous layer.</span>
+<span class="sd">            A_previous (ndarray): The Sigmoid output from previous layer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dZ_current</span> <span class="o">=</span> <span class="n">dA_current</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">derivative_sigmoid</span><span class="p">(</span><span class="n">Z_current</span><span class="p">)</span>
+        <span class="n">dW_current</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dZ_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+        <span class="n">dB_current</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ_current</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+        <span class="n">dA_previous</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W_current</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dZ_current</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dA_previous</span><span class="p">,</span> <span class="n">dW_current</span><span class="p">,</span> <span class="n">dB_current</span>
+    <span class="k">def</span> <span class="nf">backward_propagation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function performs a complete round of backward propagation to update weights and bias.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">forward_propagation</span><span class="p">()</span>
+        <span class="n">Y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A_current</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">Y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span>
+        <span class="n">dA_previous</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_hat</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y_train</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">Y_hat</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">dl</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
+            <span class="n">dA_current</span> <span class="o">=</span> <span class="n">dA_previous</span>
+            <span class="n">A_previous</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="s2">&quot;A</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="n">Z_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="s2">&quot;Z</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+            <span class="n">W_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;W</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+            <span class="n">B_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;B</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+            <span class="n">dA_previous</span><span class="p">,</span> <span class="n">dW_current</span><span class="p">,</span> <span class="n">dB_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_layer_backward_propagation</span><span class="p">(</span><span class="n">dA_current</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">,</span> <span class="n">Z_current</span><span class="p">,</span> <span class="n">A_previous</span><span class="p">)</span>
+            <span class="n">gradients</span><span class="p">[</span><span class="s2">&quot;dW</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">dW_current</span>
+            <span class="n">gradients</span><span class="p">[</span><span class="s2">&quot;dB</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">dB_current</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gradients</span> <span class="o">=</span> <span class="n">gradients</span>
+    <span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the cross entropy given weights and bias.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A_current</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Y_hat</span> <span class="o">=</span> <span class="n">Y_hat</span>
+        <span class="n">Y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span>
+        <span class="n">ce</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Y_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y_hat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ce</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">accuracy_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the accuracy score given weights and bias.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Y_hat</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">p_pred</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">y_true</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span>
+        <span class="n">accuracy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_true</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">return</span> <span class="n">accuracy</span>
+    <span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function performs vanilla gradient descent to update weights and bias.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;W</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_learning_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradients</span><span class="p">[</span><span class="s2">&quot;dW</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;B</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_learning_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradients</span><span class="p">[</span><span class="s2">&quot;dB</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function uses multiple rounds of forward propagations and backward propagations to optimize weights and bias.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_train (ndarray): 2d-array for feature matrix of training data.</span>
+<span class="sd">            y_train (ndarray): 1d-array for target vector of training data.</span>
+<span class="sd">            epochs (int): The number of iterations to update the model weights.</span>
+<span class="sd">            learning_rate (float): The learning rate of gradient descent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
+        <span class="n">loss_history</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">accuracy_history</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">n_prints</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">print_iter</span> <span class="o">=</span> <span class="n">epochs</span> <span class="o">//</span> <span class="n">n_prints</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">forward_propagation</span><span class="p">()</span>
+            <span class="n">ce</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">()</span>
+            <span class="n">accuracy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">()</span>
+            <span class="n">loss_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ce</span><span class="p">)</span>
+            <span class="n">accuracy_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">backward_propagation</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gradient_descent</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">print_iter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteration: </span><span class="si">{:6}</span><span class="s2"> - cost: </span><span class="si">{:.6f}</span><span class="s2"> - accuracy: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ce</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loss_history</span> <span class="o">=</span> <span class="n">loss_history</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_accuracy_history</span> <span class="o">=</span> <span class="n">accuracy_history</span>
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns predicted probability for class 1 with weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_test (ndarray): 2d-array for feature matrix of test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X_test_T</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">A_current</span> <span class="o">=</span> <span class="n">X_test_T</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">A_previous</span> <span class="o">=</span> <span class="n">A_current</span>
+            <span class="n">W_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;W</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+            <span class="n">B_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="p">[</span><span class="s2">&quot;B</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+            <span class="n">A_current</span><span class="p">,</span> <span class="n">Z_current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_layer_forward_propagation</span><span class="p">(</span><span class="n">A_previous</span><span class="p">,</span> <span class="n">W_current</span><span class="p">,</span> <span class="n">B_current</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="s2">&quot;A</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">A_previous</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="s2">&quot;Z</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Z_current</span>
+        <span class="n">p_hat_1</span> <span class="o">=</span> <span class="n">A_current</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">p_hat_1</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="n">p_hat_1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">p_hat_1</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dl</span> <span class="o">=</span> <span class="n">DeepLearning</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">dl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration:      0 - cost: 1.187214 - accuracy: 51.34%
+Iteration:  10000 - cost: 0.663117 - accuracy: 64.09%
+Iteration:  20000 - cost: 0.592690 - accuracy: 75.96%
+Iteration:  30000 - cost: 0.508603 - accuracy: 81.01%
+Iteration:  40000 - cost: 0.437602 - accuracy: 85.16%
+Iteration:  50000 - cost: 0.385372 - accuracy: 86.35%
+Iteration:  60000 - cost: 0.348573 - accuracy: 86.65%
+Iteration:  70000 - cost: 0.323039 - accuracy: 88.43%
+Iteration:  80000 - cost: 0.305436 - accuracy: 89.02%
+Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">resolution</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">apg</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;apg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rpg</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;rpg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">apg</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">apg</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rpg</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">rpg</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">APG</span><span class="p">,</span> <span class="n">RPG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span>
+<span class="n">Y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">resolution</span><span class="p">,</span> <span class="n">resolution</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+        <span class="n">xx_ij</span> <span class="o">=</span> <span class="n">APG</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="n">yy_ij</span> <span class="o">=</span> <span class="n">RPG</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xx_ij</span><span class="p">,</span> <span class="n">yy_ij</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">dl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Y_hat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">APG</span><span class="p">,</span> <span class="n">RPG</span><span class="p">,</span> <span class="n">Y_hat</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">unique_categories</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">unique_categories</span><span class="p">):</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">apg</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+    <span class="n">yi</span> <span class="o">=</span> <span class="n">rpg</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Decision boundary of Forwards vs. Guards&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Assists per game&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rebounds per game&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/08-deep-learning_39_0.png" src="_images/08-deep-learning_39_0.png" />
+</div>
+</div>
+<p>此刻我們已經知道深度學習模型如何最適化 <span class="math notranslate nohighlight">\(W^{(i)}\)</span> 與 <span class="math notranslate nohighlight">\(B^{(i)}\)</span> 的核心技巧反向傳播與前向傳播是如何運作，接著可以開始嘗試使用 Keras 搭建不同層數、單位數、啟動函式與最適化演算方法（Optimizer）的深度學習模型，將其運用在 Keras 內建的 <a class="reference external" href="https://keras.io/api/datasets/mnist/">MNIST 資料</a> 、<a class="reference external" href="https://keras.io/api/datasets/fashion_mnist/">時裝 MNIST 資料</a> 上，開啟深度學習的旅程。</p>
+</div>
+<div class="section" id="MNIST-資料與時裝-MNIST-資料">
+<h2>MNIST 資料與時裝 MNIST 資料<a class="headerlink" href="#MNIST-資料與時裝-MNIST-資料" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://yann.lecun.com/exdb/mnist/">MNIST</a> 是電腦視覺（Computer vision）的「哈囉世界」（“Hello world”）資料。自從 1999 年釋出以來，手寫數字圖片資料集成為區隔類別預測任務的基準，儘管隨著機器學習、深度學習技術的推陳出新，手寫數字圖片依然是研究人員和學生用來測試模型基準的首選，可以透過 <code class="docutils literal notranslate"><span class="pre">tensorflow.keras.datasets.mnist</span></code> 的 <code class="docutils literal notranslate"><span class="pre">load_data()</span></code> 方法載入。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+<span class="n">iss</span> <span class="o">=</span> <span class="n">ImshowSubplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">iss</span><span class="o">.</span><span class="n">im_show</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/08-deep-learning_42_0.png" src="_images/08-deep-learning_42_0.png" />
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/zalandoresearch/fashion-mnist">時裝 MNIST</a> 是由 <a class="reference external" href="https://zalando.com/">Zalando</a> 釋出的時裝灰階圖片資料集，讀者可以將它當作電腦視覺與深度學習的第二個「哈囉世界」，透過 <code class="docutils literal notranslate"><span class="pre">tensorflow.keras.datasets.fashion_mnist</span></code> 的 <code class="docutils literal notranslate"><span class="pre">load_data()</span></code> 方法載入。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+<span class="n">fashion_mnist_labels</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;T-shirt/top&quot;</span><span class="p">,</span>  <span class="c1"># index 0</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Trouser&quot;</span><span class="p">,</span>      <span class="c1"># index 1</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Pullover&quot;</span><span class="p">,</span>     <span class="c1"># index 2</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Dress&quot;</span><span class="p">,</span>        <span class="c1"># index 3</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Coat&quot;</span><span class="p">,</span>         <span class="c1"># index 4</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Sandal&quot;</span><span class="p">,</span>       <span class="c1"># index 5</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Shirt&quot;</span><span class="p">,</span>        <span class="c1"># index 6</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;Sneaker&quot;</span><span class="p">,</span>      <span class="c1"># index 7</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;Bag&quot;</span><span class="p">,</span>          <span class="c1"># index 8</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;Ankle boot&quot;</span>    <span class="c1"># index 9</span>
+<span class="p">}</span>
+<span class="n">iss</span> <span class="o">=</span> <span class="n">ImshowSubplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">iss</span><span class="o">.</span><span class="n">im_show</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">label_dict</span><span class="o">=</span><span class="n">fashion_mnist_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/08-deep-learning_44_0.png" src="_images/08-deep-learning_44_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">5000</span><span class="p">:],</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">5000</span><span class="p">]</span>
+<span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">5000</span><span class="p">:],</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">5000</span><span class="p">]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+<span class="n">X_valid</span> <span class="o">=</span> <span class="n">X_valid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y_valid</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>任意搭建一個不同層數、單位數、啟動函式與最適化演算方法（Optimizer）的深度學習模型。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Input</span><span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Model: &#34;sequential_1&#34;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense_2 (Dense)              (None, 256)               200960
+_________________________________________________________________
+dense_3 (Dense)              (None, 256)               65792
+_________________________________________________________________
+dense_4 (Dense)              (None, 256)               65792
+_________________________________________________________________
+dense_5 (Dense)              (None, 10)                2570
+=================================================================
+Total params: 335,114
+Trainable params: 335,114
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">n_iters</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+          <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span>
+          <span class="n">epochs</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/5
+1719/1719 [==============================] - 6s 3ms/step - loss: 0.8914 - accuracy: 0.6605 - val_loss: 0.8379 - val_accuracy: 0.6696
+Epoch 2/5
+1719/1719 [==============================] - 6s 3ms/step - loss: 0.7589 - accuracy: 0.7004 - val_loss: 0.8030 - val_accuracy: 0.6686
+Epoch 3/5
+1719/1719 [==============================] - 6s 3ms/step - loss: 0.7418 - accuracy: 0.7048 - val_loss: 0.7010 - val_accuracy: 0.7236
+Epoch 4/5
+1719/1719 [==============================] - 6s 4ms/step - loss: 0.7399 - accuracy: 0.7080 - val_loss: 0.6857 - val_accuracy: 0.7296
+Epoch 5/5
+1719/1719 [==============================] - 6s 3ms/step - loss: 0.6985 - accuracy: 0.7251 - val_loss: 0.6714 - val_accuracy: 0.7468
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tensorflow.python.keras.callbacks.History at 0x7fd6fd0c4a58&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_hat</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)):</span>
+    <span class="n">row_idx</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span>
+    <span class="n">col_idx</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">3</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">col_idx</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greys&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">col_idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">col_idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+    <span class="n">predict_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_hat</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="n">true_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">col_idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fashion_mnist_labels</span><span class="p">[</span><span class="n">predict_index</span><span class="p">],</span> <span class="n">fashion_mnist_labels</span><span class="p">[</span><span class="n">true_index</span><span class="p">]),</span>
+        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;green&quot;</span> <span class="k">if</span> <span class="n">predict_index</span> <span class="o">==</span> <span class="n">true_index</span> <span class="k">else</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/08-deep-learning_51_0.png" src="_images/08-deep-learning_51_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">=</span> <span class="n">score</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+157/157 [==============================] - 0s 2ms/step - loss: 0.6714 - accuracy: 0.7468: 0s - loss: 0.6882 - accuracy: 0.
+Accuracy: 74.68%
+</pre></div></div>
+</div>
+<p>任意搭建的深度學習模型辨識時裝 MNIST 圖片的表現顯然不是很好，假如讀者對於電腦視覺領域有興趣，可以自行試著利用 Keras 搭建卷積神經網路（Convolutional Neural Network, CNN）來提升準確率，為往後深入認識更多專門作影像辨識的深度學習模型踏出第一步。</p>
+</div>
+<div class="section" id="延伸閱讀">
+<h2>延伸閱讀<a class="headerlink" href="#延伸閱讀" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Ian Goodfellow ,Yoshua Bengio, and Aaron Courville: Deep Learning (<a class="reference external" href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/">https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/</a>)</p></li>
+<li><p>Francois Chollet: Deep Learning with Python (<a class="reference external" href="https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438">https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438</a>)</p></li>
+<li><p>Keras - Getting started (<a class="reference external" href="https://keras.io/getting_started/">https://keras.io/getting_started/</a>)</p></li>
+<li><p>Deep playground (<a class="reference external" href="https://playground.tensorflow.org/">https://playground.tensorflow.org/</a>)</p></li>
+<li><p>Fashion-MNIST (<a class="reference external" href="https://github.com/zalandoresearch/fashion-mnist">https://github.com/zalandoresearch/fashion-mnist</a>)</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="07-performance.html" title="previous page">表現的評估</a>
+    <a class='right-next' id="next-link" href="09-appendix-a.html" title="next page">附錄 A</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By 郭耀仁<br/>
+        
+            &copy; Copyright 2020, 郭耀仁.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

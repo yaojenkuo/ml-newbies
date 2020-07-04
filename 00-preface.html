@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>關於本書 &#8212; 新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="關於視覺化與機器學習" href="01-introduction.html" />
+    <link rel="prev" title="新手村逃脫！初心者的 Python 機器學習攻略" href="index.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="active">
+    <a href="">關於本書</a>
+  </li>
+  <li class="">
+    <a href="01-introduction.html">關於視覺化與機器學習</a>
+  </li>
+  <li class="">
+    <a href="02-numpy.html">數列運算</a>
+  </li>
+  <li class="">
+    <a href="03-matplotlib.html">資料探索</a>
+  </li>
+  <li class="">
+    <a href="04-sklearn.html">機器學習入門</a>
+  </li>
+  <li class="">
+    <a href="05-regression.html">數值預測的任務</a>
+  </li>
+  <li class="">
+    <a href="06-classification.html">類別預測的任務</a>
+  </li>
+  <li class="">
+    <a href="07-performance.html">表現的評估</a>
+  </li>
+  <li class="">
+    <a href="08-deep-learning.html">深度學習入門</a>
+  </li>
+  <li class="">
+    <a href="09-appendix-a.html">附錄 A</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/00-preface.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/spatialaudio/nbsphinx"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/spatialaudio/nbsphinx/issues/new?title=Issue%20on%20page%20%2F00-preface.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/00-preface.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#本書內容" class="nav-link">本書內容</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#本書的目標讀者" class="nav-link">本書的目標讀者</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#本書所使用的-Python-版本" class="nav-link">本書所使用的 Python 版本</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#本書所使用的第三方套件模組版本" class="nav-link">本書所使用的第三方套件模組版本</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#本書的筆記本" class="nav-link">本書的筆記本</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#延伸閱讀" class="nav-link">延伸閱讀</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/00-preface.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="關於本書">
+<h1>關於本書<a class="headerlink" href="#關於本書" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="本書內容">
+<h2>本書內容<a class="headerlink" href="#本書內容" title="Permalink to this headline">¶</a></h2>
+<p>本書內容主要改寫自我在 2017 年 iT 邦幫忙鐵人賽「<a class="reference external" href="http://ithelp.ithome.com.tw/users/20103511/ironman/1077">R 語言使用者的 Python 學習筆記</a>」系列文章，感謝 <a class="reference external" href="http://ithelp.ithome.com.tw">iT 邦幫忙</a>舉辦這樣意義非凡的技術文章比賽，第一次參賽就獲得大數據組冠軍的肯定，啟蒙自己對撰寫教學文章的興趣，直至今日；感謝<a class="reference external" href="http://www.drmaster.com.tw/">博碩文化</a>的邀稿，讓我有機會能夠重整當年的思緒脈絡。</p>
+<p>雖然邀稿緣起於 iT 邦幫忙鐵人賽系列文章，但隨著近年資料科學、機器學習、深度學習與人工智慧的蓬勃發展，時至今日回首文章內容，已顯得左支右絀、難以搬上檯面，老實講，改寫幅度巨大到像是截然不同的一本著作。另外有趣的一點，當年（2017）還是 Python 與 R 雙雄鼎立的年代，也正因為在社群、討論區有太多的文章發問「 Python 或 R？」，才會起心動念以「R 語言使用者的 Python 學習筆記」為題參賽，提出 “Why not both?” 的論點。然而以撰寫本書的 2020 年這個時間點來說，除非專精資料處理、統計分析的使用者才有理由首選 R，Python
+基本上在機器學習、深度學習與人工智慧領域處於一方獨尊的態勢。</p>
+<p>這本書從「R 語言使用者的 Python 學習筆記」後段開始改寫，省略了原本 Python 基礎語法、網頁資料擷取（俗稱爬蟲）與 Pandas 的部分，著重在機器學習的章節，並與我在台大資訊系統訓練班的教材整合編修。</p>
+<p>我很喜歡的資料科學家 <a class="reference external" href="https://www.fast.ai/about/#jeremy">Jeremy Howard</a> 曾經說過，機器學習不好教、不好學的原因在於需要取捨天秤兩端的平衡：程式套件與理論，教學如果偏重其中一方就容易產生學習效果不佳的疑慮。從我個人的觀點來看，像是 <a class="reference external" href="https://www.udacity.com/">Udacity</a> 、<a class="reference external" href="https://www.kaggle.com/learn">Kaggle Learn</a> 就是屬於偏重程式套件的例子；而經典的機器學習教科書如 <a class="reference external" href="https://www.amazon.com/Pattern-Recognition-Learning-Information-Statistics/dp/0387310738">Christopher M. Bishop: Pattern Recognition and Machine
+Learning</a>、<a class="reference external" href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/">Ian Goodfellow ,Yoshua Bengio, and Aaron Courville: Deep Learning</a> 就是屬於偏向理論的例子。機器學習其中一個哲學稱為「配適」（Fitting），能在程式套件與理論中抓出一個巧妙的平衡，就容易產生較佳的學習效果，而這也是他之所以創辦 <a class="reference external" href="https://www.fast.ai/">fast.ai</a> 的原因之一。</p>
+<p>撰寫本書時抱持以平衡配適作為目標，內容兼顧程式套件與理論，希望讓讀者除了懂得使用套件現成的類別與函式，也能捲起袖子，將機器學習的理論與技法透過 NumPy 以及 Python 程式設計自行定義實作正規方程、梯度遞減、羅吉斯回歸與深度學習的演算方法類別。</p>
+<blockquote>
+<div><p>If you can code it, you certainly understand it.</p>
+</div></blockquote>
+<p>本書包含下列幾個章節：</p>
+<ul class="simple">
+<li><p>關於視覺化與機器學習：淺談機器學習與視覺化</p></li>
+<li><p>數列運算：認識 NumPy</p></li>
+<li><p>資料探索：認識 Matplotlib</p></li>
+<li><p>機器學習入門：認識 Scikit-Learn</p></li>
+<li><p>預測數值的任務：希望讀者除了能夠呼叫 Scikit-Learn 中已經寫好的數值預測器，也能自行定義正規方程與梯度遞減的類別</p></li>
+<li><p>預測類別的任務：希望讀者除了能夠呼叫 Scikit-Learn 中已經寫好的類別預測器，也能自行定義正規羅吉斯迴歸的類別</p></li>
+<li><p>表現的評估：認識評估任務表現的指標</p></li>
+<li><p>深度學習入門：認識深度學習與 Keras，希望讀者除了能夠以 Keras 搭建基礎的深度學習模型，也能自行定義出具備前向傳播與反向傳播演算方法的類別</p></li>
+</ul>
+<p>如果讀者對於這本書有任何問題，請寫信與我聯絡：<a class="reference external" href="mailto:tonykuoyj&#37;&#52;&#48;gmail&#46;com">tonykuoyj<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+</div>
+<div class="section" id="本書的目標讀者">
+<h2>本書的目標讀者<a class="headerlink" href="#本書的目標讀者" title="Permalink to this headline">¶</a></h2>
+<p>這本書從數列運算起始到深度學習入門結尾，目標是希望走一條簡單快捷的小徑，能夠讓對機器學習完全陌生、零基礎的讀者暸解其入門理論並具備使用高階套件和自訂類別的實作能力。</p>
+<ul class="simple">
+<li><p>具備 Python 程式設計基礎，懂得如何定義函式（Functions）與類別（Classes）</p></li>
+<li><p>對於 Python 機器學習套件有興趣</p></li>
+<li><p>對於機器學習入門理論有興趣</p></li>
+<li><p>對於數學式不會感到厭惡</p></li>
+</ul>
+</div>
+<div class="section" id="本書所使用的-Python-版本">
+<h2>本書所使用的 Python 版本<a class="headerlink" href="#本書所使用的-Python-版本" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;本書所使用的 Python 版本為：&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+本書所使用的 Python 版本為：
+3.6.8 (v3.6.8:3c6b436a57, Dec 24 2018, 02:04:31)
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="本書所使用的第三方套件模組版本">
+<h2>本書所使用的第三方套件模組版本<a class="headerlink" href="#本書所使用的第三方套件模組版本" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="n">library_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;requests&#39;</span><span class="p">,</span> <span class="s1">&#39;NumPy&#39;</span><span class="p">,</span> <span class="s1">&#39;Pandas&#39;</span><span class="p">,</span> <span class="s1">&#39;Matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;Scikit-Learn&#39;</span><span class="p">,</span> <span class="s1">&#39;TensorFlow&#39;</span><span class="p">]</span>
+<span class="n">library_versions</span> <span class="o">=</span> <span class="p">[</span><span class="n">requests</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">mpl</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">lib_n</span><span class="p">,</span> <span class="n">lib_v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">library_names</span><span class="p">,</span> <span class="n">library_versions</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;本書所使用的 </span><span class="si">{}</span><span class="s2"> 版本為 </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lib_n</span><span class="p">,</span> <span class="n">lib_v</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+本書所使用的 requests 版本為 2.23.0
+本書所使用的 NumPy 版本為 1.18.0
+本書所使用的 Pandas 版本為 1.0.0
+本書所使用的 Matplotlib 版本為 3.2.0
+本書所使用的 Scikit-Learn 版本為 0.22
+本書所使用的 TensorFlow 版本為 2.2.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="本書的筆記本">
+<h2>本書的筆記本<a class="headerlink" href="#本書的筆記本" title="Permalink to this headline">¶</a></h2>
+<p>本書使用 Jupyter Notebook 編寫而成，所有的筆記本 <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> 與相關檔案都置放於一個可以獨立運行的雲端 <a class="reference external" href="https://mybinder.org/v2/gh/yaojenkuo/ml-with-python-book/master">Binder</a> 之中。</p>
+</div>
+<div class="section" id="延伸閱讀">
+<h2>延伸閱讀<a class="headerlink" href="#延伸閱讀" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>郭耀仁：R 語言使用者的 Python 學習筆記（<a class="reference external" href="http://ithelp.ithome.com.tw/users/20103511/ironman/1077">http://ithelp.ithome.com.tw/users/20103511/ironman/1077</a>）</p></li>
+<li><p>Jeremy Howard (<a class="reference external" href="https://www.fast.ai/about/#jeremy">https://www.fast.ai/about/#jeremy</a>)</p></li>
+<li><p>fast.ai (<a class="reference external" href="https://www.fast.ai/">https://www.fast.ai/</a>)</p></li>
+<li><p>Udacity (<a class="reference external" href="https://www.udacity.com/">https://www.udacity.com/</a>)</p></li>
+<li><p>Coursera (<a class="reference external" href="https://www.coursera.org/">https://www.coursera.org/</a>)</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">新手村逃脫！初心者的 Python 機器學習攻略</a>
+    <a class='right-next' id="next-link" href="01-introduction.html" title="next page">關於視覺化與機器學習</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By 郭耀仁<br/>
+        
+            &copy; Copyright 2020, 郭耀仁.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
