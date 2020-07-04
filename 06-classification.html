@@ -1,0 +1,1495 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>類別預測的任務 &#8212; 新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="表現的評估" href="07-performance.html" />
+    <link rel="prev" title="數值預測的任務" href="05-regression.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="00-preface.html">關於本書</a>
+  </li>
+  <li class="">
+    <a href="01-introduction.html">關於視覺化與機器學習</a>
+  </li>
+  <li class="">
+    <a href="02-numpy.html">數列運算</a>
+  </li>
+  <li class="">
+    <a href="03-matplotlib.html">資料探索</a>
+  </li>
+  <li class="">
+    <a href="04-sklearn.html">機器學習入門</a>
+  </li>
+  <li class="">
+    <a href="05-regression.html">數值預測的任務</a>
+  </li>
+  <li class="active">
+    <a href="">類別預測的任務</a>
+  </li>
+  <li class="">
+    <a href="07-performance.html">表現的評估</a>
+  </li>
+  <li class="">
+    <a href="08-deep-learning.html">深度學習入門</a>
+  </li>
+  <li class="">
+    <a href="09-appendix-a.html">附錄 A</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/06-classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/spatialaudio/nbsphinx"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/spatialaudio/nbsphinx/issues/new?title=Issue%20on%20page%20%2F06-classification.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/06-classification.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#關於類別預測的任務" class="nav-link">關於類別預測的任務</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#以-Scikit-Learn-預測器完成類別預測任務" class="nav-link">以 Scikit-Learn 預測器完成類別預測任務</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#羅吉斯迴歸" class="nav-link">羅吉斯迴歸</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#自訂羅吉斯迴歸類別-LogitReg" class="nav-link">自訂羅吉斯迴歸類別 LogitReg</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#二元分類延伸至多元分類：One-versus-rest" class="nav-link">二元分類延伸至多元分類：One versus rest</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#二元分類延伸至多元分類：Softmax-函式" class="nav-link">二元分類延伸至多元分類：Softmax 函式</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#兩種表示類別向量的形式" class="nav-link">兩種表示類別向量的形式</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#延伸閱讀" class="nav-link">延伸閱讀</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/06-classification.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="類別預測的任務">
+<h1>類別預測的任務<a class="headerlink" href="#類別預測的任務" title="Permalink to this headline">¶</a></h1>
+<p>我們先載入這個章節範例程式碼中會使用到的第三方套件模組或者其中的部分函式、功能。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pyvizml</span> <span class="kn">import</span> <span class="n">CreateNBAData</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="關於類別預測的任務">
+<h2>關於類別預測的任務<a class="headerlink" href="#關於類別預測的任務" title="Permalink to this headline">¶</a></h2>
+<p>「類別預測」是「監督式學習」的其中一種應用類型，當預測的目標向量 <span class="math notranslate nohighlight">\(y\)</span> 屬於離散型的類別變數，那我們就能預期正在面對類別預測的任務，它更廣泛被眾人知悉的名稱為「分類器」。例如預測的目標向量 <span class="math notranslate nohighlight">\(y\)</span> 是 <code class="docutils literal notranslate"><span class="pre">player_stats</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">pos</span></code>，在資料類別中屬於離散型的類別 <code class="docutils literal notranslate"><span class="pre">object</span></code>；具體來說，分類器想方設法地以一組係數向量 <span class="math notranslate nohighlight">\(w\)</span> 計算特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 對應目標向量中每個類別的機率，再從中挑選出最高的機率來預測類別，與迴歸模型相同的是利用係數向量建構出用來逼近 <span class="math notranslate nohighlight">\(f\)</span> 的
+<span class="math notranslate nohighlight">\(h\)</span>，不同的是迴歸模型輸出的 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 就是預測值，而分類器所輸出的 <span class="math notranslate nohighlight">\(\hat{p}\)</span> 僅是類別的預測機率，需要經過一個 <span class="math notranslate nohighlight">\(argmax\)</span> 函式轉換為 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
+<p>我們也可依 <a class="reference external" href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">Tom Mitchel</a> 對機器學習電腦程式的定義寫下分類預測的資料、任務、評估與但書，以預測 <code class="docutils literal notranslate"><span class="pre">player_stats</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">pos</span></code> 為例：</p>
+<ul class="simple">
+<li><p>資料（Experience）：一定數量的球員資料</p></li>
+<li><p>任務（Task）：利用模型預測球員的是前鋒或後衛</p></li>
+<li><p>評估（Performance）：模型預測的鋒衛位置與球員實際鋒衛位置的誤分類數</p></li>
+<li><p>但書（Condition）：隨著資料觀測值筆數增加，預測誤分類數應該要減少</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># create_player_stats_df() 方法要對 data.nba.net 發出數百次的 HTTP 請求，等待時間會較長，要請讀者耐心等候</span>
+<span class="n">cnd</span> <span class="o">=</span> <span class="n">CreateNBAData</span><span class="p">(</span><span class="n">season_year</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>
+<span class="n">player_stats</span> <span class="o">=</span> <span class="n">cnd</span><span class="o">.</span><span class="n">create_player_stats_df</span><span class="p">()</span>
+<span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Creating players df...
+Creating players df...
+Creating player stats df...
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dtype(&#39;O&#39;)
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">player_stats</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">pos</span></code> 有 7 個不同的類別：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;G&#39; &#39;C&#39; &#39;C-F&#39; &#39;F-C&#39; &#39;F&#39; &#39;F-G&#39; &#39;G-F&#39;]
+7
+</pre></div></div>
+</div>
+<p>我們先將多元分類問題簡化為二元分類問題，鋒衛位置分作前鋒（F）與後衛（G），分別對應整數 1 與整數 0。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pos_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;F&#39;</span>
+<span class="p">}</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">pos_binary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;G&#39;</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pos</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pos_binary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0, 1])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="以-Scikit-Learn-預測器完成類別預測任務">
+<h2>以 Scikit-Learn 預測器完成類別預測任務<a class="headerlink" href="#以-Scikit-Learn-預測器完成類別預測任務" title="Permalink to this headline">¶</a></h2>
+<p>將 <code class="docutils literal notranslate"><span class="pre">apg</span></code> 與 <code class="docutils literal notranslate"><span class="pre">rpg</span></code> 當作特徵矩陣為例，特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 與目標向量 <span class="math notranslate nohighlight">\(y\)</span> 之間的關聯可以這樣描述：</p>
+<p><span class="math">\begin{equation}
+\hat{y} = 1, \quad if \: \hat{p}(y=1|X; w) \geq \hat{p}(y=0|X; w)
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\hat{y} = 0, \quad if \: \hat{p}(y=1|X; w) < \hat{p}(y=0|X; w)
+\end{equation}</span></p>
+<p>以 Scikit-Learn 定義好的預測器類別 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 可以計算特徵矩陣對應類別的預測機率。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[[</span><span class="s1">&#39;apg&#39;</span><span class="p">,</span> <span class="s1">&#39;rpg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pos_binary</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1e06</span><span class="p">)</span> <span class="c1"># 預測器的正規化程度</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[-1.71621286]
+[[-2.75507401  1.96609808]]
+</pre></div></div>
+</div>
+<p>這裡需要說明初始化 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別指定參數 <code class="docutils literal notranslate"><span class="pre">C=1e5</span></code> 的用意。參數 <code class="docutils literal notranslate"><span class="pre">C</span></code> 用來描述預測器的正規化（Regularization）程度，當 <code class="docutils literal notranslate"><span class="pre">C</span></code> 愈大表示正規化效果愈低，反之 <code class="docutils literal notranslate"><span class="pre">C</span></code> 愈小表示正規化效果愈高，<code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別預設 <code class="docutils literal notranslate"><span class="pre">C=1</span></code> 這是具有正規化效果的參數設定，由於在本章節後段我們會自訂不具備正規化效果的 <code class="docutils literal notranslate"><span class="pre">LogitReg</span></code> 類別驗證我們對演算方法的理解，為了比較最適化的 <span class="math notranslate nohighlight">\(w\)</span> 得先將 Scikit-Learn
+模型的正規化效果降到很低。有關於「正規化」的技法，將在「表現的評估」章節中介紹給讀者認識，假如讀者目前感到困惑，可待讀過表現的評估等本書後面的章節，再回來複習。</p>
+<p><code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別的 <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> 方法輸出的數值陣列外觀為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">m</span></code> 是特徵矩陣的觀測值個數，<code class="docutils literal notranslate"><span class="pre">n</span></code> 則是目標向量的獨一值，也就是類別的個數，以目前的二元分類（後衛 vs. 前鋒）問題來說，<code class="docutils literal notranslate"><span class="pre">n</span></code> 等於 2，第 0 欄是預測為類別 0 的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=0|X; w)\)</span>、第 1 欄是預測為類別 1 的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">p_hat</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">p_hat</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1.24174853e-02, 9.87582515e-01],
+       [9.99405251e-01, 5.94749246e-04],
+       [6.13059991e-01, 3.86940009e-01],
+       [3.53652646e-01, 6.46347354e-01],
+       [3.81597551e-01, 6.18402449e-01],
+       [3.01194136e-02, 9.69880586e-01],
+       [8.47640386e-01, 1.52359614e-01],
+       [2.47843181e-01, 7.52156819e-01],
+       [8.14691640e-01, 1.85308360e-01],
+       [4.77310176e-01, 5.22689824e-01]])
+</pre></div></div>
+</div>
+<p>應用 <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> 函式回傳最大的欄位數，就能夠得到 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">p_hat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
+</pre></div></div>
+</div>
+<p>最後使用 <code class="docutils literal notranslate"><span class="pre">pos_dict</span></code> 將整數對應回鋒衛位置的文字外觀。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_pred_label</span> <span class="o">=</span> <span class="p">[</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">]</span>
+<span class="n">y_pred_label</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;F&#39;, &#39;G&#39;, &#39;G&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;]
+</pre></div></div>
+</div>
+<p>若是將 <span class="math notranslate nohighlight">\(h\)</span> 的機率輸出在一個區間之內，例如在所有球員的場均助攻 <code class="docutils literal notranslate"><span class="pre">apg</span></code> 與場均籃板 <code class="docutils literal notranslate"><span class="pre">rpg</span></code> 均勻切割 50 個資料點，在平面上就可以對應出 2,500 個場均助攻和場均籃板的組合，每個組合都輸入 <span class="math notranslate nohighlight">\(h\)</span> 得到一組機率組合 <span class="math notranslate nohighlight">\(\hat{p}(y=0|X; w)\)</span> 與 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span>；假設將全部 2,500 個資料點的 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span> 視作海拔高度、場均助攻視作經度、場均籃板視作緯度，我們可以描繪出一個填滿等高線圖（Contour-filled plot）。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">resolution</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">apg</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;apg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rpg</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;rpg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">apg</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">apg</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rpg</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">rpg</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">APG</span><span class="p">,</span> <span class="n">RPG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">plot_contour_filled</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">PROBA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">resolution</span><span class="p">,</span> <span class="n">resolution</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+            <span class="n">xx_ij</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">yy_ij</span> <span class="o">=</span> <span class="n">YY</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xx_ij</span><span class="p">,</span> <span class="n">yy_ij</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">PROBA</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">CS</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">PROBA</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Probability of being predicted as a forward&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Assists per game&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rebounds per game&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_contour_filled</span><span class="p">(</span><span class="n">APG</span><span class="p">,</span> <span class="n">RPG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/06-classification_19_0.png" src="_images/06-classification_19_0.png" />
+</div>
+</div>
+<p>從填滿等高線圖中我們可以看出場均籃板與被 <span class="math notranslate nohighlight">\(h\)</span> 預測為前鋒的機率有正向的相關性、場均助攻與被 <span class="math notranslate nohighlight">\(h\)</span> 預測為前鋒的機率有反向的相關性，這一點與場上籃球員的分工相符，擔任中鋒與大前鋒的球員比較擅長爭搶籃板球、擔任後衛的球員比較擅長傳球助攻；而圖中左下到右上有一段帶狀區間，被稱作「決策邊界」（Decision boundary），決策邊界能夠隨著門檻（Threshold）設定往左上角或右下角移動，預設的門檻多半設定在 50%，亦即由 <span class="math notranslate nohighlight">\(h\)</span> 預測出的 <span class="math notranslate nohighlight">\(\hat{p}\)</span> 如果大於 50%，就輸出 <span class="math notranslate nohighlight">\(\hat{y} = 1\)</span>，否則輸出
+<span class="math notranslate nohighlight">\(\hat{y} = 0\)</span>。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">plot_decision_boundary</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">target_vector</span><span class="p">,</span> <span class="n">pos_dict</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">Y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">resolution</span><span class="p">,</span> <span class="n">resolution</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+            <span class="n">xx_ij</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">yy_ij</span> <span class="o">=</span> <span class="n">YY</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xx_ij</span><span class="p">,</span> <span class="n">yy_ij</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+            <span class="n">Y_hat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">CS</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">Y_hat</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+    <span class="n">unique_categories</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target_vector</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">unique_categories</span><span class="p">):</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">target_vector</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+        <span class="n">yi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">target_vector</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Decision boundary of Forwards vs. Guards&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Assists per game&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rebounds per game&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">APG</span><span class="p">,</span> <span class="n">RPG</span><span class="p">,</span> <span class="n">apg</span><span class="p">,</span> <span class="n">rpg</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pos_dict</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/06-classification_22_0.png" src="_images/06-classification_22_0.png" />
+</div>
+</div>
+<p>再將特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 描繪在依據 <span class="math notranslate nohighlight">\(h\)</span> 所得的決策邊界，就可以觀察到誤分類觀測值：藍色的資料點落在紅色的決策邊界（真實位置為前鋒、預測位置為後衛）、紅色的資料點落在藍色的決策邊界（真實位置為後衛、預測位置為前鋒）。 以 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別找出 <span class="math notranslate nohighlight">\(h\)</span> 的最關鍵方法，與迴歸模型相同是呼叫 <code class="docutils literal notranslate"><span class="pre">fit()</span></code> 方法，究竟它是如何決定 <code class="docutils literal notranslate"><span class="pre">X_train</span></code> 與 <code class="docutils literal notranslate"><span class="pre">y_train</span></code> 之間的關聯？接下來我們試圖理解它。</p>
+</div>
+<div class="section" id="羅吉斯迴歸">
+<h2>羅吉斯迴歸<a class="headerlink" href="#羅吉斯迴歸" title="Permalink to this headline">¶</a></h2>
+<p>羅吉斯迴歸（Logistic Regression）分類器在機器學習領域中扮演著承先啟後的橋樑，能夠協助我們由數值預測過渡至類別預測的任務、再過渡至自動尋找特徵的深度學習。從前述例子中得知，欲得到對於特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 的類別預測 <span class="math notranslate nohighlight">\(\hat{y}\)</span>，必須先得到類別預測機率 <span class="math notranslate nohighlight">\(\hat{p}\)</span>，羅吉斯迴歸分類器透過 Sigmoid 函式（亦稱 S 函式、Logistic 函式），這裡使用 <span class="math notranslate nohighlight">\(\sigma\)</span> 表示。</p>
+<p><span class="math">\begin{equation}
+\hat{p} = \sigma(Xw) = \frac{1}{1 + e^{-Xw}}
+\end{equation}</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">plot_sigmoid</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sigmoid function&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_sigmoid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/06-classification_27_0.png" src="_images/06-classification_27_0.png" />
+</div>
+</div>
+<p>Sigmoid 函式將迴歸模型的輸出 <span class="math notranslate nohighlight">\(Xw\)</span> 映射至 <span class="math notranslate nohighlight">\([0, 1]\)</span> 之間後我們就能獲得 <span class="math notranslate nohighlight">\(\hat{p}\)</span>，並依據門檻值獲得 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
+<p><span class="math">\begin{equation}
+\hat{y} = 1, \quad if \: \hat{p} \geq 0.5
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\hat{y} = 0, \quad if \: \hat{p} < 0.5
+\end{equation}</span></p>
+<p>截至於此，資料（Experiment）與任務（Task）已經被定義妥善，特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>、目標向量 <span class="math notranslate nohighlight">\(y\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(m,)</span></code>、係數向量 <span class="math notranslate nohighlight">\(w\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(n,)</span></code>，通過將 <span class="math notranslate nohighlight">\(X\)</span> 輸入 <span class="math notranslate nohighlight">\(h\)</span> 來預測 <span class="math notranslate nohighlight">\(\hat{y}\)</span>，<span class="math notranslate nohighlight">\(h\)</span> 的組成則可以拆解成 Sigmoid 函式 <span class="math notranslate nohighlight">\(\sigma\)</span> 以及門檻值比較兩道程序，為了方便，我們將門檻值比較表示為階躍函式（Step function） <span class="math notranslate nohighlight">\(\chi\)</span>。</p>
+<p><span class="math">\begin{align}
+\hat{y} &= h(X; w) \\
+&= \chi(\sigma(Xw))
+\end{align}</span></p>
+<p>其中，</p>
+<p><span class="math">\begin{equation}
+\sigma(x) = \frac{1}{1 + exp(-x)}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\chi(z) = 1, \quad if \: z \geq 0.5
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\chi(z) = 0, \quad if \: z < 0.5
+\end{equation}</span></p>
+<p>接下來還需要定義評估（Performance），在數值預測任務中評估 <span class="math notranslate nohighlight">\(h\)</span> 性能的方法是計算 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 與 <span class="math notranslate nohighlight">\(y\)</span> 之間的均方誤差（Mean squared error），但是在類別預測任務中則是計算 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 與 <span class="math notranslate nohighlight">\(y\)</span> 之間的誤分類觀測值個數，當誤分類數愈低，分類器的表現愈好。</p>
+<p><span class="math">\begin{equation}
+Min. \sum_i \mid \hat{y}_i^{(train)} \neq y_i^{(train)} \mid
+\end{equation}</span></p>
+<p>羅吉斯迴歸使用交叉熵（Cross-entropy）函式作為量測 <span class="math notranslate nohighlight">\(J(w)\)</span>，這個函式的組成有兩個部分。</p>
+<p><span class="math">\begin{equation}
+J(w) = -\frac{1}{m}log(\sigma(Xw)), \quad if \: y = 1
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+J(w) = -\frac{1}{m}log(1-\sigma(Xw)), \quad if \: y = 0
+\end{equation}</span></p>
+<p>設計以交叉熵函式的巧妙之處在於讓誤分類的成本趨近無限大，亦即當真實的類別 <span class="math notranslate nohighlight">\(y\)</span> 為 1，<span class="math notranslate nohighlight">\(\sigma(Xw)\)</span> 若離 0 比較近，預測為類別 0 的機率較高，則成本將趨近無限大；而當真實的類別 <span class="math notranslate nohighlight">\(y\)</span> 為 0，<span class="math notranslate nohighlight">\(\sigma(Xw)\)</span> 若離 1 比較近，預測為類別 1 的機率較高則成本將趨近無限大。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">plot_cross_entropy</span><span class="p">():</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-5</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">epsilon</span><span class="p">)</span> <span class="c1"># 利用微小值 epsilon 避免 log(0) 的錯誤</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;$y=1$</span><span class="se">\n</span><span class="s2">$-\log(\sigma(Xw))$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$\sigma(Xw)$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;$y=0$</span><span class="se">\n</span><span class="s2">$-\log(1-\sigma(Xw))$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$\sigma(Xw)$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_cross_entropy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/06-classification_30_0.png" src="_images/06-classification_30_0.png" />
+</div>
+</div>
+<p>將 <span class="math notranslate nohighlight">\(y\)</span> 與 <span class="math notranslate nohighlight">\(1-y\)</span> 加入 <span class="math notranslate nohighlight">\(J(w)\)</span>，可以把兩個情境（<span class="math notranslate nohighlight">\(y=0\)</span> 或 <span class="math notranslate nohighlight">\(y=1\)</span>）的成本函數合而為一。</p>
+<p><span class="math">\begin{equation}
+J(w) = \frac{1}{m}(-ylog(\sigma(Xw)) - (1-y)log(1-\sigma(Xw)))
+\end{equation}</span></p>
+<p>當 <span class="math notranslate nohighlight">\(y=1\)</span> 時，<span class="math notranslate nohighlight">\(J(w)\)</span> 只剩下前項；當 <span class="math notranslate nohighlight">\(y=0\)</span> 時，<span class="math notranslate nohighlight">\(J(w)\)</span> 只剩下後項，巧妙的交叉熵函式特性依然被具體地留存下來，合而為一的優點在於便利接下來應用「梯度遞減」演算方法。我們希望可以運用在迴歸模型中提到的「梯度遞減」演算方法找到一組係數向量 <span class="math notranslate nohighlight">\(w\)</span>，這組係數向量能夠讓 <span class="math notranslate nohighlight">\(J(w)\)</span> 儘可能降低，根據梯度遞減的演算方法，下一步需要求解 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的偏微分。</p>
+<p><span class="math">\begin{equation}
+w := w - \alpha \frac{\partial J}{\partial w}
+\end{equation}</span></p>
+<p>想順利求解 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的偏微分之前，得具備三個先修知識：</p>
+<ol class="arabic simple">
+<li><p>連鎖法則（Chain rule）</p></li>
+<li><p><span class="math notranslate nohighlight">\(e^{x}\)</span> 關於 <span class="math notranslate nohighlight">\(x\)</span> 的微分</p></li>
+<li><p><span class="math notranslate nohighlight">\(log(x)\)</span> 關於 <span class="math notranslate nohighlight">\(x\)</span> 的微分</p></li>
+</ol>
+<p>我們發現 <span class="math notranslate nohighlight">\(J(w)\)</span> 函式是一個由多個不同函式複合而成的，先是結合了 Sigmoid 函式 <span class="math notranslate nohighlight">\(\sigma\)</span>；再來是 <span class="math notranslate nohighlight">\(log\)</span> 函式，欲求解複合函式偏微分，就得仰賴連鎖法則。假設 <span class="math notranslate nohighlight">\(f\)</span> 和 <span class="math notranslate nohighlight">\(g\)</span> 為兩個關於 <span class="math notranslate nohighlight">\(x\)</span> 的可微函式，其複合函式關於 <span class="math notranslate nohighlight">\(x\)</span> 的微分：</p>
+<p><span class="math">\begin{align}
+(f\circ g)(x) &= f(g(x)) \\
+(f\circ g)'(x) &= f'(g(x))g'(x)
+\end{align}</span></p>
+<p><span class="math notranslate nohighlight">\(e^{x}\)</span> 關於 <span class="math notranslate nohighlight">\(x\)</span> 的微分：</p>
+<p><span class="math">\begin{equation}
+\frac{d}{dx}e^{x} = e^{x}
+\end{equation}</span></p>
+<p><span class="math notranslate nohighlight">\(log(x)\)</span> 關於 <span class="math notranslate nohighlight">\(x\)</span> 的微分：</p>
+<p><span class="math">\begin{equation}
+\frac{d}{dx}log(x) = \frac{1}{x}
+\end{equation}</span></p>
+<p>具備先修知識以後，接下來要推導 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的偏微分：</p>
+<p><span class="math">\begin{align}
+\frac{\partial}{\partial w}J &= \frac{\partial}{\partial w} (-ylog(\sigma(Xw)) - (1-y)log(1-\sigma(Xw))) \\
+&= -y\frac{\partial}{\partial w}log(\sigma(Xw)) - (1-y)\frac{\partial}{\partial w}(log(1-\sigma(Xw)))
+\end{align}</span></p>
+<p>將前式拆解成兩部分，首先計算 <span class="math notranslate nohighlight">\(log(\sigma(Xw))\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的微分：</p>
+<p><span class="math">\begin{align}
+\frac{\partial}{\partial w}log(\sigma(Xw)) &= \frac{\partial}{\partial w}log(\sigma(Xw)) \cdot \frac{\partial}{\partial w}(\sigma(Xw)) \\
+&= \frac{1}{\sigma(Xw)} \cdot \sigma'(Xw) \cdot \frac{\partial}{\partial w}Xw \\
+&= \frac{1}{\sigma(Xw)} \cdot \sigma'(Xw) \cdot X
+\end{align}</span></p>
+<p>再接著計算 <span class="math notranslate nohighlight">\(log(1-\sigma(Xw))\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的微分：</p>
+<p><span class="math">\begin{align}
+\frac{\partial}{\partial w}log(1-\sigma(Xw)) &= \frac{\partial}{\partial w}log(1-\sigma(Xw)) \cdot \frac{\partial}{\partial w}(1-\sigma(Xw)) \\
+&=\frac{1}{1-\sigma(Xw)} \cdot (-\sigma'(Xw) \cdot \frac{\partial}{\partial w}Xw) \\
+&=\frac{1}{1-\sigma(Xw)} \cdot (-\sigma'(Xw) \cdot X)
+\end{align}</span></p>
+<p>兩部分都得先計算 <span class="math notranslate nohighlight">\(\sigma'(Xw)\)</span> 也就是 Sigmoid 函式關於 <span class="math notranslate nohighlight">\(w\)</span> 的微分，才能夠繼續推導。</p>
+<p><span class="math">\begin{align}
+\sigma'(Xw) &= \frac{\partial}{\partial w} \frac{1}{1 + e^{-Xw}} = \frac{\partial}{\partial w} (1 + e^{-Xw})^{-1} \\
+&= \frac{-\frac{\partial}{\partial w}(1 + e^{-Xw})}{(1 + e^{-Xw})^2}
+\end{align}</span></p>
+<p>分子部分我們得先推導 <span class="math notranslate nohighlight">\(e^{-x}\)</span> 關於 <span class="math notranslate nohighlight">\(x\)</span> 的微分。</p>
+<p><span class="math">\begin{equation}
+\frac{d}{dx}e^{-x} = \frac{d}{dx}\frac{1}{e^x} = \frac{-\frac{d}{dx} e^x}{(e^x)^2} = \frac{-e^x}{(e^x)^2} = \frac{-1}{e^x} = -e^{-x}
+\end{equation}</span></p>
+<p>於是 <span class="math notranslate nohighlight">\(\sigma'(Xw)\)</span> 就可以寫成：</p>
+<p><span class="math">\begin{align}
+\sigma'(Xw) &= \frac{-\frac{\partial}{\partial w}e^{-Xw}}{(1 + e^{-Xw})^2} = \frac{e^{-Xw}}{(1 + e^{-Xw})^2} \\
+&= \frac{e^{-Xw}}{(1 + e^{-Xw}) \cdot (1 + e^{-Xw})}
+\end{align}</span></p>
+<p>接下來的推導有些狡猾，需要在分子設計一個 <code class="docutils literal notranslate"><span class="pre">+1-1</span></code>。</p>
+<p><span class="math">\begin{align}
+\sigma'(Xw) &= \frac{e^{-Xw}}{(1 + e^{-Xw}) \cdot (1 + e^{-Xw})} \\
+&= \frac{1}{1 + e^{-Xw}} \cdot \frac{e^{-Xw} + 1 - 1}{1 + e^{-Xw}} = \frac{1}{1 + e^{-Xw}} \cdot ( \frac{1 + e^{-Xw}}{1 + e^{-Xw}} - \frac{1}{1 + e^{-Xw}}) \\
+&=\frac{1}{1 + e^{-Xw}} \cdot ( 1 - \frac{1}{1 + e^{-Xw}}) \\
+&=\sigma(Xw)(1-\sigma(Xw))
+\end{align}</span></p>
+<p>推導出 <span class="math notranslate nohighlight">\(\sigma'(Xw)\)</span>，再回去計算未完的兩部分。</p>
+<p><span class="math">\begin{align}
+\frac{\partial}{\partial w}log(\sigma(Xw)) &= \frac{1}{\sigma(Xw)} \cdot \sigma'(Xw) \cdot X \\
+&= \frac{1}{\sigma(Xw)}\sigma(Xw)(1-\sigma(Xw))X \\
+&= (1-\sigma(Xw))X
+\end{align}</span></p>
+<p><span class="math">\begin{align}
+\frac{\partial}{\partial w}log(1-\sigma(Xw)) &= \frac{1}{1-\sigma(Xw)} \cdot (-\sigma'(Xw)) \cdot X\\
+&=\frac{1}{1-\sigma(Xw)}(-(\sigma(Xw)(1-\sigma(Xw)))X) \\
+&=-\sigma(Xw)X
+\end{align}</span></p>
+<p>最後回到 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的偏微分。</p>
+<p><span class="math">\begin{align}
+\frac{\partial J}{\partial w} &= \frac{1}{m}(-y(1-\sigma(Xw))X - (1-y)(-\sigma(Xw)X)) \\
+&=\frac{1}{m}(-X^Ty + y\sigma(Xw)X + X^T\sigma(Xw) - y\sigma(Xw)X) \\
+&=\frac{1}{m}(-X^Ty + X^T\sigma(Xw)) \\
+&=\frac{1}{m}(X^T(\sigma(Xw) - y))
+\end{align}</span></p>
+<p>我們終於將「梯度」的公式推導完畢，與迴歸模型相同，在迭代過程中 <span class="math notranslate nohighlight">\(w\)</span> 更新的方向性取決於梯度正負號，如果梯度為正，<span class="math notranslate nohighlight">\(w\)</span> 會向左更新（減小）；如果梯度為負，<span class="math notranslate nohighlight">\(w\)</span> 會向右更新（增大）。</p>
+<p><span class="math">\begin{equation}
+w := w - \alpha \frac{1}{m}(X^T(\sigma(Xw) - y))
+\end{equation}</span></p>
+</div>
+<div class="section" id="自訂羅吉斯迴歸類別-LogitReg">
+<h2>自訂羅吉斯迴歸類別 LogitReg<a class="headerlink" href="#自訂羅吉斯迴歸類別-LogitReg" title="Permalink to this headline">¶</a></h2>
+<p>我們可以依據羅吉斯迴歸的定義自訂預測器類別，檢視迭代後的 <span class="math notranslate nohighlight">\(w\)</span> 是否與 Scikit-Learn 相近、交叉熵是否隨著迭代而下降。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">LogitReg</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class defines the vanilla descent algorithm for logistic regression.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        fit_intercept (bool): Whether to add intercept for this model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span> <span class="o">=</span> <span class="n">fit_intercept</span>
+    <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the Sigmoid output as a probability given certain model weights.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="p">)</span>
+        <span class="n">p_hat</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X_w</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">p_hat</span>
+    <span class="k">def</span> <span class="nf">find_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the gradient given certain model weights.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+        <span class="n">p_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">)</span>
+        <span class="n">X_train_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">)</span>
+        <span class="n">gradient</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train_T</span><span class="p">,</span> <span class="n">p_hat</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gradient</span>
+    <span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the cross entropy given certain model weights.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+        <span class="n">p_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">)</span>
+        <span class="n">cost_y1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p_hat</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">))</span>
+        <span class="n">cost_y0</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_hat</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">))</span>
+        <span class="n">cross_entropy</span> <span class="o">=</span> <span class="p">(</span><span class="n">cost_y1</span> <span class="o">+</span> <span class="n">cost_y0</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span>
+        <span class="k">return</span> <span class="n">cross_entropy</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function uses vanilla gradient descent to solve for weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_train (ndarray): 2d-array for feature matrix of training data.</span>
+<span class="sd">            y_train (ndarray): 1d-array for target vector of training data.</span>
+<span class="sd">            epochs (int): The number of iterations to update the model weights.</span>
+<span class="sd">            learning_rate (float): The learning rate of gradient descent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span><span class="p">:</span>
+            <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">n_prints</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">print_iter</span> <span class="o">=</span> <span class="n">epochs</span> <span class="o">//</span> <span class="n">n_prints</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">cross_entropy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">()</span>
+            <span class="n">gradient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_gradient</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">print_iter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;epoch: </span><span class="si">{:6}</span><span class="s2"> - loss: </span><span class="si">{:.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cross_entropy</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">-=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="n">gradient</span>
+        <span class="n">w_ravel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns predicted probability with weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_test (ndarray): 2d-array for feature matrix of test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span><span class="p">:</span>
+            <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="n">X_test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">p_hat_1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">p_hat_0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p_hat_1</span>
+        <span class="n">proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">p_hat_0</span><span class="p">,</span> <span class="n">p_hat_1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">proba</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns predicted label with weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_test (ndarray): 2d-array for feature matrix of test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">proba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">proba</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y_pred</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">LogitReg</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+epoch:      0 - loss: 0.904725
+epoch:  10000 - loss: 0.275947
+epoch:  20000 - loss: 0.274739
+epoch:  30000 - loss: 0.274683
+epoch:  40000 - loss: 0.274680
+epoch:  50000 - loss: 0.274680
+epoch:  60000 - loss: 0.274680
+epoch:  70000 - loss: 0.274680
+epoch:  80000 - loss: 0.274680
+epoch:  90000 - loss: 0.274680
+-1.7162124454268828
+[[-2.75507425  1.96609802]]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">y_pred_label</span> <span class="o">=</span> <span class="p">[</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">]</span>
+<span class="n">y_pred_label</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;F&#39;, &#39;G&#39;, &#39;G&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;]
+</pre></div></div>
+</div>
+<p>比對 <span class="math notranslate nohighlight">\(w\)</span> 與前十筆預測值可以驗證自行定義的 <code class="docutils literal notranslate"><span class="pre">LogitReg</span></code> 類別與 Scikit-Learn 求解的邏輯相近。</p>
+</div>
+<div class="section" id="二元分類延伸至多元分類：One-versus-rest">
+<h2>二元分類延伸至多元分類：One versus rest<a class="headerlink" href="#二元分類延伸至多元分類：One-versus-rest" title="Permalink to this headline">¶</a></h2>
+<p>暸解羅吉斯回歸如何進行二元分類預測任務後，最後將問題還原回本來的多元分類問題，原始資料集中球員的鋒衛位置不只分作前鋒（Forward, F）與後衛（Guard, G）亦有中鋒（Center, C），以及能夠勝任兩個位置的搖擺人（F-G、G-F）等。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pos</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;C&#39; &#39;C-F&#39; &#39;F&#39; &#39;F-C&#39; &#39;F-G&#39; &#39;G&#39; &#39;G-F&#39;]
+7
+</pre></div></div>
+</div>
+<p>將二元分類延伸至多元分類的技巧是直觀的，例如要面對的類別預測任務 <span class="math notranslate nohighlight">\(h\)</span> 的目標從輸出 <span class="math notranslate nohighlight">\(\hat{y} = \{0, 1\}\)</span> 成為了 <span class="math notranslate nohighlight">\(\hat{y} = \{0, 1, ..., 5, 6\}\)</span>，要依據場均助攻、場均籃板將球員分類為 7 個鋒衛位置其中之一。這時可以採取一種 One versus rest（亦稱 One versus all）的技巧，操作方式是訓練 7 個羅吉斯迴歸分類器，每個鋒衛位置一個，輸出預測的類別機率，再以 <span class="math notranslate nohighlight">\(argmax\)</span> 函式決定分類預測。</p>
+<p><span class="math">\begin{align}
+\hat{p}_{C} = \hat{p}(y=0|X; w) = 1 - \hat{p}(y \neq 0|X; w) \\
+\hat{p}_{C-F} = \hat{p}(y=1|X; w) = 1 - \hat{p}(y \neq 1|X; w)  \\
+\hat{p}_{F} = \hat{p}(y=2|X; w) = 1 - \hat{p}(y \neq 2|X; w)  \\
+\hat{p}_{F-C} = \hat{p}(y=3|X; w) = 1 - \hat{p}(y \neq 3|X; w)  \\
+\hat{p}_{F-G} = \hat{p}(y=4|X; w) = 1 - \hat{p}(y \neq 4|X; w)  \\
+\hat{p}_{G} = \hat{p}(y=5|X; w) = 1 - \hat{p}(y \neq 5|X; w)  \\
+\hat{p}_{G-F} = \hat{p}(y=6|X; w) = 1 - \hat{p}(y \neq 6|X; w)  \\
+\hat{p} = argmax (\hat{p}_{C}, \hat{p}_{C-F}, \hat{p}_{F}, \hat{p}_{F-C}, \hat{p}_{F-G}, \hat{p}_{G}, \hat{p}_{G-F})
+\end{align}</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">unique_pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">pos_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">p</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_pos</span><span class="p">)}</span>
+<span class="n">pos_dict_reversed</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pos_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">pos_multiple</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pos_dict_reversed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_dict_reversed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pos_multiple</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{0: &#39;G&#39;, 1: &#39;C&#39;, 2: &#39;C-F&#39;, 3: &#39;F-C&#39;, 4: &#39;F&#39;, 5: &#39;F-G&#39;, 6: &#39;G-F&#39;}
+{&#39;G&#39;: 0, &#39;C&#39;: 1, &#39;C-F&#39;: 2, &#39;F-C&#39;: 3, &#39;F&#39;: 4, &#39;F-G&#39;: 5, &#39;G-F&#39;: 6}
+[0 1 2 3 4 5 6]
+</pre></div></div>
+</div>
+<p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別只需要在初始化時加入參數 <code class="docutils literal notranslate"><span class="pre">multi_class='ovr'</span></code> 就能面對多元分類問題。這時<code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> 方法輸出的數值陣列外觀為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">m</span></code> 是特徵矩陣的觀測值個數，<code class="docutils literal notranslate"><span class="pre">n</span></code> 則是目標向量的獨一值，也就是類別的個數，以目前的多元分類（C、C-F、F、F-C、F-G、G、G-F）問題來說，<code class="docutils literal notranslate"><span class="pre">n</span></code> 等於 7，第 0 欄是預測為類別 0（C）的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=0|X; w)\)</span>、第 1 欄是預測為類別 1（C-F）的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span>、第 6 欄是預測為類別
+6（G-F）的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=6|X; w)\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[[</span><span class="s1">&#39;apg&#39;</span><span class="p">,</span> <span class="s1">&#39;rpg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pos_multiple</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1e5</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;ovr&#39;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">p_hat</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">p_hat</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0.00948771, 0.10618846, 0.10813516, 0.17693642, 0.43670401,
+        0.06700586, 0.09554238],
+       [0.77748262, 0.00158668, 0.00195679, 0.00939342, 0.06109545,
+        0.03020358, 0.11828145],
+       [0.36334642, 0.01957374, 0.03931401, 0.08027655, 0.28359635,
+        0.04937886, 0.16451407],
+       [0.20955361, 0.02755559, 0.06565499, 0.11284797, 0.35253646,
+        0.05151994, 0.18033144],
+       [0.23437795, 0.03348503, 0.05061705, 0.10472033, 0.35048298,
+        0.06369875, 0.16261792],
+       [0.02200364, 0.08355364, 0.10016853, 0.16809991, 0.44064353,
+        0.06784798, 0.11768277],
+       [0.4660762 , 0.00868968, 0.03326444, 0.06041734, 0.22125811,
+        0.03232719, 0.17796704],
+       [0.15965737, 0.05316157, 0.0510323 , 0.11778835, 0.39030225,
+        0.08309005, 0.14496812],
+       [0.45630382, 0.01006995, 0.0336024 , 0.06276895, 0.22902161,
+        0.03480357, 0.1734297 ],
+       [0.2820003 , 0.02435055, 0.05048142, 0.09636016, 0.3221153 ,
+        0.05246425, 0.17222802]])
+</pre></div></div>
+</div>
+<p>應用 <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> 函式回傳最大的欄位數，就能夠得到 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">p_hat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
+</pre></div></div>
+</div>
+<p>最後使用 <code class="docutils literal notranslate"><span class="pre">pos_dict_reversed</span></code> 將整數對應回鋒衛位置的文字外觀。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_pred_label</span> <span class="o">=</span> <span class="p">[</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">]</span>
+<span class="n">y_pred_label</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;F&#39;, &#39;G&#39;, &#39;G&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="二元分類延伸至多元分類：Softmax-函式">
+<h2>二元分類延伸至多元分類：Softmax 函式<a class="headerlink" href="#二元分類延伸至多元分類：Softmax-函式" title="Permalink to this headline">¶</a></h2>
+<p>除了以 One versus rest 技巧將羅吉斯回歸延伸為多元分類，另一種更常見的方法則是引入 Softmax 函式替代原本所使用的 Sigmoid 函式，我們可以將 Softmax 函式視為一種泛化的 Sigmoid 函式。首先對特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 分類 <span class="math notranslate nohighlight">\(k\)</span> 計算一個得分 <span class="math notranslate nohighlight">\(s_k\)</span>，然後通過 Softmax 函式來轉換為每個類別的概率。</p>
+<p><span class="math">\begin{equation}
+s_k(X) = Xw^{(k)}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\hat{P}_k = \sigma(s(X))_k = \frac{e^{s_k(X)}}{\sum_{j=1}^K e^{s_j(X)}}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\hat{y} = \underset{k}{argmax} \hat{P}_k
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+J = -\frac{1}{m}\sum_{k=1}^{K}y_klog(\hat{P}_k)
+\end{equation}</span></p>
+<p>其中 <span class="math notranslate nohighlight">\(K\)</span> 表示多元分類的類別數、<span class="math notranslate nohighlight">\(\sigma(s(X))_k\)</span> 則是每個觀測值為 <span class="math notranslate nohighlight">\(k\)</span> 分類的機率，<span class="math notranslate nohighlight">\(J\)</span> 則是泛化形式的交叉熵，當 <code class="docutils literal notranslate"><span class="pre">K=2</span></code> 的時候，由於 <span class="math notranslate nohighlight">\(P_1 = 1 - P_0\)</span> 就是針對二元分類形式的交叉熵。</p>
+<p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別只需要在初始化時加入參數 <code class="docutils literal notranslate"><span class="pre">multi_class='multinomial'</span></code> 就能夠以 Softmax 函式面對多元分類問題。這時<code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> 方法輸出的數值陣列外觀為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">K)</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">m</span></code> 是特徵矩陣的觀測值個數，<code class="docutils literal notranslate"><span class="pre">K</span></code> 則是類別的個數，以相同的多元分類（C、C-F、F、F-C、F-G、G、G-F）問題來說，<code class="docutils literal notranslate"><span class="pre">K</span></code> 等於 7，第 0 欄是預測為類別 0（C）的機率 <span class="math notranslate nohighlight">\(\hat{P}_0\)</span>、第 1 欄是預測為類別 1（C-F）的機率 <span class="math notranslate nohighlight">\(\hat{P}_1\)</span>、第 6 欄是預測為類別 6（G-F）的機率
+<span class="math notranslate nohighlight">\(\hat{P}_6\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1e5</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">p_hat</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">p_hat</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1.46834231e-03, 1.10515982e-01, 1.34322740e-01, 2.30095688e-01,
+        4.75943125e-01, 3.57092827e-02, 1.19448412e-02],
+       [9.71344012e-01, 1.12987543e-07, 1.20665619e-07, 1.77849834e-06,
+        9.62067511e-05, 6.15985327e-04, 2.79417833e-02],
+       [3.73022411e-01, 7.39121345e-03, 1.52304099e-02, 4.24652094e-02,
+        2.53139760e-01, 6.77690959e-02, 2.40981900e-01],
+       [1.64560622e-01, 2.07609657e-02, 5.25290319e-02, 1.05772840e-01,
+        4.28180466e-01, 6.39325187e-02, 1.64263556e-01],
+       [1.77783413e-01, 1.72639048e-02, 2.77647975e-02, 7.76848869e-02,
+        4.03888738e-01, 9.67847960e-02, 1.98829464e-01],
+       [5.05878698e-03, 8.19709980e-02, 1.14680545e-01, 2.09123648e-01,
+        5.16685164e-01, 4.72562965e-02, 2.52245619e-02],
+       [6.74798205e-01, 1.66114300e-03, 6.16676574e-03, 1.43567047e-02,
+        9.06955187e-02, 2.20323031e-02, 1.90289360e-01],
+       [9.19952935e-02, 2.49220140e-02, 2.62448611e-02, 8.77398931e-02,
+        4.71541151e-01, 1.34074507e-01, 1.63482281e-01],
+       [6.23519221e-01, 2.26463195e-03, 7.40805921e-03, 1.80366615e-02,
+        1.13589028e-01, 2.85344995e-02, 2.06647899e-01],
+       [2.55642516e-01, 1.31288239e-02, 2.84139768e-02, 6.95853231e-02,
+        3.48894985e-01, 7.28649579e-02, 2.11469417e-01]])
+</pre></div></div>
+</div>
+<p>應用 <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> 函式回傳最大的欄位數，就能夠得到 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">p_hat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
+</pre></div></div>
+</div>
+<p>最後使用 <code class="docutils literal notranslate"><span class="pre">pos_dict_reversed</span></code> 將整數對應回鋒衛位置的文字外觀。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_pred_label</span> <span class="o">=</span> <span class="p">[</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">]</span>
+<span class="n">y_pred_label</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;F&#39;, &#39;G&#39;, &#39;G&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;, &#39;G&#39;, &#39;F&#39;]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="兩種表示類別向量的形式">
+<h2>兩種表示類別向量的形式<a class="headerlink" href="#兩種表示類別向量的形式" title="Permalink to this headline">¶</a></h2>
+<p>截至目前為止我們表示類別目標向量 <span class="math notranslate nohighlight">\(y\)</span> 的形式稱為標籤編碼（Label encoder），將類別變數的獨一值用 0 到 <code class="docutils literal notranslate"><span class="pre">n_classes</span> <span class="pre">-</span> <span class="pre">1</span></code> 的整數表示，可以使用 Scikit-Learn 中的 <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> 轉換。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">pos_le</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_le</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;G&#39; &#39;C&#39; &#39;C-F&#39; &#39;C-F&#39; &#39;F-C&#39; &#39;G&#39; &#39;G&#39; &#39;C&#39; &#39;F&#39; &#39;F-G&#39;]
+[5 0 1 1 3 5 5 0 2 4]
+</pre></div></div>
+</div>
+<p>另外一種表示目標向量 <span class="math notranslate nohighlight">\(y\)</span> 的方法稱為獨熱編碼（One-hot encoder），將類別變數的獨一值用 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n_classes)</span></code> 的稀疏矩陣表示，用 <code class="docutils literal notranslate"><span class="pre">1</span></code> 標註是該類，其餘欄位則用 <code class="docutils literal notranslate"><span class="pre">0</span></code> 標註不是該類，可以使用 Scikit-Learn 中的 <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> 轉換。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+<span class="n">pos_ohe</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_ohe</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;G&#39; &#39;C&#39; &#39;C-F&#39; &#39;C-F&#39; &#39;F-C&#39; &#39;G&#39; &#39;G&#39; &#39;C&#39; &#39;F&#39; &#39;F-G&#39;]
+[[0. 0. 0. 0. 0. 1. 0.]
+ [1. 0. 0. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 0. 1. 0.]
+ [1. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0.]]
+</pre></div></div>
+</div>
+<p>兩種表示形式中，標籤編碼適合應用於具有量值層級意義、有排列順序的類別變數（例如冷熱可以對應溫度、快慢可以對應速度）與二元分類的情境；獨熱編碼適合應用於一般無排列順序的類別變數以及多元分類的情境，特別是使用 Softmax 函式常會搭配獨熱編碼的矩陣型態。</p>
+</div>
+<div class="section" id="延伸閱讀">
+<h2>延伸閱讀<a class="headerlink" href="#延伸閱讀" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Machine Learning Basics. In: Ian Goodfellow ,Yoshua Bengio, and Aaron Courville, Deep Learning (<a class="reference external" href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/">https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/</a>)</p></li>
+<li><p>Training Models. In: Aurélien Géron, Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (<a class="reference external" href="https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646/">https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646/</a>)</p></li>
+<li><p>Sigmoid function (<a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function">https://en.wikipedia.org/wiki/Sigmoid_function</a>)</p></li>
+<li><p>Derivative of the Sigmoid function (<a class="reference external" href="https://towardsdatascience.com/derivative-of-the-sigmoid-function-536880cf918e">https://towardsdatascience.com/derivative-of-the-sigmoid-function-536880cf918e</a>)</p></li>
+<li><p>Step function (<a class="reference external" href="https://en.wikipedia.org/wiki/Step_function">https://en.wikipedia.org/wiki/Step_function</a>)</p></li>
+<li><p>Log Loss (<a class="reference external" href="http://wiki.fast.ai/index.php/Log_Loss">http://wiki.fast.ai/index.php/Log_Loss</a>)</p></li>
+<li><p>Cross entropy (<a class="reference external" href="https://en.wikipedia.org/wiki/Cross_entropy">https://en.wikipedia.org/wiki/Cross_entropy</a>)</p></li>
+<li><p>Multiclass classification (<a class="reference external" href="https://en.wikipedia.org/wiki/Multiclass_classification">https://en.wikipedia.org/wiki/Multiclass_classification</a>)</p></li>
+<li><p>Softmax function (<a class="reference external" href="https://en.wikipedia.org/wiki/Softmax_function">https://en.wikipedia.org/wiki/Softmax_function</a>)</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="05-regression.html" title="previous page">數值預測的任務</a>
+    <a class='right-next' id="next-link" href="07-performance.html" title="next page">表現的評估</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By 郭耀仁<br/>
+        
+            &copy; Copyright 2020, 郭耀仁.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,970 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>關於視覺化與機器學習 &#8212; 新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="數列運算" href="02-numpy.html" />
+    <link rel="prev" title="關於本書" href="00-preface.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="00-preface.html">關於本書</a>
+  </li>
+  <li class="active">
+    <a href="">關於視覺化與機器學習</a>
+  </li>
+  <li class="">
+    <a href="02-numpy.html">數列運算</a>
+  </li>
+  <li class="">
+    <a href="03-matplotlib.html">資料探索</a>
+  </li>
+  <li class="">
+    <a href="04-sklearn.html">機器學習入門</a>
+  </li>
+  <li class="">
+    <a href="05-regression.html">數值預測的任務</a>
+  </li>
+  <li class="">
+    <a href="06-classification.html">類別預測的任務</a>
+  </li>
+  <li class="">
+    <a href="07-performance.html">表現的評估</a>
+  </li>
+  <li class="">
+    <a href="08-deep-learning.html">深度學習入門</a>
+  </li>
+  <li class="">
+    <a href="09-appendix-a.html">附錄 A</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01-introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/spatialaudio/nbsphinx"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/spatialaudio/nbsphinx/issues/new?title=Issue%20on%20page%20%2F01-introduction.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/01-introduction.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#何謂視覺化" class="nav-link">何謂視覺化</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#為何視覺化" class="nav-link">為何視覺化</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#原始資料" class="nav-link">原始資料</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#函式" class="nav-link">函式</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#數學式" class="nav-link">數學式</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#何謂機器學習" class="nav-link">何謂機器學習</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pyvizml-模組" class="nav-link">pyvizml 模組</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#為何機器學習" class="nav-link">為何機器學習</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#判斷質數" class="nav-link">判斷質數</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#數值預測：球員的體重為何？" class="nav-link">數值預測：球員的體重為何？</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#類別預測：球員的鋒衛位置為何？" class="nav-link">類別預測：球員的鋒衛位置為何？</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#延伸閱讀" class="nav-link">延伸閱讀</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/01-introduction.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="關於視覺化與機器學習">
+<h1>關於視覺化與機器學習<a class="headerlink" href="#關於視覺化與機器學習" title="Permalink to this headline">¶</a></h1>
+<p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="何謂視覺化">
+<h2>何謂視覺化<a class="headerlink" href="#何謂視覺化" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>I know having the data is not enough, I have to show it in a way that people both enjoy and understand.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Hans_Rosling">Hans Rosling</a></p>
+</div></blockquote>
+<p>視覺化是致力於將抽象性概念具體化的學科，透過圖形中的大小、顏色或形狀等元素把原始資料、函式或方程式等所蘊含的特徵表達給瀏覽的人，進而將抽象的資訊轉換為溝通對象能快速掌握理解的精簡內容。我們日常工作中時常聽到的資訊圖表（Infographics）、商業智能（Business Intelligence）以及儀表板（Dashboard）都是視覺化的應用場景。</p>
+<p>有效的視覺化具有資訊豐富卻能簡單理解的特性，我們可以從資料科學生態圈中為眾人朗朗上口的兩個經典案例：「拿破崙征俄戰爭」與「兩百年四分鐘」，感受他們如何將龐雜資訊轉換為易懂的視覺化。</p>
+<ol class="arabic simple">
+<li><p>拿破崙征俄戰爭：法國土木工程師 <a class="reference external" href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard">Charles Minard</a> 使用一種前所未見的帶狀圖來描繪拿破崙的軍隊從波蘭前進至俄羅斯邊界在特定地理位置的軍隊規模，在一個圖形上涵蓋七個資料特徵：軍隊人數、行軍距離、溫度、經度、緯度、行進方向以及特定日期，讀者可以一目瞭然 1812 年征俄戰爭中拿破崙軍隊的慘烈戰況。這樣外觀的帶狀圖在後來被稱為 Sankey 圖，以發明者 <a class="reference external" href="https://en.wikipedia.org/wiki/Matthew_Henry_Phineas_Riall_Sankey">Matthew Henry Phineas Riall Sankey</a>
+作為命名，特別用來描述數量的流動與多寡。</p></li>
+</ol>
+<p><img alt="Charles Minard 的拿破崙征俄戰爭 Sankey 圖" src="https://i.imgur.com/DcuAxgz.png?1" /></p>
+<ol class="arabic simple" start="2">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Z8t4k0Q8e8Y">兩百年四分鐘</a>：瑞典公衛教授 Hans Rosling 使用氣泡圖搭配動畫僅花費四分鐘和觀眾說明全世界超過兩百個國家在近兩百年中財富與健康程度的消長趨勢，在一個圖形上涵蓋五個資料特徵：人均國內生產總值、人均預期壽命、人口數、洲別、年份，觀眾可以一目暸然在綠能、和平、貿易與科技的助瀾下，長期世界國家的發展趨勢是往富裕且健康的方向前進。</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;Z8t4k0Q8e8Y&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/Z8t4k0Q8e8Y"
+    frameborder="0"
+    allowfullscreen
+></iframe></div>
+</div>
+</div>
+<div class="section" id="為何視覺化">
+<h2>為何視覺化<a class="headerlink" href="#為何視覺化" title="Permalink to this headline">¶</a></h2>
+<p>在日常面對抽象性概念（包含原始資料、函式或數學式）的時候，我們往往很難一眼就觀察出資料的特徵，因此利用視覺化協助探索性分析與成果溝通是極為有效的作法。接下來將針對原始資料、函式與數學式分別作圖，讀者可以比較視覺化前後的觀感與理解，藉此體驗為何在一個資料科學專案中視覺化是極為有效的工具。</p>
+<div class="section" id="原始資料">
+<h3>原始資料<a class="headerlink" href="#原始資料" title="Permalink to this headline">¶</a></h3>
+<p>利用 <code class="docutils literal notranslate"><span class="pre">np.random.normal(size=10000)</span></code> 創建 10,000 筆符合標準常態分配的隨機數，假若單純將這些隨機數印出，幾乎不太能觀察出它們具備了標準常態分配這樣的特性。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">arr</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ 0.16377534  0.66389179 -0.91923057 ... -0.09080987 -0.63287657
+  2.41727138]
+</pre></div></div>
+</div>
+<p>若是將這些隨機數以直方圖（histogram）描繪，從鐘型外觀以及中心座落的位置，很快就觀察到它們具備了近似標準常態分配的特性（鐘型、以 0 為中心、約有 67% 的數值介於 -1 與 1 之間）。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/01-introduction_7_0.png" src="_images/01-introduction_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="函式">
+<h3>函式<a class="headerlink" href="#函式" title="Permalink to this headline">¶</a></h3>
+<p>單純將使用 <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">np.log()</span></code> 所創建的 <span class="math notranslate nohighlight">\(p\)</span> 與 <span class="math notranslate nohighlight">\(-log(1-p)\)</span>、<span class="math notranslate nohighlight">\(-log(p)\)</span> 印出，同樣也不太容易很快地觀察出這是其中一個描述對式損失的函式。對數損失函式在分類模型扮演重要的角色，後續章節會再細談。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-06</span> <span class="c1"># epsilon, 一個很微小的數字避免 0 輸入 log 函式後產生無限大</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span> <span class="o">+</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">log_loss_0</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="n">log_loss_1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_loss_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_loss_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1.00000000e-15 1.00010001e-04 2.00020002e-04 ... 9.99799980e-01
+ 9.99899990e-01 1.00000000e+00]
+[9.99200722e-16 1.00015002e-04 2.00040009e-04 ... 8.51709319e+00
+ 9.21024037e+00 3.45395760e+01]
+[3.45387764e+01 9.21024037e+00 8.51709319e+00 ... 2.00040009e-04
+ 1.00015002e-04 9.99200722e-16]
+</pre></div></div>
+</div>
+<p>若是將 <span class="math notranslate nohighlight">\(p\)</span> 與 <span class="math notranslate nohighlight">\(-log(1-p)\)</span>、<span class="math notranslate nohighlight">\(-log(p)\)</span> 以線圖（line）描繪，很快就能觀察到這個對數損失函式的設計是希望在 <span class="math notranslate nohighlight">\(y_{true} = 0\)</span> 時當 <span class="math notranslate nohighlight">\(p\)</span> 離 1 愈近的時候對數損失愈大，反之當 <span class="math notranslate nohighlight">\(p\)</span> 離 0 愈近的時候對數損失愈小；在 <span class="math notranslate nohighlight">\(y_{true} = 1\)</span> 時當 <span class="math notranslate nohighlight">\(p\)</span> 離 0 愈近的時候對數損失愈大，反之當 <span class="math notranslate nohighlight">\(p\)</span> 離 1 愈近的時候對數損失愈小；這樣的特性讓對數損失函式被用來二元分類的誤差函式。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">log_loss_0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y_</span><span class="si">{true}</span><span class="s1">=0$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">log_loss_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y_</span><span class="si">{true}</span><span class="s1">=1$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/01-introduction_11_0.png" src="_images/01-introduction_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="數學式">
+<h3>數學式<a class="headerlink" href="#數學式" title="Permalink to this headline">¶</a></h3>
+<p>以 Sigmoid 的數學式定義為例，單純撰寫出來同樣很難觀察輸入 <span class="math notranslate nohighlight">\(x\)</span> 與輸出 <span class="math notranslate nohighlight">\(f(x)\)</span> 的對應關係，Sigmoid 函式在分類模型同樣扮演重要的角色，在後續章節會再細談。</p>
+<p><span class="math">\begin{equation}
+f(x) = \frac{1}{1+e^{-x}}
+\end{equation}</span></p>
+<p>若是將 <span class="math notranslate nohighlight">\(x\)</span> 與 <span class="math notranslate nohighlight">\(f(x)\)</span> 以線圖（line）描繪，很快就能觀察到 Sigmoid 函式能夠將介於正負無限大之間的輸入 <span class="math notranslate nohighlight">\(x\)</span> 映射到 0 與 1 之間；因而被用來作為將迴歸模型的輸出轉換為機率延伸為分類模型的前置步驟。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">fx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fx</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/01-introduction_13_0.png" src="_images/01-introduction_13_0.png" />
+</div>
+</div>
+<p>從前述對原始資料、函式與數學式的視覺化前後比較，相信讀者已經能夠理解為何視覺化在資料科學專案中扮演如此吃重的角色。</p>
+</div>
+</div>
+<div class="section" id="何謂機器學習">
+<h2>何謂機器學習<a class="headerlink" href="#何謂機器學習" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">Tom Mitchel</a></p>
+</div></blockquote>
+<p>機器學習是致力於透過歷史資料將預測或挖掘特徵能力內化於電腦程式的學科，透過 <a class="reference external" href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">Tom Mitchel</a> 精準的定義，一段具備預測數值、預測類別或挖掘特徵的電腦程式，也就是我們日常俗稱的「模型」，應該符合「三個要素」、「一個但書」的特性。其中，三個要素依序為資料（Experience）、任務（Task）與評估（Performance）；一個但書（Condition）則為隨著歷史資料觀測值數量增加，在其他條件不變前提下模型的表現應該要變得更優秀，也就是預測的誤差降低、挖掘資料特徵的能力提升。</p>
+<p>機器學習的理念是<strong>假設</strong>有一個 <span class="math notranslate nohighlight">\(f\)</span> 函式能夠完美描述特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 與目標向量 <span class="math notranslate nohighlight">\(y\)</span> 的關係。</p>
+<p><span class="math">\begin{equation}
+y = f(X)
+\end{equation}</span></p>
+<p>基於對 <span class="math notranslate nohighlight">\(f\)</span> 的未知，我們從已經實現的歷史資料 <span class="math notranslate nohighlight">\(X^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 之中找出 <span class="math notranslate nohighlight">\(h(X; w)\)</span> 用來模擬 <span class="math notranslate nohighlight">\(f\)</span>。</p>
+<p><span class="math">\begin{equation}
+\hat{y} = h(X; w)
+\end{equation}</span></p>
+<p>由於 <span class="math notranslate nohighlight">\(h(X; w)\)</span> 有無限多種可能性，於是將根據 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span> 的差異程度來決定如何從有限選擇範圍內的 <span class="math notranslate nohighlight">\(H\)</span> 中，選擇差異程度最小的 <span class="math notranslate nohighlight">\(h^*(X; w)\)</span>。</p>
+<p><span class="math">\begin{equation}
+H = \{h_1(X; w), h_2(X; w), ..., h_n(X; w)\}
+\end{equation}</span></p>
+<p>假若目標向量是連續的數值型態，選擇的依據是取能讓均方誤差最小的 <span class="math notranslate nohighlight">\(h^*(X; w)\)</span>，其中 <span class="math notranslate nohighlight">\(m\)</span> 代表觀測值筆數。</p>
+<p><span class="math">\begin{equation}
+Minimize \; \frac{1}{m}\sum_{i}{(y^{(train)}_i - \hat{y_i}^{(train)})^2}
+\end{equation}</span></p>
+<p>假若目標向量是離散的類別型態，選擇的依據是取能讓誤分類數總和最小的 <span class="math notranslate nohighlight">\(h^*(X; w)\)</span>。</p>
+<p><span class="math">\begin{equation}
+Minimize \; \sum_{i} \mid y^{(train)}_i \neq \hat{y_i}^{(train)} \mid
+\end{equation}</span></p>
+<p>舉例來說，我們可以利用電腦程式對一組 NBA 籃球員的身高與體重資料進行學習，然後去對另外一組僅有身高資訊的 NBA 籃球員進行體重的預測。在這個簡短的例子中，任務（Task）是一組僅有身高資訊的 NBA 籃球員進行體重預測；資料（Experience）是另一組有身高以及體重資訊的 NBA 籃球員；評估（Performance）則是預測體重與真實體重的誤差，隨著資料筆數的增加，誤差會變得更小，那麼這個電腦程式就具備了機器學習的特性。</p>
+<p>假如我們利用電腦程式對一組隨機生成的自然數與是否為質數的標籤資料進行學習，然後去對另外一組隨機生成但不具備標籤的資料進行是否為質數的預測，由於質數的判定可以用規則撰寫：只要該自然數的因數個數為 2 就是質數，在這樣的任務設定下評估永遠都是零誤差，不管用來學習的資料筆數增加多少，也不能再降低已經完美零誤差的評估，那麼這個電腦程式就「不具備」機器學習的特性。</p>
+<p>機器學習粗分為監督式與非監督式學習，並再細分監督式學習成為迴歸以及分類：</p>
+<ul class="simple">
+<li><p>監督式學習：訓練資料中具備已實現的數值或標籤</p>
+<ul>
+<li><p>迴歸：數值預測的任務</p></li>
+<li><p>分類：類別預測的任務</p></li>
+</ul>
+</li>
+<li><p>非監督式學習：訓練資料中「不」具備已實現的數值或標籤</p></li>
+</ul>
+</div>
+<div class="section" id="pyvizml-模組">
+<h2><code class="docutils literal notranslate"><span class="pre">pyvizml</span></code> 模組<a class="headerlink" href="#pyvizml-模組" title="Permalink to this headline">¶</a></h2>
+<p>在探討為何需要機器學習之前，我們需要先定義類別 <code class="docutils literal notranslate"><span class="pre">CreateNBAData</span></code> 協助演繹示例，這個類別主要的功能是由 <a class="reference external" href="https://data.nba.net/10s/prod/v1/today.json">data.nba.net</a> 擷取資料；本書 <code class="docutils literal notranslate"><span class="pre">CreateNBAData</span></code> 類別會貫串全場，為了之後使用便利，將它用一個名為 <code class="docutils literal notranslate"><span class="pre">pyvizml</span></code> 的模組封裝起來，後續如果還要使用它，就可以用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">MODULE</span> <span class="pre">import</span> <span class="pre">CLASS</span></code> 的指令載入。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyvizml</span> <span class="kn">import</span> <span class="n">CreateNBAData</span>
+</pre></div>
+</div>
+<p>其他在書中我們自行定義的類別，也都一併收錄在 <code class="docutils literal notranslate"><span class="pre">pyvizml</span></code> 模組中，在附錄 A 可以檢視每個自定義類別的完整程式碼。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">CreateNBAData</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class scrapes NBA.com offical api: data.nba.net.</span>
+<span class="sd">    See https://data.nba.net/10s/prod/v1/today.json</span>
+<span class="sd">    Args:</span>
+<span class="sd">        season_year (int): Use the first year to specify season, e.g. specify 2019 for the 2019-2020 season.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">season_year</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_season_year</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">season_year</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create_players_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the DataFrame of player information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">request_url</span> <span class="o">=</span> <span class="s2">&quot;https://data.nba.net/prod/v1/</span><span class="si">{}</span><span class="s2">/players.json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_season_year</span><span class="p">)</span>
+        <span class="n">resp_dict</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request_url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">players_list</span> <span class="o">=</span> <span class="n">resp_dict</span><span class="p">[</span><span class="s1">&#39;league&#39;</span><span class="p">][</span><span class="s1">&#39;standard&#39;</span><span class="p">]</span>
+        <span class="n">players_list_dict</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating players df...&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players_list</span><span class="p">:</span>
+            <span class="n">player_dict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+                    <span class="n">player_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="n">players_list_dict</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">player_dict</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">players_list_dict</span><span class="p">)</span>
+        <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isActive&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;heightMeters&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)]</span>
+        <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_person_ids</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;personId&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">return</span> <span class="n">filtered_df</span>
+
+    <span class="k">def</span> <span class="nf">create_stats_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the DataFrame of player career statistics.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_players_df</span><span class="p">()</span>
+        <span class="n">career_summaries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating player stats df...&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_person_ids</span><span class="p">:</span>
+            <span class="n">request_url</span> <span class="o">=</span> <span class="s2">&quot;https://data.nba.net/prod/v1/</span><span class="si">{}</span><span class="s2">/players/</span><span class="si">{}</span><span class="s2">_profile.json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_season_year</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request_url</span><span class="p">)</span>
+            <span class="n">profile_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="n">career_summary</span> <span class="o">=</span> <span class="n">profile_json</span><span class="p">[</span><span class="s1">&#39;league&#39;</span><span class="p">][</span><span class="s1">&#39;standard&#39;</span><span class="p">][</span><span class="s1">&#39;stats&#39;</span><span class="p">][</span><span class="s1">&#39;careerSummary&#39;</span><span class="p">]</span>
+            <span class="n">career_summaries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">career_summary</span><span class="p">)</span>
+        <span class="n">stats_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">career_summaries</span><span class="p">)</span>
+        <span class="n">stats_df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;personId&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_person_ids</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">stats_df</span>
+
+    <span class="k">def</span> <span class="nf">create_player_stats_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the DataFrame merged from players_df and stats_df.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">players</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_players_df</span><span class="p">()</span>
+        <span class="n">stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_stats_df</span><span class="p">()</span>
+        <span class="n">player_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">players</span><span class="p">,</span> <span class="n">stats</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;personId&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;personId&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">player_stats</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CreateNBAData</span></code> 需要傳入參數球季年份進行初始化，舉例我們要擷取的若是 2019-2020 球季，初始化類別就輸入 2019。這個類別定義了三個方法，<code class="docutils literal notranslate"><span class="pre">create_players_df()</span></code> 會回傳球員資料框、<code class="docutils literal notranslate"><span class="pre">create_stats_df()</span></code> 會回傳球員生涯攻守統計資料框、<code class="docutils literal notranslate"><span class="pre">create_player_stats_df()</span></code> 則會將球員資料框與球員生涯攻守統計資料框內部聯結（Inner join）後回傳。其中 <code class="docutils literal notranslate"><span class="pre">create_stats_df()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">create_player_stats_df()</span></code> 兩個方法因為要對 <a class="reference external" href="https://data.nba.net/10s/prod/v1/today.json">data.nba.net</a> 發出數百次的 HTTP
+請求，等待時間會較長，要請讀者耐心等候。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cnd</span> <span class="o">=</span> <span class="n">CreateNBAData</span><span class="p">(</span><span class="mi">2019</span><span class="p">)</span>
+<span class="n">player_stats</span> <span class="o">=</span> <span class="n">cnd</span><span class="o">.</span><span class="n">create_player_stats_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Creating players df...
+Creating players df...
+Creating player stats df...
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="為何機器學習">
+<h2>為何機器學習<a class="headerlink" href="#為何機器學習" title="Permalink to this headline">¶</a></h2>
+<p>使用程式解決工作、學業上所遭遇的問題是很直觀的，通常是碰到必須大量且又要運作的事情，這時我們會透過程式提供的功能，包含迴圈、函式或類別，來撰寫規則實踐規模化與自動化，那麼在什麼特定場合需要運用機器學習呢？簡單來說，就是不容易用語言描述出來的邏輯、難以撰寫規則的數值預測或類別預測任務，我們舉出一些簡單的例子來說明哪些問題能用語言描述邏輯、撰寫規則，哪些問題不容易用語言描述邏輯、撰寫規則。</p>
+<div class="section" id="判斷質數">
+<h3>判斷質數<a class="headerlink" href="#判斷質數" title="Permalink to this headline">¶</a></h3>
+<p>判斷一個正整數是否為質數有一個明確且能夠描述的邏輯：找出這個正整數所有的因數，假如個數為 2，亦即 1 與正整數自身，那麼就可以判斷為質數；反之如果所有因數的個數不為 2（1 個因數或者超過 2 個），那麼就判斷不為質數。假如解決問題的邏輯清晰且可以用語言描述，我們可以將這個邏輯想像成為一個函式 <span class="math notranslate nohighlight">\(f\)</span>，將問題輸入它就可以獲得解答 <span class="math notranslate nohighlight">\(f(x)\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    判斷輸入 x 是否為質數，是質數則輸出 1，否則輸出 0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_divisors</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">n_divisors</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">n_divisors</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_divisors</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span> <span class="c1"># 非質數</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="c1"># 質數</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="c1"># 質數</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+True
+True
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="數值預測：球員的體重為何？">
+<h3>數值預測：球員的體重為何？<a class="headerlink" href="#數值預測：球員的體重為何？" title="Permalink to this headline">¶</a></h3>
+<p>給定一位 NBA 球員的身高來預測他的體重，這個問題並沒有一個明確且能夠描述的邏輯，相反地，可能有為數甚多的手段來達成，例如用所有球員的平均 BMI 反推，或者以差不多身高的球員平均體重做為答案；這時我們想像有一個函式 <span class="math notranslate nohighlight">\(f\)</span> 能夠完美解決問題，但是定義不出來，於是假設另一個函式 <span class="math notranslate nohighlight">\(h\)</span> 和 <span class="math notranslate nohighlight">\(f\)</span> 很相似但不盡相同，將問題輸入它可以獲得解答 <span class="math notranslate nohighlight">\(h(x)\)</span>，但由於 <span class="math notranslate nohighlight">\(h\)</span> 畢竟不是 <span class="math notranslate nohighlight">\(f\)</span>，因此這個解答是有誤差的，而機器學習演算法的目標，就是盡可能讓誤差減小、讓 <span class="math notranslate nohighlight">\(h\)</span> 愈加逼近 <span class="math notranslate nohighlight">\(f\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;heightMeters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;weightKilograms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.90</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 預測身高 190 公分 NBA 球員的體重</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.98</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 預測身高 198 公分 NBA 球員的體重</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.03</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 預測身高 203 公分 NBA 球員的體重</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+89.7841199952096
+97.62196924017876
+102.52062501828449
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="類別預測：球員的鋒衛位置為何？">
+<h3>類別預測：球員的鋒衛位置為何？<a class="headerlink" href="#類別預測：球員的鋒衛位置為何？" title="Permalink to this headline">¶</a></h3>
+<p>給定一位 NBA 球員的生涯場均助攻與場均籃板來預測他的鋒衛位置，這個問題同樣沒有一個明確且能夠描述的邏輯；我們同樣想像有一個函式 <span class="math notranslate nohighlight">\(f\)</span> 能夠完美解決問題，但是定義不出來，於是假設另一個函式 <span class="math notranslate nohighlight">\(h\)</span> 和 <span class="math notranslate nohighlight">\(f\)</span> 很相似但不盡相同，將問題輸入它可以獲得解答 <span class="math notranslate nohighlight">\(h(x)\)</span>，但由於 <span class="math notranslate nohighlight">\(h\)</span> 畢竟不是 <span class="math notranslate nohighlight">\(f\)</span>，因此這個解答是有誤差的。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">unique_pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">pos_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">p</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_pos</span><span class="p">)}</span>
+<span class="n">pos_dict_reversed</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pos_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_dict_reversed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{0: &#39;C&#39;, 1: &#39;C-F&#39;, 2: &#39;F-C&#39;, 3: &#39;G&#39;, 4: &#39;F&#39;, 5: &#39;F-G&#39;, 6: &#39;G-F&#39;}
+{&#39;C&#39;: 0, &#39;C-F&#39;: 1, &#39;F-C&#39;: 2, &#39;G&#39;: 3, &#39;F&#39;: 4, &#39;F-G&#39;: 5, &#39;G-F&#39;: 6}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[[</span><span class="s1">&#39;apg&#39;</span><span class="p">,</span> <span class="s1">&#39;rpg&#39;</span><span class="p">]]</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pos_dict_reversed</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">values</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">]])</span> <span class="c1"># 預測場均助攻 5 場均籃板 5 的 NBA 球員鋒衛位置</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">]])</span> <span class="c1"># 預測場均助攻 5 場均籃板 10 的 NBA 球員鋒衛位置</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_dict</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">]])</span> <span class="c1"># 預測場均助攻 5 場均籃板 15 的 NBA 球員鋒衛位置</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+G
+F
+C
+</pre></div></div>
+</div>
+<p>經由前述判斷質數、數值預測和類別預測的簡單舉例，相信讀者已經能夠理解「能否」使用清晰且可以語言描述的邏輯作為判斷、預測準則，是資料科學專案是否採用機器學習方法的一個常見準則。</p>
+<p>截至目前為止我們還沒有開始認識 NumPy、Matplotlib 或者 Scikit-Learn 套件，但是為了更妥善地說明，在範例程式碼中已經先引用了這些第三方套件所提供類別或函式，假如讀者目前對這些部分感到困惑，可待讀過數列運算、資料探索與機器學習入門等本書後面的章節，再回來複習。</p>
+</div>
+</div>
+<div class="section" id="延伸閱讀">
+<h2>延伸閱讀<a class="headerlink" href="#延伸閱讀" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Hans Rosling (<a class="reference external" href="https://en.wikipedia.org/wiki/Hans_Rosling">https://en.wikipedia.org/wiki/Hans_Rosling</a>)</p></li>
+<li><p>Charles Minard (<a class="reference external" href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard">https://en.wikipedia.org/wiki/Charles_Joseph_Minard</a>)</p></li>
+<li><p>Matthew Henry Phineas Riall Sankey (<a class="reference external" href="https://en.wikipedia.org/wiki/Matthew_Henry_Phineas_Riall_Sankey">https://en.wikipedia.org/wiki/Matthew_Henry_Phineas_Riall_Sankey</a>)</p></li>
+<li><p>Hans Rosling: 200 years in 4 minutes - BBC News (<a class="reference external" href="https://www.youtube.com/watch?v=Z8t4k0Q8e8Y">https://www.youtube.com/watch?v=Z8t4k0Q8e8Y</a>)</p></li>
+<li><p>Tom M. Mitchell (<a class="reference external" href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">https://en.wikipedia.org/wiki/Tom_M._Mitchell</a>)</p></li>
+<li><p>Normal distribution (<a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">https://en.wikipedia.org/wiki/Normal_distribution</a>)</p></li>
+<li><p>data.nba.net (<a class="reference external" href="https://data.nba.net/10s/prod/v1/today.json">https://data.nba.net/10s/prod/v1/today.json</a>)</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00-preface.html" title="previous page">關於本書</a>
+    <a class='right-next' id="next-link" href="02-numpy.html" title="next page">數列運算</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By 郭耀仁<br/>
+        
+            &copy; Copyright 2020, 郭耀仁.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

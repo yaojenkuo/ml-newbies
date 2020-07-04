@@ -1,0 +1,1724 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>數值預測的任務 &#8212; 新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="類別預測的任務" href="06-classification.html" />
+    <link rel="prev" title="機器學習入門" href="04-sklearn.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="00-preface.html">關於本書</a>
+  </li>
+  <li class="">
+    <a href="01-introduction.html">關於視覺化與機器學習</a>
+  </li>
+  <li class="">
+    <a href="02-numpy.html">數列運算</a>
+  </li>
+  <li class="">
+    <a href="03-matplotlib.html">資料探索</a>
+  </li>
+  <li class="">
+    <a href="04-sklearn.html">機器學習入門</a>
+  </li>
+  <li class="active">
+    <a href="">數值預測的任務</a>
+  </li>
+  <li class="">
+    <a href="06-classification.html">類別預測的任務</a>
+  </li>
+  <li class="">
+    <a href="07-performance.html">表現的評估</a>
+  </li>
+  <li class="">
+    <a href="08-deep-learning.html">深度學習入門</a>
+  </li>
+  <li class="">
+    <a href="09-appendix-a.html">附錄 A</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/05-regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/spatialaudio/nbsphinx"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/spatialaudio/nbsphinx/issues/new?title=Issue%20on%20page%20%2F05-regression.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/05-regression.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#關於數值預測的任務" class="nav-link">關於數值預測的任務</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#以-Scikit-Learn-預測器完成數值預測任務" class="nav-link">以 Scikit-Learn 預測器完成數值預測任務</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#正規方程-Normal-Equation" class="nav-link">正規方程 Normal Equation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#自訂正規方程類別-NormalEquation" class="nav-link">自訂正規方程類別 NormalEquation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#計算複雜性" class="nav-link">計算複雜性</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#梯度遞減-Gradient-Descent" class="nav-link">梯度遞減 Gradient Descent</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#自訂梯度遞減類別-GradientDescent" class="nav-link">自訂梯度遞減類別 GradientDescent</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#標準化與進階的梯度遞減" class="nav-link">標準化與進階的梯度遞減</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#延伸閱讀" class="nav-link">延伸閱讀</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/05-regression.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="數值預測的任務">
+<h1>數值預測的任務<a class="headerlink" href="#數值預測的任務" title="Permalink to this headline">¶</a></h1>
+<p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pyvizml</span> <span class="kn">import</span> <span class="n">CreateNBAData</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="關於數值預測的任務">
+<h2>關於數值預測的任務<a class="headerlink" href="#關於數值預測的任務" title="Permalink to this headline">¶</a></h2>
+<p>「數值預測」是「監督式學習」的其中一種應用類型，當預測的目標向量 <span class="math notranslate nohighlight">\(y\)</span> 屬於連續型的數值變數，那我們就能預期正在面對數值預測的任務，更廣泛被眾人知悉的名稱為「迴歸模型」。例如預測的目標向量 <span class="math notranslate nohighlight">\(y\)</span> 是 <code class="docutils literal notranslate"><span class="pre">players</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">weightKilograms</span></code>，在資料類別中屬於連續型的數值類別 <code class="docutils literal notranslate"><span class="pre">float</span></code>；具體來說，迴歸模型想方設法將特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 與目標向量 <span class="math notranslate nohighlight">\(y\)</span> 之間的關聯以一條迴歸線（Regression Line）描繪，而描繪迴歸線所依據的截距項和係數項，就是用來逼近 <span class="math notranslate nohighlight">\(f\)</span> 的 <span class="math notranslate nohighlight">\(h\)</span>。</p>
+<p>我們也可依 <a class="reference external" href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">Tom Mitchel</a> 對機器學習電腦程式的定義寫下數值預測的資料、任務、評估與但書，以預測 <code class="docutils literal notranslate"><span class="pre">players</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">weightKilograms</span></code> 為例：</p>
+<ul class="simple">
+<li><p>資料（Experience）：一定數量的球員資料</p></li>
+<li><p>任務（Task）：利用模型預測球員的體重</p></li>
+<li><p>評估（Performance）：模型預測的體重與球員實際體重的誤差大小</p></li>
+<li><p>但書（Condition）：隨著資料觀測值筆數增加，預測誤差應該要減少</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># players 資料中的 weightKilograms</span>
+<span class="n">cnd</span> <span class="o">=</span> <span class="n">CreateNBAData</span><span class="p">(</span><span class="mi">2019</span><span class="p">)</span>
+<span class="n">players</span> <span class="o">=</span> <span class="n">cnd</span><span class="o">.</span><span class="n">create_players_df</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;weightKilograms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Creating players df...
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dtype(&#39;float64&#39;)
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="以-Scikit-Learn-預測器完成數值預測任務">
+<h2>以 Scikit-Learn 預測器完成數值預測任務<a class="headerlink" href="#以-Scikit-Learn-預測器完成數值預測任務" title="Permalink to this headline">¶</a></h2>
+<p>將 <code class="docutils literal notranslate"><span class="pre">heightMeters</span></code> 當作特徵矩陣為例，特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 與目標向量 <span class="math notranslate nohighlight">\(y\)</span> 之間的關聯可以這樣描述。</p>
+<p><span class="math">\begin{equation}
+\hat{y} = w_0 + w_1x_1
+\end{equation}</span></p>
+<p>以 Scikit-Learn 定義好的預測器類別 <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> 可以快速找出描繪迴歸線所依據的截距項 <span class="math notranslate nohighlight">\(w_0\)</span> 和係數項 <span class="math notranslate nohighlight">\(w_1\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;heightMeters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;weightKilograms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-104.22092448587175
+[101.82540151]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 預測</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([107.57591065,  82.11956027, 100.44813254, 105.53940262,
+        95.35686246, 112.66718072,  92.30210042,  92.30210042,
+        97.39337049,  95.35686246])
+</pre></div></div>
+</div>
+<p>找出 <span class="math notranslate nohighlight">\(w_0\)</span> 與 <span class="math notranslate nohighlight">\(w_1\)</span> 就能夠描繪出一條迴歸線表達特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 與目標向量 <span class="math notranslate nohighlight">\(y\)</span>。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 創建迴歸線的資料</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 描繪迴歸線</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_valid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">y_valid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;regression&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/05-regression_10_0.png" src="_images/05-regression_10_0.png" />
+</div>
+</div>
+<p>使用 Scikit-Learn 預測器的最關鍵方法呼叫是 <code class="docutils literal notranslate"><span class="pre">fit()</span></code> 方法，究竟它是如何決定 <code class="docutils literal notranslate"><span class="pre">X_train</span></code> 與 <code class="docutils literal notranslate"><span class="pre">y_train</span></code> 之間的關聯 <span class="math notranslate nohighlight">\(w\)</span>？接下來我們試圖推導並理解它。</p>
+</div>
+<div class="section" id="正規方程-Normal-Equation">
+<h2>正規方程 Normal Equation<a class="headerlink" href="#正規方程-Normal-Equation" title="Permalink to this headline">¶</a></h2>
+<p>使用機器學習解決數值預測的任務，顧名思義是能夠創建出一個 <span class="math notranslate nohighlight">\(h\)</span> 函式，這個函式可以將無標籤資料 <span class="math notranslate nohighlight">\(x\)</span> 作為輸入，並預測目標向量 <span class="math notranslate nohighlight">\(y\)</span> 的值作為其輸出。</p>
+<p><span class="math">\begin{align}
+\hat{y} &= h(x; w) \\
+&= w_0 + w_1x_1 + ... + w_nx_n
+\end{align}</span></p>
+<p>為了寫作成向量相乘形式，為 <span class="math notranslate nohighlight">\(w_0\)</span> 補上 <span class="math notranslate nohighlight">\(x_0=1\)</span>：</p>
+<p><span class="math">\begin{align}
+\hat{y} &= w_0x_0 + w_1x_1 + ... + w_nx_n, \; where \; w_0 = 1 \\
+&= w^Tx
+\end{align}</span></p>
+<p>其中 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 是預測值、<span class="math notranslate nohighlight">\(n\)</span> 是特徵個數、<span class="math notranslate nohighlight">\(w\)</span> 是係數向量；並能夠進一步延展為 <code class="docutils literal notranslate"><span class="pre">m</span></code> 筆觀測值的外觀為：</p>
+<p><span class="math">\begin{equation}
+\hat{y} = h(X; w) =
+\begin{bmatrix} x_{00}, x_{01}, ..., x_{0n} \\ x_{10}, x_{11}, ..., x_{1n} \\.\\.\\.\\ x_{m0}, x_{m1}, ..., x_{mn}
+\end{bmatrix}
+\begin{bmatrix} w_0 \\ w_1 \\.\\.\\.\\ w_n \end{bmatrix} = Xw
+\end{equation}</span></p>
+<p><span class="math notranslate nohighlight">\(h(X; w)\)</span> 是基於 <span class="math notranslate nohighlight">\(w\)</span> 的函式，如果第 <span class="math notranslate nohighlight">\(i\)</span> 個特徵 <span class="math notranslate nohighlight">\(x_i\)</span> 對應的係數 <span class="math notranslate nohighlight">\(w_i\)</span> 為正數，該特徵與 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 的變動同向；如果第 <span class="math notranslate nohighlight">\(i\)</span> 個特徵 <span class="math notranslate nohighlight">\(x_i\)</span> 對應的係數 <span class="math notranslate nohighlight">\(w_i\)</span> 為負數，該特徵與 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 的變動反向；如果第 <span class="math notranslate nohighlight">\(i\)</span> 個特徵 <span class="math notranslate nohighlight">\(x_i\)</span> 對應的係數 <span class="math notranslate nohighlight">\(w_i\)</span> 為零，該特徵對 <span class="math notranslate nohighlight">\(\hat{y}\)</span> 的變動沒有影響。</p>
+<p>截至於此，資料（Experiment）與任務（Task）已經被定義妥善，特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>、目標向量 <span class="math notranslate nohighlight">\(y\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(m,)</span></code>、係數向量 <span class="math notranslate nohighlight">\(w\)</span> 外觀 <code class="docutils literal notranslate"><span class="pre">(n,)</span></code>，通過將 <span class="math notranslate nohighlight">\(X\)</span> 輸入 <span class="math notranslate nohighlight">\(h\)</span> 來預測 <span class="math notranslate nohighlight">\(\hat{y}\)</span>，接下來還需要定義評估（Performance）。</p>
+<p>評估 <span class="math notranslate nohighlight">\(h\)</span> 的方法是計算 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span> 之間的均方誤差（Mean squared error）：</p>
+<p><span class="math">\begin{equation}
+MSE_{train} = \frac{1}{m}\sum_i(y^{(train)} - \hat{y}^{(train)})_i^2
+\end{equation}</span></p>
+<p>如果寫為向量運算的外觀：</p>
+<p><span class="math">\begin{equation}
+MSE_{train} = \frac{1}{m}\parallel y^{(train)} - \hat{y}^{(train)} \parallel^2
+\end{equation}</span></p>
+<p>電腦程式能夠通過觀察訓練資料藉此獲得一組能讓均方誤差最小化的係數向量 <span class="math notranslate nohighlight">\(w\)</span>，為了達成這個目的，將均方誤差表達為一個基於係數向量 <span class="math notranslate nohighlight">\(w\)</span> 的函式 <span class="math notranslate nohighlight">\(J(w)\)</span>：</p>
+<p><span class="math">\begin{equation}
+J(w) = MSE = \frac{1}{m} \parallel y - Xw \parallel^2
+\end{equation}</span></p>
+<p>整理一下函式 <span class="math notranslate nohighlight">\(J(w)\)</span> 的外觀：</p>
+<p><span class="math">\begin{align}
+J(w) &= \frac{1}{m}(Xw - y)^T(Xw - y) \\
+&= \frac{1}{m}(w^TX^T - y^T)(Xw - y) \\
+&= \frac{1}{m}(w^TX^TXw - w^TX^Ty - y^TXw + y^Ty) \\
+&= \frac{1}{m}(w^TX^TXw - (Xw)^Ty - y^TXw + y^Ty) \\
+&= \frac{1}{m}(w^TX^TXw - 2(Xw)^Ty + y^Ty)
+\end{align}</span></p>
+<p>求解 <span class="math notranslate nohighlight">\(J(w)\)</span> 斜率為零的位置：</p>
+<p><span class="math">\begin{gather}
+\frac{\partial}{\partial w} J(w) = 0 \\
+2X^TXw - 2X^Ty = 0 \\
+X^TXw = X^Ty \\
+w^* = (X^TX)^{-1}X^Ty
+\end{gather}</span></p>
+<p>這個 <span class="math notranslate nohighlight">\(w^*\)</span> 求解亦被稱呼為「正規方程」（Normal equation）。</p>
+</div>
+<div class="section" id="自訂正規方程類別-NormalEquation">
+<h2>自訂正規方程類別 NormalEquation<a class="headerlink" href="#自訂正規方程類別-NormalEquation" title="Permalink to this headline">¶</a></h2>
+<p>我們可以依據正規方程自訂預測器類別，並與 Scikit-Learn 定義好的預測器類別 <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> 比對係數向量是否一致。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">NormalEquation</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class defines the Normal equation for linear regression.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        fit_intercept (bool): Whether to add intercept for this model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span> <span class="o">=</span> <span class="n">fit_intercept</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function uses Normal equation to solve for weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_train (ndarray): 2d-array for feature matrix of training data.</span>
+<span class="sd">            y_train (ndarray): 1d-array for target vector of training data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span><span class="p">:</span>
+            <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">X_train_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">)</span>
+        <span class="n">left_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train_T</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">)</span>
+        <span class="n">right_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train_T</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="p">)</span>
+        <span class="n">left_matrix_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">left_matrix</span><span class="p">)</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">left_matrix_inv</span><span class="p">,</span> <span class="n">right_matrix</span><span class="p">)</span>
+        <span class="n">w_ravel</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="n">w</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns predicted values with weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_test (ndarray): 2d-array for feature matrix of test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span><span class="p">:</span>
+            <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y_pred</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">NormalEquation</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-104.22092448572948
+[101.82540151]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 預測</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([107.57591065,  82.11956027, 100.44813254, 105.53940262,
+        95.35686246, 112.66718072,  92.30210042,  92.30210042,
+        97.39337049,  95.35686246])
+</pre></div></div>
+</div>
+<p>比對 <span class="math notranslate nohighlight">\(w\)</span> 與前十筆預測值可以驗證自行定義的 <code class="docutils literal notranslate"><span class="pre">NormalEquation</span></code> 類別與 Scikit-Learn 求解 <span class="math notranslate nohighlight">\(w\)</span> 的邏輯相近。</p>
+</div>
+<div class="section" id="計算複雜性">
+<h2>計算複雜性<a class="headerlink" href="#計算複雜性" title="Permalink to this headline">¶</a></h2>
+<p>計算複雜性（Computational complexity）是電腦科學研究解決問題所需的資源，諸如時間（要通過多少步演算才能解決問題）和空間（在解決問題時需要多少記憶體），在演算法中常見到的大 O 符號就是表示演算所需時間的表達式。在正規方程中必須要透過計算 <span class="math notranslate nohighlight">\(X^TX\)</span> 的反矩陣 <span class="math notranslate nohighlight">\((X^TX)^{-1}\)</span> 求解 <span class="math notranslate nohighlight">\(w^*\)</span>，這是一個外觀 <code class="docutils literal notranslate"><span class="pre">(n+1,</span> <span class="pre">n+1)</span></code> 的二維數值陣列（<code class="docutils literal notranslate"><span class="pre">n</span></code> 為特徵個數），計算複雜性最多是 <span class="math notranslate nohighlight">\(O(n^3)\)</span>，這意味著如果特徵個數變為 2 倍，計算 <span class="math notranslate nohighlight">\((X^TX)^{-1}\)</span> 的時間最多會變為 8 倍。因此當面對的特徵矩陣
+<code class="docutils literal notranslate"><span class="pre">n</span></code> 很大（約莫是大於 <span class="math notranslate nohighlight">\(10^4\)</span>），正規方程的計算複雜性問題就會浮現，這時讀者可能會好奇 <span class="math notranslate nohighlight">\(n \geq 10^4\)</span> 會很容易遭遇嗎？在特徵矩陣是圖像時很容易遭遇，例如低解析度 <span class="math notranslate nohighlight">\(100 \: px \times 100 \: px\)</span> 的灰階圖片。</p>
+</div>
+<div class="section" id="梯度遞減-Gradient-Descent">
+<h2>梯度遞減 Gradient Descent<a class="headerlink" href="#梯度遞減-Gradient-Descent" title="Permalink to this headline">¶</a></h2>
+<p>另外一種在機器學習、深度學習中更為廣泛使用的演算方法稱為「梯度遞減」（Gradient descent），基本概念是先隨機初始化一組係數向量，在基於降低 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span> 之間誤差 <span class="math notranslate nohighlight">\(J(w)\)</span> 之目的標之下，以迭代方式更新該組係數向量，一直到 <span class="math notranslate nohighlight">\(J(w)\)</span> 收斂到局部最小值為止。</p>
+<p>梯度遞減的精髓在於當演算方法更新係數向量時，並不是盲目亂槍打鳥地試誤（Trial and error），而是透過「有方向性」的依據進行更新，具體來說，就是根據誤差函式 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於係數向量 <span class="math notranslate nohighlight">\(w\)</span> 的偏微分來決定更新的方向性，而更新的幅度大小則由一個大於零、稱為「學習速率」的常數 <span class="math notranslate nohighlight">\(\alpha\)</span> 決定：</p>
+<p><span class="math">\begin{equation}
+w := w - \alpha \frac{\partial J}{\partial w}
+\end{equation}</span></p>
+<p>讓我們用一個簡單的例子來看為什麼透過這個式子更新 <span class="math notranslate nohighlight">\(w\)</span> 是一種「有方向性」的依據，舉例來說如果給定一組 <span class="math notranslate nohighlight">\(X^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(y^{(train)}\)</span>：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="n">X1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[ 1.  1.]
+ [ 1.  2.]
+ [ 1.  3.]
+ [ 1.  4.]
+ [ 1.  5.]
+ [ 1.  6.]
+ [ 1.  7.]
+ [ 1.  8.]
+ [ 1.  9.]
+ [ 1. 10.]]
+[11. 17. 23. 29. 35. 41. 47. 53. 59. 65.]
+</pre></div></div>
+</div>
+<p>從後見之明的視角來看，我們會知道係數向量 <span class="math notranslate nohighlight">\(w^*\)</span> 的組成 <span class="math notranslate nohighlight">\(w_0=5\)</span>、<span class="math notranslate nohighlight">\(w_1=6\)</span>：</p>
+<p><span class="math">\begin{equation}
+f(x) = y = 5x_0 + 6x_1
+\end{equation}</span></p>
+<p>亦即</p>
+<p><span class="math">\begin{equation}
+w^* = \begin{bmatrix} w_0^* \\ w_1^* \end{bmatrix} = \begin{bmatrix} 5 \\ 6 \end{bmatrix}
+\end{equation}</span></p>
+<p>不過給定電腦程式一組 <span class="math notranslate nohighlight">\(X^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 對於它來說像是拋出了一個大海撈針的問題，有無限多組的 <span class="math notranslate nohighlight">\(w\)</span> 等著要嘗試（它甚至不知道用 <span class="math notranslate nohighlight">\(w_0\)</span> 與 <span class="math notranslate nohighlight">\(w_1\)</span> 就可以找到跟 <span class="math notranslate nohighlight">\(f\)</span> 完全相同的 <span class="math notranslate nohighlight">\(h\)</span>），遑論找出 <span class="math notranslate nohighlight">\(w_0=5\)</span>、<span class="math notranslate nohighlight">\(w_1=6\)</span>；「梯度遞減」演算方法就是為電腦程式提供了一個尋找解題的方式，千里之行，始於足下，請先隨機初始化一組 <span class="math notranslate nohighlight">\(w\)</span>：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">w</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.37454012, 0.95071431])
+</pre></div></div>
+</div>
+<p>針對這組 <span class="math notranslate nohighlight">\(w\)</span> 可以得到一組 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span>：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">y_hat</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1.32525443, 2.27596873, 3.22668304, 4.17739734, 5.12811165,
+       6.07882596, 7.02954026, 7.98025457, 8.93096888, 9.88168318])
+</pre></div></div>
+</div>
+<p>針對這組 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span> 可以計算與 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 的均方誤差。</p>
+<p><span class="math">\begin{equation}
+J(w) = \frac{1}{m}\parallel y - Xw \parallel^2
+\end{equation}</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">m</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">size</span>
+<span class="n">j</span> <span class="o">=</span> <span class="p">((</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">))</span> <span class="o">/</span> <span class="n">m</span>
+<span class="n">j</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1259.87134315462
+</pre></div></div>
+</div>
+<p>那麼下一次的試誤該如何更新 <span class="math notranslate nohighlight">\(w\)</span> 才能確保離 <span class="math notranslate nohighlight">\(w^*\)</span> 更近，讓計算出來的均方誤差會更小一些？這時梯度遞減演算方法登場，它直截了當地說：請將目前的 <span class="math notranslate nohighlight">\(w_0\)</span> 減去學習速率 <span class="math notranslate nohighlight">\(\alpha\)</span> 乘上 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w_0\)</span> 的偏微分、將目前的 <span class="math notranslate nohighlight">\(w_1\)</span> 減去學習速率 <span class="math notranslate nohighlight">\(\alpha\)</span> 乘上 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w_1\)</span> 的偏微分：</p>
+<p><span class="math">\begin{equation}
+w_0 := w_0 - \alpha \frac{\partial J}{\partial w_0}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+w_1 := w_1 - \alpha \frac{\partial J}{\partial w_1}
+\end{equation}</span></p>
+<p>以係數向量的外觀表示：</p>
+<p><span class="math">\begin{equation}
+w := w - \alpha \frac{\partial J}{\partial w}
+\end{equation}</span></p>
+<p>接著慢慢將 <span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的偏微分式子展開：</p>
+<p><span class="math">\begin{align}
+\frac{\partial J}{\partial w} &= \frac{1}{m}\frac{\partial}{\partial w}(\parallel y - Xw \parallel^2) \\
+&= \frac{1}{m}\frac{\partial}{\partial w}(Xw - y)^T(Xw-y) \\
+&= \frac{1}{m}\frac{\partial}{\partial w}(w^TX^TXw - w^TX^Ty - y^TXw + y^Ty) \\
+&= \frac{1}{m}\frac{\partial}{\partial w}(w^TX^TXw - (Xw)^Ty - (Xw)^Ty + y^Ty) \\
+&= \frac{1}{m}\frac{\partial}{\partial w}(w^TX^TXw - 2(Xw)^Ty + y^Ty) \\
+&= \frac{1}{m}(2X^TXw - 2X^Ty) \\
+&= \frac{2}{m}(X^TXw - X^Ty) \\
+&= \frac{2}{m}X^T(Xw - y) \\
+&= \frac{2}{m}X^T(\hat{y} - y)
+\end{align}</span></p>
+<p><span class="math notranslate nohighlight">\(J(w)\)</span> 關於 <span class="math notranslate nohighlight">\(w\)</span> 的偏微分就是演算方法中所謂的「梯度」（Gradient），在迭代過程中 <span class="math notranslate nohighlight">\(w\)</span> 更新的方向性取決於梯度正負號，如果梯度為正，<span class="math notranslate nohighlight">\(w\)</span> 會向左更新（減小）；如果梯度為負，<span class="math notranslate nohighlight">\(w\)</span> 會向右更新（增大）。</p>
+<p><span class="math">\begin{equation}
+w := w - \alpha \frac{2}{m}X^T(\hat{y} - y)
+\end{equation}</span></p>
+<p>接著計算隨機初始化的 <span class="math notranslate nohighlight">\(w\)</span> 其梯度為何。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gradients</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">gradients</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ -64.79306239, -439.6750571 ])
+</pre></div></div>
+</div>
+<p>當梯度為負，隨機初始化的 <span class="math notranslate nohighlight">\(w\)</span> 會向右更新（增大），離後見之明視角所知的 <span class="math notranslate nohighlight">\(w_0 = 5\)</span>、<span class="math notranslate nohighlight">\(w_1 = 6\)</span> 更加接近，在更新的方向性上是正確的。假設將學習速率設定為 0.001，更新的幅度就是：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="o">-</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="n">gradients</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.06479306, 0.43967506])
+</pre></div></div>
+</div>
+<p>經過第一次迭代更新後的 <span class="math notranslate nohighlight">\(w\)</span>：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">w</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">gradients</span>
+<span class="n">w</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.43933318, 1.39038936])
+</pre></div></div>
+</div>
+<p>針對更新過一次的 <span class="math notranslate nohighlight">\(w\)</span> 可以得到一組 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span>：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">y_hat</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 1.82972254,  3.22011191,  4.61050127,  6.00089064,  7.39128   ,
+        8.78166936, 10.17205873, 11.56244809, 12.95283745, 14.34322682])
+</pre></div></div>
+</div>
+<p>更新過一次的 <span class="math notranslate nohighlight">\(w\)</span> 所對應的均方誤差：</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">j</span> <span class="o">=</span> <span class="p">((</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">))</span> <span class="o">/</span> <span class="n">m</span>
+<span class="n">j</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1070.1192063534622
+</pre></div></div>
+</div>
+<p>從上述例子可以觀察到運用「梯度遞減」演算方法迭代更新係數向量的過程中，透過計算誤差函式關於係數向量的梯度決定更新的<strong>方向性</strong>，透過學習速率決定更新的<strong>幅度</strong>，在迭代進行一次之後，係數向右更新（增大）離真實的 <span class="math notranslate nohighlight">\(w^*\)</span> 更接近了些、均方誤差也下降了些。</p>
+</div>
+<div class="section" id="自訂梯度遞減類別-GradientDescent">
+<h2>自訂梯度遞減類別 GradientDescent<a class="headerlink" href="#自訂梯度遞減類別-GradientDescent" title="Permalink to this headline">¶</a></h2>
+<p>我們可以依據梯度遞減自訂預測器類別，檢視迭代後的 <span class="math notranslate nohighlight">\(w\)</span> 是否與後見之明視角的 <span class="math notranslate nohighlight">\(w_0 = 5\)</span>、<span class="math notranslate nohighlight">\(w_1 = 6\)</span> 相近、均方誤差是否隨著迭代而下降。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">GradientDescent</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class defines the vanilla gradient descent algorithm for linear regression.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        fit_intercept (bool): Whether to add intercept for this model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span> <span class="o">=</span> <span class="n">fit_intercept</span>
+    <span class="k">def</span> <span class="nf">find_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the gradient given certain model weights.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="p">)</span>
+        <span class="n">gradient</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">y_hat</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gradient</span>
+    <span class="k">def</span> <span class="nf">mean_squared_error</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the mean squared error given certain model weights.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="p">)</span>
+        <span class="n">mse</span> <span class="o">=</span> <span class="p">((</span><span class="n">y_hat</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_hat</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span><span class="p">))</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+        <span class="k">return</span> <span class="n">mse</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function uses vanilla gradient descent to solve for weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_train (ndarray): 2d-array for feature matrix of training data.</span>
+<span class="sd">            y_train (ndarray): 1d-array for target vector of training data.</span>
+<span class="sd">            epochs (int): The number of iterations to update the model weights.</span>
+<span class="sd">            learning_rate (float): The learning rate of gradient descent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span><span class="p">:</span>
+            <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">n_prints</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">print_iter</span> <span class="o">=</span> <span class="n">epochs</span> <span class="o">//</span> <span class="n">n_prints</span>
+        <span class="n">w_history</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">current_w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">w_history</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_w</span>
+            <span class="n">mse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">()</span>
+            <span class="n">gradient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_gradient</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">print_iter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;epoch: </span><span class="si">{:6}</span><span class="s2"> - loss: </span><span class="si">{:.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mse</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">-=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="n">gradient</span>
+        <span class="n">w_ravel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w_history</span> <span class="o">=</span> <span class="n">w_history</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns predicted values with weights of this model.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X_test (ndarray): 2d-array for feature matrix of test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span> <span class="o">=</span> <span class="n">X_test</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span><span class="p">:</span>
+            <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y_pred</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">GradientDescent</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+epoch:      0 - loss: 1395.016289
+epoch:   2000 - loss: 0.467521
+epoch:   4000 - loss: 0.087119
+epoch:   6000 - loss: 0.016234
+epoch:   8000 - loss: 0.003025
+epoch:  10000 - loss: 0.000564
+epoch:  12000 - loss: 0.000105
+epoch:  14000 - loss: 0.000020
+epoch:  16000 - loss: 0.000004
+epoch:  18000 - loss: 0.000001
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4.9992312515155835
+[6.00011042]
+</pre></div></div>
+</div>
+<p>最後我們將自訂的梯度遞減預測器類別應用在真實的 <code class="docutils literal notranslate"><span class="pre">players</span></code> 資料，並且與 Scikit-Learn 預測器類別、正規方程類別所求得的 <span class="math notranslate nohighlight">\(w\)</span> 比對。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;heightMeters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="s1">&#39;weightKilograms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">GradientDescent</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">300000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+epoch:      0 - loss: 9727.248118
+epoch:  30000 - loss: 53.087449
+epoch:  60000 - loss: 49.159273
+epoch:  90000 - loss: 48.548584
+epoch: 120000 - loss: 48.453643
+epoch: 150000 - loss: 48.438884
+epoch: 180000 - loss: 48.436589
+epoch: 210000 - loss: 48.436232
+epoch: 240000 - loss: 48.436177
+epoch: 270000 - loss: 48.436168
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-104.2096510036928
+[101.81974607]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 預測</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([107.57542082,  82.1204843 , 100.4480386 , 105.5390259 ,
+        95.35705129, 112.66640812,  92.30245891,  92.30245891,
+        97.39344621,  95.35705129])
+</pre></div></div>
+</div>
+<p>比對 <span class="math notranslate nohighlight">\(w\)</span> 與前十筆預測值可以驗證自行定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別與 Scikit-Learn 求解的邏輯相近。</p>
+<p>我們用簡潔的一段話總結數值預測任務：面對屬於連續型的數值目標向量 <span class="math notranslate nohighlight">\(y\)</span>，讓電腦程式透過觀察訓練資料 <span class="math notranslate nohighlight">\(X^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(y^{(train)}\)</span>，基於最小化 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span> 間的誤差 <span class="math notranslate nohighlight">\(J(w)\)</span>，透過正規方程或者梯度遞減的演算方法，尋找出係數向量 <span class="math notranslate nohighlight">\(w^*\)</span> 建構出一個 <span class="math notranslate nohighlight">\(h(X; w^*)\)</span> 去近似假設存在能完美對應 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(y\)</span> 的 <span class="math notranslate nohighlight">\(f\)</span>。</p>
+</div>
+<div class="section" id="標準化與進階的梯度遞減">
+<h2>標準化與進階的梯度遞減<a class="headerlink" href="#標準化與進階的梯度遞減" title="Permalink to this headline">¶</a></h2>
+<p>目前自行定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別是屬於單純的最適化手法，為什麼用「單純」來形容？我們再回顧梯度遞減的核心概念：</p>
+<p><span class="math">\begin{equation}
+w := w - \alpha \frac{\partial J}{\partial w}
+\end{equation}</span></p>
+<p>在這個演算方法可以清楚觀察到 <span class="math notranslate nohighlight">\(w\)</span> 的更新依據有兩個：學習速率 <span class="math notranslate nohighlight">\(\alpha\)</span> 與梯度 <span class="math notranslate nohighlight">\(\frac{\partial J}{\partial w}\)</span>，其中學習速率使用一個事先決定的常數，在訓練過程固定不變，梯度也是該次迭代當下的快照；在這樣的設計理念之下，當 <span class="math notranslate nohighlight">\(w_i\)</span>
+彼此的量值級距差距大，將會發生不效率的最適化。以跑步來比喻，在短距離的場地賽應該要穿著釘鞋與使用九成最大攝氧量的配速競賽、在長距離的路跑賽應該要穿著厚底鞋與使用七成最大攝氧量的配速競賽，然而使用固定的學習速率、只考慮單下的梯度，就像是用同一套裝備與配速去面對距離不同的賽事一般，無法有出色的表現。以 <a class="reference external" href="https://www.kaggle.com/">Kaggle</a> 網站所下載回來的<a class="reference external" href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">艾姆斯房價</a>資料為例，若以其中的 <code class="docutils literal notranslate"><span class="pre">GrLivArea</span></code>
+作為特徵矩陣來預測目標向量 <code class="docutils literal notranslate"><span class="pre">SalePrice</span></code>，以 Scikit-Learn 的 <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> 預測器類別可以獲知 <span class="math notranslate nohighlight">\(w^*\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://kaggle-getting-started.s3-ap-northeast-1.amazonaws.com/house-prices/train.csv&quot;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;GrLivArea&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+30774.037736162078
+[98.50395317]
+</pre></div></div>
+</div>
+<p>如果使用自行定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別，會發現不論怎麼調整學習速率、增加訓練的迭代次數，<span class="math notranslate nohighlight">\(w\)</span> 都離理想值距離甚遠。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">GradientDescent</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">)</span> <span class="c1"># 無法使用更大的學習速率，誤差會高到發生溢位</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+epoch:      0 - loss: 38051606006.512634
+epoch:  50000 - loss: 3240902379.450190
+epoch: 100000 - loss: 3240693358.485150
+epoch: 150000 - loss: 3240484776.905393
+epoch: 200000 - loss: 3240276633.787285
+epoch: 250000 - loss: 3240068928.209129
+epoch: 300000 - loss: 3239861659.251170
+epoch: 350000 - loss: 3239654825.995579
+epoch: 400000 - loss: 3239448427.526465
+epoch: 450000 - loss: 3239242462.929857
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+322.21983727161654
+[116.36489226]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">plot_contour</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">w_history</span><span class="p">,</span> <span class="n">w_0_min</span><span class="p">,</span> <span class="n">w_0_max</span><span class="p">,</span> <span class="n">w_1_min</span><span class="p">,</span> <span class="n">w_1_max</span><span class="p">,</span> <span class="n">w_0_star</span><span class="p">,</span> <span class="n">w_1_star</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="n">X_train</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">resolution</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">W_0</span><span class="p">,</span> <span class="n">W_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">w_0_min</span><span class="p">,</span> <span class="n">w_0_max</span><span class="p">,</span> <span class="n">resolution</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">w_1_min</span><span class="p">,</span> <span class="n">w_1_max</span><span class="p">,</span> <span class="n">resolution</span><span class="p">))</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">resolution</span><span class="p">,</span> <span class="n">resolution</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">W_0</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">W_1</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]])</span>
+            <span class="n">y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+            <span class="n">mse</span> <span class="o">=</span> <span class="p">((</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">))</span> <span class="o">/</span> <span class="n">m</span>
+            <span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mse</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w_history</span><span class="p">)</span>
+    <span class="n">w_0_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">w_1_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">w_0_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w_history</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">w_1_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w_history</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">CS</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">W_0</span><span class="p">,</span> <span class="n">W_1</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_0_history</span><span class="p">,</span> <span class="n">w_1_history</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">w_0_star</span><span class="p">,</span> <span class="n">w_1_star</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$w_0$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$w_1$&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>這就像是我們先前比喻，沒有針對賽事狀況調整的跑者，在應該加大更新幅度的 <span class="math notranslate nohighlight">\(w_0\)</span>（平坦的賽道）卻用了和應該縮減更新幅度的 <span class="math notranslate nohighlight">\(w_1\)</span>（陡峭的賽道）一樣的配速或者裝備。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">w_history</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">_w_history</span>
+<span class="n">plot_contour</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">w_history</span><span class="p">,</span> <span class="o">-</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/05-regression_55_0.png" src="_images/05-regression_55_0.png" />
+</div>
+</div>
+<p>欲使用梯度遞減來進行最適化，通常會搭配兩種技法來增加效率：</p>
+<ol class="arabic simple">
+<li><p>特徵矩陣的標準化（Standardization）</p></li>
+<li><p>進階的梯度遞減演算方法</p></li>
+</ol>
+<p>特徵矩陣的標準化可以使用在機器學習入門章節介紹過的 Scikit-Learn 轉換器：最小最大標準化（Min-max scaler），標準化後得到的 <span class="math notranslate nohighlight">\(w^{(scaled)}\)</span> 要再記得實施「逆」轉換。</p>
+<p><span class="math">\begin{align}
+\hat{y} &= X^{(scaled)} w^{(scaled)} \\
+&= w_0^{(scaled)}x_0 + \sum_i w_i^{(scaled)} x_i^{(scaled)} \\
+&= w_0^{(scaled)} + \sum_i w_i^{(scaled)} \frac{x_i - x_i^{(min)}}{x_i^{(max)} - x_i^{(min)}}
+\end{align}</span></p>
+<p><span class="math">\begin{align}
+w_0 &= w_0^{(scaled)} - \sum_{i=1} w_i^{(scaled)} \frac{x_i^{(min)}}{x_i^{(max)} - x_i^{(min)}} \\
+w_i &= \sum_{i=1} \frac{w_i^{(scaled)}}{x_i^{(max)} - x_i^{(min)}}
+\end{align}</span></p>
+<p>將已經過最小最大標準化後的特徵矩陣輸入預測器類別訓練，就能得到的 <span class="math notranslate nohighlight">\(w^{(scaled)}\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mms</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">mms</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+63674.358095820746
+[522858.98344032]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">GradientDescent</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+epoch:      0 - loss: 38574561936.864601
+epoch:  10000 - loss: 3197795837.637498
+epoch:  20000 - loss: 3142864604.714557
+epoch:  30000 - loss: 3141503145.580052
+epoch:  40000 - loss: 3141469402.099771
+epoch:  50000 - loss: 3141468565.774660
+epoch:  60000 - loss: 3141468545.046516
+epoch:  70000 - loss: 3141468544.532774
+epoch:  80000 - loss: 3141468544.520041
+epoch:  90000 - loss: 3141468544.519726
+63674.3591206031
+[522858.97891743]
+</pre></div></div>
+</div>
+<p>接著依照「逆」標準化回推 <span class="math notranslate nohighlight">\(w\)</span>，發現在最小最大標準化之後，就能順利以自定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別進行梯度遞減。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">intercept_rescaled</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">-</span> <span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">mms</span><span class="o">.</span><span class="n">data_min_</span> <span class="o">/</span> <span class="n">mms</span><span class="o">.</span><span class="n">data_range_</span><span class="p">)</span>
+<span class="n">coef_rescaled</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">coef_</span> <span class="o">/</span> <span class="n">mms</span><span class="o">.</span><span class="n">data_range_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intercept_rescaled</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coef_rescaled</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[30774.03904554]
+[98.50395232]
+</pre></div></div>
+</div>
+<p>或者常態標準化（Standard scaler），同樣要記得對 <span class="math notranslate nohighlight">\(w^{(scaled)}\)</span> 實施「逆」轉換。</p>
+<p><span class="math">\begin{align}
+\hat{y} &= X^{(scaled)} w^{(scaled)} \\
+&= w_0^{(scaled)}x_0 + \sum_i w_i^{(scaled)} x_i^{(scaled)} \\
+&= w_0^{(scaled)} + \sum_i w_i^{(scaled)} \frac{x_i - \mu_{x_i}}{\sigma_{x_i}}
+\end{align}</span></p>
+<p><span class="math">\begin{align}
+w_0 &= w_0^{(scaled)} - \sum_{i=1} w_i^{(scaled)} \frac{\mu_{x_i}}{\sigma_{x_i}} \\
+w_i &= \sum_{i=1} \frac{w_i^{(scaled)}}{\sigma_{x_i}}
+\end{align}</span></p>
+<p>將已經過常態標準化後的特徵矩陣輸入預測器類別訓練，就能得到的 <span class="math notranslate nohighlight">\(w^{(scaled)}\)</span>。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+180053.20294084703
+[51744.16536903]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">GradientDescent</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+epoch:      0 - loss: 38574730599.218040
+epoch:   1000 - loss: 3763987629.644883
+epoch:   2000 - loss: 3152443788.694848
+epoch:   3000 - loss: 3141662791.806108
+epoch:   4000 - loss: 3141471997.043127
+epoch:   5000 - loss: 3141468606.167773
+epoch:   6000 - loss: 3141468545.625978
+epoch:   7000 - loss: 3141468544.539675
+epoch:   8000 - loss: 3141468544.520079
+epoch:   9000 - loss: 3141468544.519723
+180053.2025929845
+[51744.16539333]
+</pre></div></div>
+</div>
+<p>接著依照「逆」標準化回推 <span class="math notranslate nohighlight">\(w\)</span>，發現在常態標準化之後，就能順利以自定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別進行梯度遞減。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">intercept_rescaled</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">-</span> <span class="n">h</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">ss</span><span class="o">.</span><span class="n">mean_</span> <span class="o">/</span> <span class="n">ss</span><span class="o">.</span><span class="n">scale_</span>
+<span class="n">coef_rescaled</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">coef_</span> <span class="o">/</span> <span class="n">ss</span><span class="o">.</span><span class="n">scale_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intercept_rescaled</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coef_rescaled</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[30774.0373182]
+[98.50395322]
+</pre></div></div>
+</div>
+<p>另外一種為單純的梯度遞減增加效率的手法是進階的梯度遞減，這些演算方法目前仍處於蓬勃發展的階段，已經廣泛被資料科學家、機器學習工程師應用的有 Momentum、AdaGrad(Adaptive Gradient Descent)、RMSprop(Root mean square propagation)與 Adam(Adaptive moment estimation)。與單純梯度遞減相較，各個進階梯度遞減都試著從學習速率與梯度這兩方面著手調整，其一是引進調適的學習速率（Adaptive methods），如果距離 <span class="math notranslate nohighlight">\(J(w)\)</span>
+低點遠就用大的學習速率、反之距離近就用小的學習速率；其二是記錄從訓練開始的梯度量值，藉由過去已實現的梯度來判斷和 <span class="math notranslate nohighlight">\(J(w)\)</span> 低點的相對位置，如果歷史梯度都很大，表示離低點遠，如果歷史梯度都很小，表示離低點進。就像是一個懂得在不同距離賽事、穿著適當裝備以及使用相應配速的跑者（在中距離場地賽穿著釘鞋與使用九成最大攝氧量配速、在長距離路跑賽穿著厚底鞋與使用七成最大攝氧量配速）。</p>
+<p>我們簡單地以 AdaGrad 為例，AdaGrad 將原本單純梯度遞減的式子改寫為：</p>
+<p><span class="math">\begin{equation}
+ssg = \sum^{t-1} (\frac{\partial J}{\partial w})^2
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+w := w -\alpha \frac{1}{\epsilon + \sqrt{ssg}} \frac{\partial J}{\partial w}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+where \; \epsilon = 10^{-6}
+\end{equation}</span></p>
+<p>AdaGrad 演算方法針對不同 <span class="math notranslate nohighlight">\(w_i\)</span> 記錄其歷史梯度的平方和藉此來調適學習速率，因為放在分母的緣故，當歷史梯度的平方和愈大，會調降學習速率；反之當歷史梯度的平方和愈小，會調升學習速率，<span class="math notranslate nohighlight">\(\epsilon\)</span> 會設定一個極小值（例如 <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code> 使用 <code class="docutils literal notranslate"><span class="pre">1e-06</span></code>）避免分母為零的情況發生。</p>
+<p>自定義一個 <code class="docutils literal notranslate"><span class="pre">AdaGrad</span></code> 類別繼承 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別並改寫其 <code class="docutils literal notranslate"><span class="pre">fit()</span></code> 方法由原本的單純梯度遞減變為 AdaGrad。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">AdaGrad</span><span class="p">(</span><span class="n">GradientDescent</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class defines the Adaptive Gradient Descent algorithm for linear regression.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_intercept</span><span class="p">:</span>
+            <span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="c1"># 初始化 ssg</span>
+        <span class="n">ssg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">n_prints</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">print_iter</span> <span class="o">=</span> <span class="n">epochs</span> <span class="o">//</span> <span class="n">n_prints</span>
+        <span class="n">w_history</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">current_w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">w_history</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_w</span>
+            <span class="n">mse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">()</span>
+            <span class="n">gradient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_gradient</span><span class="p">()</span>
+            <span class="n">ssg</span> <span class="o">+=</span> <span class="n">gradient</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">ada_grad</span> <span class="o">=</span> <span class="n">gradient</span> <span class="o">/</span> <span class="p">(</span><span class="n">epsilon</span> <span class="o">+</span> <span class="n">ssg</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">print_iter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;epoch: </span><span class="si">{:6}</span><span class="s2"> - loss: </span><span class="si">{:.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mse</span><span class="p">))</span>
+            <span class="c1"># 以 adaptive gradient 更新 w</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">-=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="n">ada_grad</span>
+        <span class="n">w_ravel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">w_ravel</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w_history</span> <span class="o">=</span> <span class="n">w_history</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+30774.037736162078
+[98.50395317]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">AdaGrad</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># 截距項</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>      <span class="c1"># 係數項</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+epoch:      0 - loss: 38445917993.077576
+epoch:  50000 - loss: 3146435374.819119
+epoch: 100000 - loss: 3141887793.680318
+epoch: 150000 - loss: 3141504799.902792
+epoch: 200000 - loss: 3141471686.153493
+epoch: 250000 - loss: 3141468816.799205
+epoch: 300000 - loss: 3141468568.118027
+epoch: 350000 - loss: 3141468546.564972
+epoch: 400000 - loss: 3141468544.696979
+epoch: 450000 - loss: 3141468544.535080
+30773.92524140127
+[98.50401916]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">w_history</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">_w_history</span>
+<span class="n">plot_contour</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">w_history</span><span class="p">,</span> <span class="o">-</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/05-regression_70_0.png" src="_images/05-regression_70_0.png" />
+</div>
+</div>
+<p>改採用 <code class="docutils literal notranslate"><span class="pre">AdaGrad</span></code> 類別後發現即便沒有進行特徵矩陣的標準化，也能夠順利最適化 <span class="math notranslate nohighlight">\(w\)</span>。在實際採用梯度遞減進行最適化時，通常會將標準化與進階演算手法兩者搭配運作，這也是為什麼在 <a class="reference external" href="https://www.kaggle.com/">Kaggle</a> 網站上看到很多採用高階機器學習框架的專案範例，都會對特徵矩陣做標準化並指定參數 <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> 為 <code class="docutils literal notranslate"><span class="pre">RMSprop</span></code>、<code class="docutils literal notranslate"><span class="pre">Adam</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Adagrad</span></code> 的緣由。</p>
+</div>
+<div class="section" id="延伸閱讀">
+<h2>延伸閱讀<a class="headerlink" href="#延伸閱讀" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Machine Learning Basics. In: Ian Goodfellow ,Yoshua Bengio, and Aaron Courville, Deep Learning (<a class="reference external" href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/">https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/</a>)</p></li>
+<li><p>Sebastian Ruder: An overview of gradient descent optimization algorithms (<a class="reference external" href="https://ruder.io/optimizing-gradient-descent/index.html">https://ruder.io/optimizing-gradient-descent/index.html</a>)</p></li>
+<li><p>Training Models. In: Aurélien Géron, Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (<a class="reference external" href="https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646/">https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646/</a>)</p></li>
+<li><p>Normal Equation (<a class="reference external" href="http://mlwiki.org/index.php/Normal_Equation">http://mlwiki.org/index.php/Normal_Equation</a>)</p></li>
+<li><p>Computational complexity (<a class="reference external" href="https://en.wikipedia.org/wiki/Computational_complexity">https://en.wikipedia.org/wiki/Computational_complexity</a>)</p></li>
+<li><p>Gradient descent (<a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">https://en.wikipedia.org/wiki/Gradient_descent</a>)</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04-sklearn.html" title="previous page">機器學習入門</a>
+    <a class='right-next' id="next-link" href="06-classification.html" title="next page">類別預測的任務</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By 郭耀仁<br/>
+        
+            &copy; Copyright 2020, 郭耀仁.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

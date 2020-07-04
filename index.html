@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>新手村逃脫！初心者的 Python 機器學習攻略 &#8212; 新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="關於本書" href="00-preface.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="#">
+  
+  
+  <h1 class="site-logo" id="site-title">新手村逃脫！初心者的 Python 機器學習攻略 1.0.0 documentation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="00-preface.html">關於本書</a>
+  </li>
+  <li class="">
+    <a href="01-introduction.html">關於視覺化與機器學習</a>
+  </li>
+  <li class="">
+    <a href="02-numpy.html">數列運算</a>
+  </li>
+  <li class="">
+    <a href="03-matplotlib.html">資料探索</a>
+  </li>
+  <li class="">
+    <a href="04-sklearn.html">機器學習入門</a>
+  </li>
+  <li class="">
+    <a href="05-regression.html">數值預測的任務</a>
+  </li>
+  <li class="">
+    <a href="06-classification.html">類別預測的任務</a>
+  </li>
+  <li class="">
+    <a href="07-performance.html">表現的評估</a>
+  </li>
+  <li class="">
+    <a href="08-deep-learning.html">深度學習入門</a>
+  </li>
+  <li class="">
+    <a href="09-appendix-a.html">附錄 A</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/index.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/spatialaudio/nbsphinx"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/spatialaudio/nbsphinx/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/index.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/spatialaudio/nbsphinx/edit/master/doc/index.rst">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python">
+<h1>新手村逃脫！初心者的 Python 機器學習攻略<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>本書處於 Early Release、瘋狂校稿階段。</p>
+</div>
+<p>「新手村逃脫！初心者的 Python 機器學習攻略」是一本寫給對於機器學習有興趣、並想使用 Python 程式語言實作的入門書。內容是改寫我在 2017 年 iT 邦幫忙鐵人賽：「R 語言使用者的 Python 學習筆記」的系列文章而成，主要針對能撰寫 Python 程式、對於機器學習理論沒有基礎卻有興趣的讀者，透過本書能夠按圖索驥，走出新手村，成功一轉！</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="00-preface.html">關於本書</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#本書內容">本書內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#本書的目標讀者">本書的目標讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#本書所使用的-Python-版本">本書所使用的 Python 版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#本書所使用的第三方套件模組版本">本書所使用的第三方套件模組版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#本書的筆記本">本書的筆記本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">關於視覺化與機器學習</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01-introduction.html#何謂視覺化">何謂視覺化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01-introduction.html#為何視覺化">為何視覺化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01-introduction.html#何謂機器學習">何謂機器學習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01-introduction.html#pyvizml-模組"><code class="docutils literal notranslate"><span class="pre">pyvizml</span></code> 模組</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01-introduction.html#為何機器學習">為何機器學習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01-introduction.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02-numpy.html">數列運算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#關於-NumPy">關於 NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#為何-NumPy">為何 NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#如何創建-ndarray">如何創建 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#常用的-ndarray-屬性">常用的 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 屬性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#純量、向量、矩陣與張量">純量、向量、矩陣與張量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#ndarray-的索引"><code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的索引</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#ndarray-的切割"><code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的切割</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#ndarray-特別的索引"><code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 特別的索引</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#重塑外觀">重塑外觀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#複製陣列">複製陣列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#合併陣列">合併陣列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#通用函式">通用函式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#聚合函式">聚合函式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-numpy.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03-matplotlib.html">資料探索</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#關於-Matplotlib">關於 Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#為何-Matplotlib">為何 Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#使用-Matplotlib-的兩種方式">使用 Matplotlib 的兩種方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#輸出-Matplotlib-作圖">輸出 Matplotlib 作圖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#常見的探索性資料分析">常見的探索性資料分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#觀察數值資料相關性的需求">觀察數值資料相關性的需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#觀察類別資料排序的需求">觀察類別資料排序的需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#觀察數值資料分佈的需求">觀察數值資料分佈的需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#觀察數學函式外觀的需求">觀察數學函式外觀的需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#觀察區域海拔高度的需求">觀察區域海拔高度的需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#顯示二維數值陣列的需求">顯示二維數值陣列的需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#如何為圖形添加元素">如何為圖形添加元素</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#如何在圖形中加入中文字">如何在圖形中加入中文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#如何繪製子圖">如何繪製子圖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-matplotlib.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-sklearn.html">機器學習入門</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="04-sklearn.html#關於-Scikit-Learn">關於 Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-sklearn.html#為何-Scikit-Learn">為何 Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-sklearn.html#五個核心理念">五個核心理念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-sklearn.html#機器學習的資料表達">機器學習的資料表達</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-sklearn.html#Scikit-Learn-的支援場景">Scikit-Learn 的支援場景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-sklearn.html#關於訓練、驗證與測試資料">關於訓練、驗證與測試資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-sklearn.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05-regression.html">數值預測的任務</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#關於數值預測的任務">關於數值預測的任務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#以-Scikit-Learn-預測器完成數值預測任務">以 Scikit-Learn 預測器完成數值預測任務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#正規方程-Normal-Equation">正規方程 Normal Equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#自訂正規方程類別-NormalEquation">自訂正規方程類別 NormalEquation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#計算複雜性">計算複雜性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#梯度遞減-Gradient-Descent">梯度遞減 Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#自訂梯度遞減類別-GradientDescent">自訂梯度遞減類別 GradientDescent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#標準化與進階的梯度遞減">標準化與進階的梯度遞減</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-regression.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06-classification.html">類別預測的任務</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#關於類別預測的任務">關於類別預測的任務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#以-Scikit-Learn-預測器完成類別預測任務">以 Scikit-Learn 預測器完成類別預測任務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#羅吉斯迴歸">羅吉斯迴歸</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#自訂羅吉斯迴歸類別-LogitReg">自訂羅吉斯迴歸類別 LogitReg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#二元分類延伸至多元分類：One-versus-rest">二元分類延伸至多元分類：One versus rest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#二元分類延伸至多元分類：Softmax-函式">二元分類延伸至多元分類：Softmax 函式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#兩種表示類別向量的形式">兩種表示類別向量的形式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-classification.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="07-performance.html">表現的評估</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#如何評估機器學習演算方法">如何評估機器學習演算方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#評估數值預測任務的表現">評估數值預測任務的表現</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#評估類別預測任務的表現">評估類別預測任務的表現</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#自訂計算評估指標的類別-ClfMetrics">自訂計算評估指標的類別 <code class="docutils literal notranslate"><span class="pre">ClfMetrics</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#誤差的來源">誤差的來源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#減少訓練誤差">減少訓練誤差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#減少訓練誤差與測試誤差的間距">減少訓練誤差與測試誤差的間距</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-performance.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="08-deep-learning.html">深度學習入門</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#什麼是深度學習">什麼是深度學習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#為何深度學習">為何深度學習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#什麼是-Keras">什麼是 Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#為何-Keras">為何 Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#撰寫-Keras-的步驟">撰寫 Keras 的步驟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#前向傳播">前向傳播</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#反向傳播">反向傳播</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#自訂深度學習類別-DeepLearning">自訂深度學習類別 DeepLearning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#MNIST-資料與時裝-MNIST-資料">MNIST 資料與時裝 MNIST 資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-deep-learning.html#延伸閱讀">延伸閱讀</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="09-appendix-a.html">附錄 A</a></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="00-preface.html" title="next page">關於本書</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By 郭耀仁<br/>
+        
+            &copy; Copyright 2020, 郭耀仁.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
