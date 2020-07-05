@@ -1,0 +1,6 @@
+requests==2.23.0
+numpy==1.18.0
+pandas==1.0.0
+matplotlib==3.2.0
+sklearn==0.22
+tensorflow=2.2.0
