@@ -1144,7 +1144,7 @@ epoch:  90000 - loss: 0.274680
 </div>
 <div class="section" id="二元分類延伸至多元分類：One-versus-rest">
 <h2>二元分類延伸至多元分類：One versus rest<a class="headerlink" href="#二元分類延伸至多元分類：One-versus-rest" title="Permalink to this headline">¶</a></h2>
-<p>暸解羅吉斯回歸如何進行二元分類預測任務後，最後將問題還原回本來的多元分類問題，原始資料集中球員的鋒衛位置不只分作前鋒（Forward, F）與後衛（Guard, G）亦有中鋒（Center, C），以及能夠勝任兩個位置的搖擺人（F-G、G-F）等。</p>
+<p>暸解羅吉斯迴歸如何進行二元分類預測任務後，最後將問題還原回本來的多元分類問題，原始資料集中球員的鋒衛位置不只分作前鋒（Forward, F）與後衛（Guard, G）亦有中鋒（Center, C），以及能夠勝任兩個位置的搖擺人（F-G、G-F）等。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -1289,7 +1289,7 @@ array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
 </div>
 <div class="section" id="二元分類延伸至多元分類：Softmax-函式">
 <h2>二元分類延伸至多元分類：Softmax 函式<a class="headerlink" href="#二元分類延伸至多元分類：Softmax-函式" title="Permalink to this headline">¶</a></h2>
-<p>除了以 One versus rest 技巧將羅吉斯回歸延伸為多元分類，另一種更常見的方法則是引入 Softmax 函式替代原本所使用的 Sigmoid 函式，我們可以將 Softmax 函式視為一種泛化的 Sigmoid 函式。首先對特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 分類 <span class="math notranslate nohighlight">\(k\)</span> 計算一個得分 <span class="math notranslate nohighlight">\(s_k\)</span>，然後通過 Softmax 函式來轉換為每個類別的概率。</p>
+<p>除了以 One versus rest 技巧將羅吉斯迴歸延伸為多元分類，另一種更常見的方法則是引入 Softmax 函式替代原本所使用的 Sigmoid 函式，我們可以將 Softmax 函式視為一種泛化的 Sigmoid 函式。首先對特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 分類 <span class="math notranslate nohighlight">\(k\)</span> 計算一個得分 <span class="math notranslate nohighlight">\(s_k\)</span>，然後通過 Softmax 函式來轉換為每個類別的概率。</p>
 <p><span class="math">\begin{equation}
 s_k(X) = Xw^{(k)}
 \end{equation}</span></p>

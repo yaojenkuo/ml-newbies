@@ -174,6 +174,10 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#一個資料科學專案" class="nav-link">一個資料科學專案</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
             <a href="#何謂視覺化" class="nav-link">何謂視覺化</a>
         </li>
     
@@ -494,6 +498,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="section" id="一個資料科學專案">
+<h2>一個資料科學專案<a class="headerlink" href="#一個資料科學專案" title="Permalink to this headline">¶</a></h2>
+<p>資料科學家面對的專案可能會包含下列這些工作內容：討論需求規格，取得測試資料、載入環境、整理資料、使用視覺化探索資料、利用機器學習模型預測資料、部署專案到正式環境到最後是將專案的洞察以淺顯易懂方式與組織內部其他團隊溝通及分享，而完成整個專案的最主要工具則是程式語言。本書專注於在使用視覺化探索資料、利用機器學習模型預測資料這兩階段。</p>
+<p><img alt="資料科學專案" src="_images/01-introduction_01_0.png" /></p>
+<p>圖片來源：<a class="reference external" href="https://r4ds.had.co.nz/program-intro.html">R for Data Science</a></p>
+</div>
 <div class="section" id="何謂視覺化">
 <h2>何謂視覺化<a class="headerlink" href="#何謂視覺化" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -506,7 +516,7 @@ div.rendered_html tbody tr:hover {
 <li><p>拿破崙征俄戰爭：法國土木工程師 <a class="reference external" href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard">Charles Minard</a> 使用一種前所未見的帶狀圖來描繪拿破崙的軍隊從波蘭前進至俄羅斯邊界在特定地理位置的軍隊規模，在一個圖形上涵蓋七個資料特徵：軍隊人數、行軍距離、溫度、經度、緯度、行進方向以及特定日期，讀者可以一目瞭然 1812 年征俄戰爭中拿破崙軍隊的慘烈戰況。這樣外觀的帶狀圖在後來被稱為 Sankey 圖，以發明者 <a class="reference external" href="https://en.wikipedia.org/wiki/Matthew_Henry_Phineas_Riall_Sankey">Matthew Henry Phineas Riall Sankey</a>
 作為命名，特別用來描述數量的流動與多寡。</p></li>
 </ol>
-<p><img alt="Charles Minard 的拿破崙征俄戰爭 Sankey 圖" src="https://i.imgur.com/DcuAxgz.png?1" /></p>
+<p><img alt="Charles Minard 的拿破崙征俄戰爭 Sankey 圖" src="_images/01-introduction_01_1.png" /></p>
 <ol class="arabic simple" start="2">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=Z8t4k0Q8e8Y">兩百年四分鐘</a>：瑞典公衛教授 Hans Rosling 使用氣泡圖搭配動畫僅花費四分鐘和觀眾說明全世界超過兩百個國家在近兩百年中財富與健康程度的消長趨勢，在一個圖形上涵蓋五個資料特徵：人均國內生產總值、人均預期壽命、人口數、洲別、年份，觀眾可以一目暸然在綠能、和平、貿易與科技的助瀾下，長期世界國家的發展趨勢是往富裕且健康的方向前進。</p></li>
 </ol>
@@ -550,12 +560,13 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 0.16377534  0.66389179 -0.91923057 ... -0.09080987 -0.63287657
-  2.41727138]
+array([ 0.28763377, -0.12276065,  0.34811166, ...,  1.85008303,
+       -0.05646011,  0.94117921])
 </pre></div></div>
 </div>
 <p>若是將這些隨機數以直方圖（histogram）描繪，從鐘型外觀以及中心座落的位置，很快就觀察到它們具備了近似標準常態分配的特性（鐘型、以 0 為中心、約有 67% 的數值介於 -1 與 1 之間）。</p>
@@ -602,12 +613,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[1.00000000e-15 1.00010001e-04 2.00020002e-04 ... 9.99799980e-01
- 9.99899990e-01 1.00000000e+00]
-[9.99200722e-16 1.00015002e-04 2.00040009e-04 ... 8.51709319e+00
- 9.21024037e+00 3.45395760e+01]
-[3.45387764e+01 9.21024037e+00 8.51709319e+00 ... 2.00040009e-04
- 1.00015002e-04 9.99200722e-16]
+[1.00000000e-06 1.01009801e-04 2.01019602e-04 ... 9.99798980e-01
+ 9.99898990e-01 9.99999000e-01]
+[1.00000050e-06 1.01014903e-04 2.01039809e-04 ... 8.51210813e+00
+ 9.20029301e+00 1.38155106e+01]
+[1.38155106e+01 9.20029301e+00 8.51210813e+00 ... 2.01039809e-04
+ 1.01014903e-04 1.00000050e-06]
 </pre></div></div>
 </div>
 <p>若是將 <span class="math notranslate nohighlight">\(p\)</span> 與 <span class="math notranslate nohighlight">\(-log(1-p)\)</span>、<span class="math notranslate nohighlight">\(-log(p)\)</span> 以線圖（line）描繪，很快就能觀察到這個對數損失函式的設計是希望在 <span class="math notranslate nohighlight">\(y_{true} = 0\)</span> 時當 <span class="math notranslate nohighlight">\(p\)</span> 離 1 愈近的時候對數損失愈大，反之當 <span class="math notranslate nohighlight">\(p\)</span> 離 0 愈近的時候對數損失愈小；在 <span class="math notranslate nohighlight">\(y_{true} = 1\)</span> 時當 <span class="math notranslate nohighlight">\(p\)</span> 離 0 愈近的時候對數損失愈大，反之當 <span class="math notranslate nohighlight">\(p\)</span> 離 1 愈近的時候對數損失愈小；這樣的特性讓對數損失函式被用來二元分類的誤差函式。</p>
@@ -860,9 +871,9 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-89.7841199952096
-97.62196924017876
-102.52062501828449
+89.89882199692715
+97.66998879805146
+102.52696804875413
 </pre></div></div>
 </div>
 </div>
@@ -887,8 +898,8 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{0: &#39;C&#39;, 1: &#39;C-F&#39;, 2: &#39;F-C&#39;, 3: &#39;G&#39;, 4: &#39;F&#39;, 5: &#39;F-G&#39;, 6: &#39;G-F&#39;}
-{&#39;C&#39;: 0, &#39;C-F&#39;: 1, &#39;F-C&#39;: 2, &#39;G&#39;: 3, &#39;F&#39;: 4, &#39;F-G&#39;: 5, &#39;G-F&#39;: 6}
+{0: &#39;G&#39;, 1: &#39;C&#39;, 2: &#39;C-F&#39;, 3: &#39;F-C&#39;, 4: &#39;F&#39;, 5: &#39;F-G&#39;, 6: &#39;G-F&#39;}
+{&#39;G&#39;: 0, &#39;C&#39;: 1, &#39;C-F&#39;: 2, &#39;F-C&#39;: 3, &#39;F&#39;: 4, &#39;F-G&#39;: 5, &#39;G-F&#39;: 6}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -924,6 +935,7 @@ C
 <div class="section" id="延伸閱讀">
 <h2>延伸閱讀<a class="headerlink" href="#延伸閱讀" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
+<li><p>Garrett Grolemund, Hadley Wickham: R for Data Science (<a class="reference external" href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>)</p></li>
 <li><p>Hans Rosling (<a class="reference external" href="https://en.wikipedia.org/wiki/Hans_Rosling">https://en.wikipedia.org/wiki/Hans_Rosling</a>)</p></li>
 <li><p>Charles Minard (<a class="reference external" href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard">https://en.wikipedia.org/wiki/Charles_Joseph_Minard</a>)</p></li>
 <li><p>Matthew Henry Phineas Riall Sankey (<a class="reference external" href="https://en.wikipedia.org/wiki/Matthew_Henry_Phineas_Riall_Sankey">https://en.wikipedia.org/wiki/Matthew_Henry_Phineas_Riall_Sankey</a>)</p></li>
