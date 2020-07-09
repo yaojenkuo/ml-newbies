@@ -464,7 +464,7 @@ div.rendered_html tbody tr:hover {
 <h1>數值預測的任務<a class="headerlink" href="#數值預測的任務" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -491,7 +491,7 @@ div.rendered_html tbody tr:hover {
 <li><p>但書（Condition）：隨著資料觀測值筆數增加，預測誤差應該要減少</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -512,7 +512,7 @@ Creating players df...
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -529,7 +529,7 @@ dtype(&#39;float64&#39;)
 \end{equation}</span></p>
 <p>以 Scikit-Learn 定義好的預測器類別 <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> 可以快速找出描繪迴歸線所依據的截距項 <span class="math notranslate nohighlight">\(w_0\)</span> 和係數項 <span class="math notranslate nohighlight">\(w_1\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -542,7 +542,7 @@ dtype(&#39;float64&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -551,7 +551,7 @@ LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -570,7 +570,7 @@ LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -581,7 +581,7 @@ LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -593,7 +593,7 @@ array([107.57591065,  82.11956027, 100.44813254, 105.53940262,
 </div>
 <p>找出 <span class="math notranslate nohighlight">\(w_0\)</span> 與 <span class="math notranslate nohighlight">\(w_1\)</span> 就能夠描繪出一條迴歸線表達特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 與目標向量 <span class="math notranslate nohighlight">\(y\)</span>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -604,7 +604,7 @@ array([107.57591065,  82.11956027, 100.44813254, 105.53940262,
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -681,7 +681,7 @@ w^* = (X^TX)^{-1}X^Ty
 <h2>自訂正規方程類別 NormalEquation<a class="headerlink" href="#自訂正規方程類別-NormalEquation" title="Permalink to this headline">¶</a></h2>
 <p>我們可以依據正規方程自訂預測器類別，並與 Scikit-Learn 定義好的預測器類別 <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> 比對係數向量是否一致。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -732,7 +732,7 @@ w^* = (X^TX)^{-1}X^Ty
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -742,7 +742,7 @@ w^* = (X^TX)^{-1}X^Ty
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -761,7 +761,7 @@ w^* = (X^TX)^{-1}X^Ty
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -772,7 +772,7 @@ w^* = (X^TX)^{-1}X^Ty
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -798,7 +798,7 @@ w := w - \alpha \frac{\partial J}{\partial w}
 \end{equation}</span></p>
 <p>讓我們用一個簡單的例子來看為什麼透過這個式子更新 <span class="math notranslate nohighlight">\(w\)</span> 是一種「有方向性」的依據，舉例來說如果給定一組 <span class="math notranslate nohighlight">\(X^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(y^{(train)}\)</span>：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -840,7 +840,7 @@ w^* = \begin{bmatrix} w_0^* \\ w_1^* \end{bmatrix} = \begin{bmatrix} 5 \\ 6 \end
 \end{equation}</span></p>
 <p>不過給定電腦程式一組 <span class="math notranslate nohighlight">\(X^{(train)}\)</span> 與 <span class="math notranslate nohighlight">\(y^{(train)}\)</span> 對於它來說像是拋出了一個大海撈針的問題，有無限多組的 <span class="math notranslate nohighlight">\(w\)</span> 等著要嘗試（它甚至不知道用 <span class="math notranslate nohighlight">\(w_0\)</span> 與 <span class="math notranslate nohighlight">\(w_1\)</span> 就可以找到跟 <span class="math notranslate nohighlight">\(f\)</span> 完全相同的 <span class="math notranslate nohighlight">\(h\)</span>），遑論找出 <span class="math notranslate nohighlight">\(w_0=5\)</span>、<span class="math notranslate nohighlight">\(w_1=6\)</span>；「梯度遞減」演算方法就是為電腦程式提供了一個尋找解題的方式，千里之行，始於足下，請先隨機初始化一組 <span class="math notranslate nohighlight">\(w\)</span>：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -851,7 +851,7 @@ w^* = \begin{bmatrix} w_0^* \\ w_1^* \end{bmatrix} = \begin{bmatrix} 5 \\ 6 \end
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -861,7 +861,7 @@ array([0.37454012, 0.95071431])
 </div>
 <p>針對這組 <span class="math notranslate nohighlight">\(w\)</span> 可以得到一組 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span>：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -871,7 +871,7 @@ array([0.37454012, 0.95071431])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -885,7 +885,7 @@ array([1.32525443, 2.27596873, 3.22668304, 4.17739734, 5.12811165,
 J(w) = \frac{1}{m}\parallel y - Xw \parallel^2
 \end{equation}</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -896,7 +896,7 @@ J(w) = \frac{1}{m}\parallel y - Xw \parallel^2
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -933,7 +933,7 @@ w := w - \alpha \frac{2}{m}X^T(\hat{y} - y)
 \end{equation}</span></p>
 <p>接著計算隨機初始化的 <span class="math notranslate nohighlight">\(w\)</span> 其梯度為何。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -943,7 +943,7 @@ w := w - \alpha \frac{2}{m}X^T(\hat{y} - y)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -953,7 +953,7 @@ array([ -64.79306239, -439.6750571 ])
 </div>
 <p>當梯度為負，隨機初始化的 <span class="math notranslate nohighlight">\(w\)</span> 會向右更新（增大），離後見之明視角所知的 <span class="math notranslate nohighlight">\(w_0 = 5\)</span>、<span class="math notranslate nohighlight">\(w_1 = 6\)</span> 更加接近，在更新的方向性上是正確的。假設將學習速率設定為 0.001，更新的幅度就是：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -963,7 +963,7 @@ array([ -64.79306239, -439.6750571 ])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -973,7 +973,7 @@ array([0.06479306, 0.43967506])
 </div>
 <p>經過第一次迭代更新後的 <span class="math notranslate nohighlight">\(w\)</span>：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -983,7 +983,7 @@ array([0.06479306, 0.43967506])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -993,7 +993,7 @@ array([0.43933318, 1.39038936])
 </div>
 <p>針對更新過一次的 <span class="math notranslate nohighlight">\(w\)</span> 可以得到一組 <span class="math notranslate nohighlight">\(\hat{y}^{(train)}\)</span>：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1003,7 +1003,7 @@ array([0.43933318, 1.39038936])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1014,7 +1014,7 @@ array([ 1.82972254,  3.22011191,  4.61050127,  6.00089064,  7.39128   ,
 </div>
 <p>更新過一次的 <span class="math notranslate nohighlight">\(w\)</span> 所對應的均方誤差：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1024,7 +1024,7 @@ array([ 1.82972254,  3.22011191,  4.61050127,  6.00089064,  7.39128   ,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1038,7 +1038,7 @@ array([ 1.82972254,  3.22011191,  4.61050127,  6.00089064,  7.39128   ,
 <h2>自訂梯度遞減類別 GradientDescent<a class="headerlink" href="#自訂梯度遞減類別-GradientDescent" title="Permalink to this headline">¶</a></h2>
 <p>我們可以依據梯度遞減自訂預測器類別，檢視迭代後的 <span class="math notranslate nohighlight">\(w\)</span> 是否與後見之明視角的 <span class="math notranslate nohighlight">\(w_0 = 5\)</span>、<span class="math notranslate nohighlight">\(w_1 = 6\)</span> 相近、均方誤差是否隨著迭代而下降。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1113,7 +1113,7 @@ array([ 1.82972254,  3.22011191,  4.61050127,  6.00089064,  7.39128   ,
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1140,7 +1140,7 @@ epoch:  18000 - loss: 0.000001
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1160,7 +1160,7 @@ epoch:  18000 - loss: 0.000001
 </div>
 <p>最後我們將自訂的梯度遞減預測器類別應用在真實的 <code class="docutils literal notranslate"><span class="pre">players</span></code> 資料，並且與 Scikit-Learn 預測器類別、正規方程類別所求得的 <span class="math notranslate nohighlight">\(w\)</span> 比對。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1190,7 +1190,7 @@ epoch: 270000 - loss: 48.436168
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1209,7 +1209,7 @@ epoch: 270000 - loss: 48.436168
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1220,7 +1220,7 @@ epoch: 270000 - loss: 48.436168
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1243,7 +1243,7 @@ w := w - \alpha \frac{\partial J}{\partial w}
 彼此的量值級距差距大，將會發生不效率的最適化。以跑步來比喻，在短距離的場地賽應該要穿著釘鞋與使用九成最大攝氧量的配速競賽、在長距離的路跑賽應該要穿著厚底鞋與使用七成最大攝氧量的配速競賽，然而使用固定的學習速率、只考慮單下的梯度，就像是用同一套裝備與配速去面對距離不同的賽事一般，無法有出色的表現。以 <a class="reference external" href="https://www.kaggle.com/">Kaggle</a> 網站所下載回來的<a class="reference external" href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">艾姆斯房價</a>資料為例，若以其中的 <code class="docutils literal notranslate"><span class="pre">GrLivArea</span></code>
 作為特徵矩陣來預測目標向量 <code class="docutils literal notranslate"><span class="pre">SalePrice</span></code>，以 Scikit-Learn 的 <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> 預測器類別可以獲知 <span class="math notranslate nohighlight">\(w^*\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1269,7 +1269,7 @@ w := w - \alpha \frac{\partial J}{\partial w}
 </div>
 <p>如果使用自行定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別，會發現不論怎麼調整學習速率、增加訓練的迭代次數，<span class="math notranslate nohighlight">\(w\)</span> 都離理想值距離甚遠。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1296,7 +1296,7 @@ epoch: 450000 - loss: 3239242462.929857
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1315,7 +1315,7 @@ epoch: 450000 - loss: 3239242462.929857
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1351,7 +1351,7 @@ epoch: 450000 - loss: 3239242462.929857
 </div>
 <p>這就像是我們先前比喻，沒有針對賽事狀況調整的跑者，在應該加大更新幅度的 <span class="math notranslate nohighlight">\(w_0\)</span>（平坦的賽道）卻用了和應該縮減更新幅度的 <span class="math notranslate nohighlight">\(w_1\)</span>（陡峭的賽道）一樣的配速或者裝備。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1384,7 +1384,7 @@ w_i &= \sum_{i=1} \frac{w_i^{(scaled)}}{x_i^{(max)} - x_i^{(min)}}
 \end{align}</span></p>
 <p>將已經過最小最大標準化後的特徵矩陣輸入預測器類別訓練，就能得到的 <span class="math notranslate nohighlight">\(w^{(scaled)}\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1409,7 +1409,7 @@ w_i &= \sum_{i=1} \frac{w_i^{(scaled)}}{x_i^{(max)} - x_i^{(min)}}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1441,7 +1441,7 @@ epoch:  90000 - loss: 3141468544.519726
 </div>
 <p>接著依照「逆」標準化回推 <span class="math notranslate nohighlight">\(w\)</span>，發現在最小最大標準化之後，就能順利以自定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別進行梯度遞減。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1473,7 +1473,7 @@ w_i &= \sum_{i=1} \frac{w_i^{(scaled)}}{\sigma_{x_i}}
 \end{align}</span></p>
 <p>將已經過常態標準化後的特徵矩陣輸入預測器類別訓練，就能得到的 <span class="math notranslate nohighlight">\(w^{(scaled)}\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1497,7 +1497,7 @@ w_i &= \sum_{i=1} \frac{w_i^{(scaled)}}{\sigma_{x_i}}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1529,7 +1529,7 @@ epoch:   9000 - loss: 3141468544.519723
 </div>
 <p>接著依照「逆」標準化回推 <span class="math notranslate nohighlight">\(w\)</span>，發現在常態標準化之後，就能順利以自定義的 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別進行梯度遞減。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1564,7 +1564,7 @@ where \; \epsilon = 10^{-6}
 <p>AdaGrad 演算方法針對不同 <span class="math notranslate nohighlight">\(w_i\)</span> 記錄其歷史梯度的平方和藉此來調適學習速率，因為放在分母的緣故，當歷史梯度的平方和愈大，會調降學習速率；反之當歷史梯度的平方和愈小，會調升學習速率，<span class="math notranslate nohighlight">\(\epsilon\)</span> 會設定一個極小值（例如 <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code> 使用 <code class="docutils literal notranslate"><span class="pre">1e-06</span></code>）避免分母為零的情況發生。</p>
 <p>自定義一個 <code class="docutils literal notranslate"><span class="pre">AdaGrad</span></code> 類別繼承 <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> 類別並改寫其 <code class="docutils literal notranslate"><span class="pre">fit()</span></code> 方法由原本的單純梯度遞減變為 AdaGrad。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1605,7 +1605,7 @@ where \; \epsilon = 10^{-6}
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1627,7 +1627,7 @@ where \; \epsilon = 10^{-6}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1658,7 +1658,7 @@ epoch: 450000 - loss: 3141468544.535080
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

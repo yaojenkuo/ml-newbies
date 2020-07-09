@@ -484,7 +484,7 @@ div.rendered_html tbody tr:hover {
 <h1>關於視覺化與機器學習<a class="headerlink" href="#關於視覺化與機器學習" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -521,7 +521,7 @@ div.rendered_html tbody tr:hover {
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=Z8t4k0Q8e8Y">兩百年四分鐘</a>：瑞典公衛教授 Hans Rosling 使用氣泡圖搭配動畫僅花費四分鐘和觀眾說明全世界超過兩百個國家在近兩百年中財富與健康程度的消長趨勢，在一個圖形上涵蓋五個資料特徵：人均國內生產總值、人均預期壽命、人口數、洲別、年份，觀眾可以一目暸然在綠能、和平、貿易與科技的助瀾下，長期世界國家的發展趨勢是往富裕且健康的方向前進。</p></li>
 </ol>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -530,7 +530,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -550,7 +550,7 @@ div.rendered_html tbody tr:hover {
 <h3>原始資料<a class="headerlink" href="#原始資料" title="Permalink to this headline">¶</a></h3>
 <p>利用 <code class="docutils literal notranslate"><span class="pre">np.random.normal(size=10000)</span></code> 創建 10,000 筆符合標準常態分配的隨機數，假若單純將這些隨機數印出，幾乎不太能觀察出它們具備了標準常態分配這樣的特性。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -560,7 +560,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -571,7 +571,7 @@ array([ 0.28763377, -0.12276065,  0.34811166, ...,  1.85008303,
 </div>
 <p>若是將這些隨機數以直方圖（histogram）描繪，從鐘型外觀以及中心座落的位置，很快就觀察到它們具備了近似標準常態分配的特性（鐘型、以 0 為中心、約有 67% 的數值介於 -1 與 1 之間）。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -594,7 +594,7 @@ array([ 0.28763377, -0.12276065,  0.34811166, ...,  1.85008303,
 <h3>函式<a class="headerlink" href="#函式" title="Permalink to this headline">¶</a></h3>
 <p>單純將使用 <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">np.log()</span></code> 所創建的 <span class="math notranslate nohighlight">\(p\)</span> 與 <span class="math notranslate nohighlight">\(-log(1-p)\)</span>、<span class="math notranslate nohighlight">\(-log(p)\)</span> 印出，同樣也不太容易很快地觀察出這是其中一個描述對式損失的函式。對數損失函式在分類模型扮演重要的角色，後續章節會再細談。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -623,7 +623,7 @@ array([ 0.28763377, -0.12276065,  0.34811166, ...,  1.85008303,
 </div>
 <p>若是將 <span class="math notranslate nohighlight">\(p\)</span> 與 <span class="math notranslate nohighlight">\(-log(1-p)\)</span>、<span class="math notranslate nohighlight">\(-log(p)\)</span> 以線圖（line）描繪，很快就能觀察到這個對數損失函式的設計是希望在 <span class="math notranslate nohighlight">\(y_{true} = 0\)</span> 時當 <span class="math notranslate nohighlight">\(p\)</span> 離 1 愈近的時候對數損失愈大，反之當 <span class="math notranslate nohighlight">\(p\)</span> 離 0 愈近的時候對數損失愈小；在 <span class="math notranslate nohighlight">\(y_{true} = 1\)</span> 時當 <span class="math notranslate nohighlight">\(p\)</span> 離 0 愈近的時候對數損失愈大，反之當 <span class="math notranslate nohighlight">\(p\)</span> 離 1 愈近的時候對數損失愈小；這樣的特性讓對數損失函式被用來二元分類的誤差函式。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -652,7 +652,7 @@ f(x) = \frac{1}{1+e^{-x}}
 \end{equation}</span></p>
 <p>若是將 <span class="math notranslate nohighlight">\(x\)</span> 與 <span class="math notranslate nohighlight">\(f(x)\)</span> 以線圖（line）描繪，很快就能觀察到 Sigmoid 函式能夠將介於正負無限大之間的輸入 <span class="math notranslate nohighlight">\(x\)</span> 映射到 0 與 1 之間；因而被用來作為將迴歸模型的輸出轉換為機率延伸為分類模型的前置步驟。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -723,7 +723,7 @@ Minimize \; \sum_{i} \mid y^{(train)}_i \neq \hat{y_i}^{(train)} \mid
 </div>
 <p>其他在書中我們自行定義的類別，也都一併收錄在 <code class="docutils literal notranslate"><span class="pre">pyvizml</span></code> 模組中，在附錄 A 可以檢視每個自定義類別的完整程式碼。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -789,7 +789,7 @@ Minimize \; \sum_{i} \mid y^{(train)}_i \neq \hat{y_i}^{(train)} \mid
 <p><code class="docutils literal notranslate"><span class="pre">CreateNBAData</span></code> 需要傳入參數球季年份進行初始化，舉例我們要擷取的若是 2019-2020 球季，初始化類別就輸入 2019。這個類別定義了三個方法，<code class="docutils literal notranslate"><span class="pre">create_players_df()</span></code> 會回傳球員資料框、<code class="docutils literal notranslate"><span class="pre">create_stats_df()</span></code> 會回傳球員生涯攻守統計資料框、<code class="docutils literal notranslate"><span class="pre">create_player_stats_df()</span></code> 則會將球員資料框與球員生涯攻守統計資料框內部聯結（Inner join）後回傳。其中 <code class="docutils literal notranslate"><span class="pre">create_stats_df()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">create_player_stats_df()</span></code> 兩個方法因為要對 <a class="reference external" href="https://data.nba.net/10s/prod/v1/today.json">data.nba.net</a> 發出數百次的 HTTP
 請求，等待時間會較長，要請讀者耐心等候。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -816,7 +816,7 @@ Creating player stats df...
 <h3>判斷質數<a class="headerlink" href="#判斷質數" title="Permalink to this headline">¶</a></h3>
 <p>判斷一個正整數是否為質數有一個明確且能夠描述的邏輯：找出這個正整數所有的因數，假如個數為 2，亦即 1 與正整數自身，那麼就可以判斷為質數；反之如果所有因數的個數不為 2（1 個因數或者超過 2 個），那麼就判斷不為質數。假如解決問題的邏輯清晰且可以用語言描述，我們可以將這個邏輯想像成為一個函式 <span class="math notranslate nohighlight">\(f\)</span>，將問題輸入它就可以獲得解答 <span class="math notranslate nohighlight">\(f(x)\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -852,7 +852,7 @@ True
 <h3>數值預測：球員的體重為何？<a class="headerlink" href="#數值預測：球員的體重為何？" title="Permalink to this headline">¶</a></h3>
 <p>給定一位 NBA 球員的身高來預測他的體重，這個問題並沒有一個明確且能夠描述的邏輯，相反地，可能有為數甚多的手段來達成，例如用所有球員的平均 BMI 反推，或者以差不多身高的球員平均體重做為答案；這時我們想像有一個函式 <span class="math notranslate nohighlight">\(f\)</span> 能夠完美解決問題，但是定義不出來，於是假設另一個函式 <span class="math notranslate nohighlight">\(h\)</span> 和 <span class="math notranslate nohighlight">\(f\)</span> 很相似但不盡相同，將問題輸入它可以獲得解答 <span class="math notranslate nohighlight">\(h(x)\)</span>，但由於 <span class="math notranslate nohighlight">\(h\)</span> 畢竟不是 <span class="math notranslate nohighlight">\(f\)</span>，因此這個解答是有誤差的，而機器學習演算法的目標，就是盡可能讓誤差減小、讓 <span class="math notranslate nohighlight">\(h\)</span> 愈加逼近 <span class="math notranslate nohighlight">\(f\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -881,7 +881,7 @@ True
 <h3>類別預測：球員的鋒衛位置為何？<a class="headerlink" href="#類別預測：球員的鋒衛位置為何？" title="Permalink to this headline">¶</a></h3>
 <p>給定一位 NBA 球員的生涯場均助攻與場均籃板來預測他的鋒衛位置，這個問題同樣沒有一個明確且能夠描述的邏輯；我們同樣想像有一個函式 <span class="math notranslate nohighlight">\(f\)</span> 能夠完美解決問題，但是定義不出來，於是假設另一個函式 <span class="math notranslate nohighlight">\(h\)</span> 和 <span class="math notranslate nohighlight">\(f\)</span> 很相似但不盡相同，將問題輸入它可以獲得解答 <span class="math notranslate nohighlight">\(h(x)\)</span>，但由於 <span class="math notranslate nohighlight">\(h\)</span> 畢竟不是 <span class="math notranslate nohighlight">\(f\)</span>，因此這個解答是有誤差的。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -903,7 +903,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

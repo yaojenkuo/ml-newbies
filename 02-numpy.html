@@ -484,7 +484,7 @@ div.rendered_html tbody tr:hover {
 <h1>數列運算<a class="headerlink" href="#數列運算" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -498,7 +498,7 @@ div.rendered_html tbody tr:hover {
 <p>NumPy 是 Numerical Python 的縮寫，是 Python 使用者用來實踐向量化（Vectorization）、科學計算與資料科學的套件，也是我們進行「運算數值」的主角，資料科學團隊使用 NumPy 所提供一種稱為 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的資料結構來儲存並運算數值陣列、與標準套件 <code class="docutils literal notranslate"><span class="pre">random</span></code> 相輔相成的 <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> 來處理隨機性以及 <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> 來處理線性代數中一些繁複的運算。透過 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的數值陣列幾乎能夠面對任意的資料來源，包括實驗資料、圖像（表示像素亮度的二維數值陣列）或者音訊（表示強度與時間軸的一維數值陣列。） 熟悉
 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的操作對於以 Python 應用資料科學的使用者來說是必要的前提，也扮演著理解機器學習理論的基石，如果能夠自信地操作二維數值陣列（即矩陣 Matrix）以及三維數值陣列（即張量 Tensor），將更容易理解高階機器學習框架究竟在封裝起來的函式、方法中提供了哪些功能給使用者，進而更有效率作超參數的調校。 我們可以在執行 Python 的載入指令（<code class="docutils literal notranslate"><span class="pre">import</span></code>）後印出 NumPy 的版本號來確認環境中是否安裝了 NumPy 可供使用。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -530,7 +530,7 @@ pip install numpy
 <h2>為何 NumPy<a class="headerlink" href="#為何-NumPy" title="Permalink to this headline">¶</a></h2>
 <p>模組、套件的開發多半起源於某些痛點，就如同創新產品的問世一般；具體來說，Python 原生 <code class="docutils literal notranslate"><span class="pre">list</span></code> 的什麼特性讓科學計算使用者覺得有些麻煩呢？歸根究底就是 <code class="docutils literal notranslate"><span class="pre">list</span></code> 具備儲存異質資料型態的特性。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -554,7 +554,7 @@ pip install numpy
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code> 中每個元素都是一個完整的 Python 物件，具備各自的類別與數值資訊，這使得它在計算同質資料時的效能、語法付出代價，我們需要透過迭代將裡面的物件一一取出後運算。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -564,7 +564,7 @@ pip install numpy
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -574,7 +574,7 @@ pip install numpy
 </div>
 <p>NumPy 的 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 與 <code class="docutils literal notranslate"><span class="pre">list</span></code> 的最大不同在於同質資料型態的特性，在計算時的效能和語法更快速與簡潔。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -584,7 +584,7 @@ pip install numpy
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -598,7 +598,7 @@ array([ 1,  4,  9, 16, 25])
 <h2>如何創建 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code><a class="headerlink" href="#如何創建-ndarray" title="Permalink to this headline">¶</a></h2>
 <p>創建 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的方法有二種：一是使用 <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> 將既有的 <code class="docutils literal notranslate"><span class="pre">list</span></code> 轉換成為 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -608,7 +608,7 @@ array([ 1,  4,  9, 16, 25])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -617,7 +617,7 @@ list
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -645,7 +645,7 @@ int64
 <li><p>bool ：布林型態</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -656,7 +656,7 @@ int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -665,7 +665,7 @@ dtype(&#39;int64&#39;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -675,7 +675,7 @@ dtype(&#39;int64&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -690,7 +690,7 @@ dtype(&#39;float64&#39;)
 <li><p><code class="docutils literal notranslate"><span class="pre">np.full(shape,</span> <span class="pre">fill_value)</span></code>：創建指定外觀充滿 fill_value 的數值陣列</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -699,7 +699,7 @@ dtype(&#39;float64&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -708,7 +708,7 @@ array([0, 0, 0, 0, 0])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -717,7 +717,7 @@ array([0, 0, 0, 0, 0])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -727,7 +727,7 @@ array([[1., 1.],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -736,7 +736,7 @@ array([[1., 1.],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -751,7 +751,7 @@ array([[5566, 5566],
 <li><p><code class="docutils literal notranslate"><span class="pre">np.linspace(start,</span> <span class="pre">stop,</span> <span class="pre">num)</span></code> ：創建從 <code class="docutils literal notranslate"><span class="pre">start</span></code>（包含）至 <code class="docutils literal notranslate"><span class="pre">stop</span></code>（包含）的均勻切割為 <code class="docutils literal notranslate"><span class="pre">num</span></code> 個資料點的數值陣列</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -760,7 +760,7 @@ array([[5566, 5566],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -769,7 +769,7 @@ array([1, 3, 5, 7, 9])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -778,7 +778,7 @@ array([1, 3, 5, 7, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -793,7 +793,7 @@ array([1, 3, 5, 7, 9])
 <li><p><code class="docutils literal notranslate"><span class="pre">np.random.randint(low,</span> <span class="pre">high,</span> <span class="pre">size)</span></code>：創建指定外觀於 <code class="docutils literal notranslate"><span class="pre">low</span></code> （包含）到 <code class="docutils literal notranslate"><span class="pre">high</span></code>（不包含）之間隨機抽樣之正整數的數值陣列</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -819,7 +819,7 @@ array([1, 3, 5, 7, 9])
 </div>
 <p>這時又可以呼應「為何視覺化」一節中我們提到的，觀察原始資料對於理解其分配特性幾乎沒有幫助，需要仰賴直方圖（histogram）才能挖掘出分配的特徵。截至目前為止我們還沒有開始認識 Matplotlib，但是為了更妥善地說明，在範例程式碼中已經先引用了 Matplotlib 所提供類別或函式，假如讀者目前對這部分感到困惑，可待讀過資料探索等本書後面的章節，再回來複習。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -838,7 +838,7 @@ array([1, 3, 5, 7, 9])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -867,7 +867,7 @@ array([1, 3, 5, 7, 9])
 <li><p><code class="docutils literal notranslate"><span class="pre">arr.dtype</span></code> ：檢視 <code class="docutils literal notranslate"><span class="pre">arr</span></code> 中同質資料的型態</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -903,7 +903,7 @@ int64
 <p><img alt="純量、向量、矩陣與張量" src="_images/02-numpy_18_0.png" /></p>
 <p>圖片來源：<a class="reference external" href="https://dev.to/juancarlospaco/tensors-for-busy-people-315k">https://dev.to/juancarlospaco/tensors-for-busy-people-315k</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -925,7 +925,7 @@ int64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -948,7 +948,7 @@ int64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -972,7 +972,7 @@ int64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1003,7 +1003,7 @@ int64
 </div>
 <p>NumPy 有非常豐富的內建函式可以協助我們進行常用的向量與矩陣計算。運用 <code class="docutils literal notranslate"><span class="pre">np.eye()</span></code> 可以創建單位矩陣（Identity matrix），函式命名是取 I 的諧音。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1013,7 +1013,7 @@ int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1024,7 +1024,7 @@ array([[1, 0],
 </div>
 <p>運用 <code class="docutils literal notranslate"><span class="pre">np.dot()</span></code> 可以進行向量內積與矩陣相乘。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1033,7 +1033,7 @@ array([[1, 0],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1042,7 +1042,7 @@ array([[1, 0],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1063,7 +1063,7 @@ array([[1, 0],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1072,7 +1072,7 @@ array([[1, 0],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1083,7 +1083,7 @@ array([[55, 55],
 </div>
 <p>運用 <code class="docutils literal notranslate"><span class="pre">np.transpose()</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">arr.T</span></code> 可以進行轉置，將外觀 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code> 矩陣轉換為 <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>，列與欄的元素互換。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1122,7 +1122,7 @@ A^{-1}AX &= A^{-1}B \\
 X &= A^{-1}B
 \end{align}</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1135,7 +1135,7 @@ X &= A^{-1}B
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1149,7 +1149,7 @@ array([[-3., -4.],
 <h2><code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的索引<a class="headerlink" href="#ndarray-的索引" title="Permalink to this headline">¶</a></h2>
 <p>從 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 中取出單個資料值的方式與 <code class="docutils literal notranslate"><span class="pre">list</span></code> 相同，使用 <code class="docutils literal notranslate"><span class="pre">[INDEX]</span></code> 取值，索引值同樣由左至右從 0 算起，由右至左從 -1 算起，在參數命名上稱呼最左邊為起始（start）、最右邊為終止（stop）。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1186,7 +1186,7 @@ From stop to start:
 </div>
 <p>面對二維以上的陣列，ndarray 支援使用 <code class="docutils literal notranslate"><span class="pre">[i,</span> <span class="pre">j,</span> <span class="pre">...]</span></code> 的方式取出位於第 i 列（row）、第 j 欄（column）…的資料。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1215,7 +1215,7 @@ From stop to start:
 <h2><code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的切割<a class="headerlink" href="#ndarray-的切割" title="Permalink to this headline">¶</a></h2>
 <p>從 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 中取出多個資料值的方式與 <code class="docutils literal notranslate"><span class="pre">list</span></code> 相同，使用 <code class="docutils literal notranslate"><span class="pre">[start:stop:step]</span></code> 取出陣列的片段，如果沒有指定 <code class="docutils literal notranslate"><span class="pre">start</span></code> 預設值 0、 <code class="docutils literal notranslate"><span class="pre">stop</span></code> 預設值 <code class="docutils literal notranslate"><span class="pre">arr.size</span></code> 意即最右邊、 <code class="docutils literal notranslate"><span class="pre">step</span></code> 預設值 1；有趣的設定是當 <code class="docutils literal notranslate"><span class="pre">step</span></code> 為 -1 時候的效果為反轉數列。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1250,7 +1250,7 @@ From stop to start:
 </ul>
 <p>華麗索引（Fancy Indexing）指的是以陣列傳入不規則的索引值選取資料值，不用遷就 <code class="docutils literal notranslate"><span class="pre">[start:stop:step]</span></code> 所生成的規則索引陣列。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1273,7 +1273,7 @@ From stop to start:
 </div>
 <p>布林索引（Boolean Indexing）指的是以外觀相同的陣列傳入布林值，將位置為 True 的資料篩選出來。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1294,7 +1294,7 @@ From stop to start:
 </div>
 <p>其中外觀相同的布林值陣列 <code class="docutils literal notranslate"><span class="pre">is_odd</span></code> 因為能透過 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的向量化特性搭配判斷條件輕鬆產生，因此這通常是資料科學家最喜歡使用的切割、篩選方式。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1325,7 +1325,7 @@ From stop to start:
 </ul>
 <p>運用方法 <code class="docutils literal notranslate"><span class="pre">arr.reshape(m,</span> <span class="pre">n,</span> <span class="pre">...)</span></code> 將數值陣列 <code class="docutils literal notranslate"><span class="pre">arr</span></code> 重塑成運算所需要的外觀。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1352,7 +1352,7 @@ From stop to start:
 </div>
 <p>重塑時需要指定 (m, n, …) 外觀，更便捷的寫法是將其餘 <code class="docutils literal notranslate"><span class="pre">ndim</span> <span class="pre">—</span> <span class="pre">1</span></code> 個維度指定好，再傳最後一個維度是 -1，<code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 會自行計算最後一個維度的值；例如將長度為 9 的數值陣列 <code class="docutils literal notranslate"><span class="pre">arr</span></code> 重塑成 (3, 3) 外觀時可以寫作 <code class="docutils literal notranslate"><span class="pre">arr.reshape(3,</span> <span class="pre">-1)</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">arr.reshape(-1,</span> <span class="pre">3)</span></code>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1377,7 +1377,7 @@ From stop to start:
 </div>
 <p>在矩陣相乘運算的應用場景中，我們常需要將一維的數值陣列重塑成二維的欄（尚未轉置的向量 <span class="math notranslate nohighlight">\(v\)</span>）或者二維的列（已轉置的向量 <span class="math notranslate nohighlight">\(v^T\)</span>），這時就可以善用 <code class="docutils literal notranslate"><span class="pre">arr.reshape(1,</span> <span class="pre">-1)</span></code> 或 <code class="docutils literal notranslate"><span class="pre">arr.reshape(-1,</span> <span class="pre">1)</span></code>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1400,7 +1400,7 @@ From stop to start:
 </div>
 <p>運用方法 <code class="docutils literal notranslate"><span class="pre">ravel()</span></code> 可以將外觀為 (m, n, …) 的數值陣列調整回一維。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1428,7 +1428,7 @@ From stop to start:
 <h2>複製陣列<a class="headerlink" href="#複製陣列" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 有一個重要的預設特性為「不複製」，不論在切割或重新宣告的情境中都是創建陣列的 View，而非複製另一個陣列，這代表著對以 View 存在的子陣列（Sub-array）更新會改動到原始陣列。例如將 <code class="docutils literal notranslate"><span class="pre">arr</span></code> 的 View <code class="docutils literal notranslate"><span class="pre">mat</span></code> 之中的 5 更新為 5566，會一併更新 <code class="docutils literal notranslate"><span class="pre">arr</span></code> 的 5 為 5566。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1453,7 +1453,7 @@ From stop to start:
 </div>
 <p>我們若希望實踐陣列的複製，可以運用其 <code class="docutils literal notranslate"><span class="pre">copy()</span></code> 方法，如此一來 <code class="docutils literal notranslate"><span class="pre">mat</span></code> 之中的 5 更新為 5566，並不會影響到 <code class="docutils literal notranslate"><span class="pre">arr</span></code> 中的 5。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1482,7 +1482,7 @@ From stop to start:
 <h2>合併陣列<a class="headerlink" href="#合併陣列" title="Permalink to this headline">¶</a></h2>
 <p>很多 NumPy 的函式都有提供 <code class="docutils literal notranslate"><span class="pre">axis</span></code> 參數能夠讓使用者在進行這些操作時能夠輕鬆地應用在列（row）或欄（column）等不同維度上，暸解 <code class="docutils literal notranslate"><span class="pre">axis</span></code> 參數可以有效幫助使用者處理陣列，我們能夠運用 <code class="docutils literal notranslate"><span class="pre">np.concatenate([arr0,</span> <span class="pre">arr1,</span> <span class="pre">...],</span> <span class="pre">axis)</span></code> 將多個陣列依照 <code class="docutils literal notranslate"><span class="pre">axis</span></code> 參數的方向進行合併，當 <code class="docutils literal notranslate"><span class="pre">axis</span></code> 為預設值 0 的時候效果為垂直合併、當 <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> 的時候效果為水平合併。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1511,7 +1511,7 @@ From stop to start:
 <h2>通用函式<a class="headerlink" href="#通用函式" title="Permalink to this headline">¶</a></h2>
 <p>NumPy 之所以被譽為 Python 資料科學應用的基石，就是因為能透過通用函式（Universal function）實踐其他科學計算語言內建的向量化（Vectorization）功能，通用函式的作用是針對數值陣列中每個數值進行相同的運算，效率會高於使用迭代語法。我們可以在 Jupyter Notebook 中使用 <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> 得知若想以迭代對一百萬筆隨機整數進行「倒數」的運算要花多少時間。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1530,7 +1530,7 @@ From stop to start:
 </div>
 <p>較為緩慢的原因是在每次迭代計算倒數時，Python 首先檢查物件類型再呼叫用於該類型的正確運算（在這個例子中為倒數運算）。而使用 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 的通用函式，就像是利用已經編譯過的程式並且對固定物件類型計算，無需再檢查，運算的效率較高。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1558,7 +1558,7 @@ From stop to start:
 <li><p><code class="docutils literal notranslate"><span class="pre">np.mod()</span></code>：同 <code class="docutils literal notranslate"><span class="pre">%</span></code> 運算符</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1582,7 +1582,7 @@ From stop to start:
 </div>
 <p>假如希望對數值陣列應用之通用函式是為自己的需求量身訂製，這時可以定義後以 <code class="docutils literal notranslate"><span class="pre">np.vectorize()</span></code> 轉換為一個通用函式，例如可以判斷一個輸入是否為質數，我們想轉換成通用函式藉此判斷數值陣列中哪些為質數。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1621,7 +1621,7 @@ From stop to start:
 </ol>
 <p>「能沿指定維度聚合」的特性意指在面對具有多個維度的數值陣列時，可以指定應用在某一個維度，舉例來說面對有兩個維度 (m, n) 的矩陣時可以單純應用 <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code> 將整個矩陣中的數值加總，將得到一個輸出；如果指定 <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> 則是將矩陣中的每欄（column）分別加總，將得到 n 個輸出、指定 <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> 則是將矩陣中的每列（row）分別加總，將得到 m 個輸出。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1644,7 +1644,7 @@ From stop to start:
 </div>
 <p>「多數具有可運算遺漏值的相對應函式」的特性意指在面對具有 <code class="docutils literal notranslate"><span class="pre">np.NaN</span></code> 遺漏值的陣列時，原型聚合函式會回傳 <code class="docutils literal notranslate"><span class="pre">np.NaN</span></code>，這時可以採用相對應之可計算遺漏值函式運算，將會忽略 <code class="docutils literal notranslate"><span class="pre">np.NaN</span></code> ，傳回其餘數值的摘要。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1681,7 +1681,7 @@ nan
 </ul>
 <p>我們創建一個外觀 <code class="docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">2)</span></code> 的矩陣來示範其中一個聚合函式 <code class="docutils literal notranslate"><span class="pre">np.argmax()</span></code> 的使用方法。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1694,7 +1694,7 @@ nan
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1712,7 +1712,7 @@ array([[0.37454012, 0.62545988],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1721,7 +1721,7 @@ array([[0.37454012, 0.62545988],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1730,7 +1730,7 @@ array([1, 6])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1739,7 +1739,7 @@ array([1, 6])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="output_area docutils container">

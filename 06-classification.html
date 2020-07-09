@@ -460,7 +460,7 @@ div.rendered_html tbody tr:hover {
 <h1>類別預測的任務<a class="headerlink" href="#類別預測的任務" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件模組或者其中的部分函式、功能。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -488,7 +488,7 @@ div.rendered_html tbody tr:hover {
 <li><p>但書（Condition）：隨著資料觀測值筆數增加，預測誤分類數應該要減少</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -510,7 +510,7 @@ Creating player stats df...
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -520,7 +520,7 @@ dtype(&#39;O&#39;)
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">player_stats</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">pos</span></code> 有 7 個不同的類別：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -540,7 +540,7 @@ dtype(&#39;O&#39;)
 </div>
 <p>我們先將多元分類問題簡化為二元分類問題，鋒衛位置分作前鋒（F）與後衛（G），分別對應整數 1 與整數 0。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -555,7 +555,7 @@ dtype(&#39;O&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -575,7 +575,7 @@ array([0, 1])
 \end{equation}</span></p>
 <p>以 Scikit-Learn 定義好的預測器類別 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 可以計算特徵矩陣對應類別的預測機率。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -602,7 +602,7 @@ array([0, 1])
 模型的正規化效果降到很低。有關於「正規化」的技法，將在「表現的評估」章節中介紹給讀者認識，假如讀者目前感到困惑，可待讀過表現的評估等本書後面的章節，再回來複習。</p>
 <p><code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別的 <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> 方法輸出的數值陣列外觀為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">m</span></code> 是特徵矩陣的觀測值個數，<code class="docutils literal notranslate"><span class="pre">n</span></code> 則是目標向量的獨一值，也就是類別的個數，以目前的二元分類（後衛 vs. 前鋒）問題來說，<code class="docutils literal notranslate"><span class="pre">n</span></code> 等於 2，第 0 欄是預測為類別 0 的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=0|X; w)\)</span>、第 1 欄是預測為類別 1 的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -612,7 +612,7 @@ array([0, 1])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -631,7 +631,7 @@ array([[1.24174853e-02, 9.87582515e-01],
 </div>
 <p>應用 <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> 函式回傳最大的欄位數，就能夠得到 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -641,7 +641,7 @@ array([[1.24174853e-02, 9.87582515e-01],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -651,7 +651,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 <p>最後使用 <code class="docutils literal notranslate"><span class="pre">pos_dict</span></code> 將整數對應回鋒衛位置的文字外觀。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -661,7 +661,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -671,7 +671,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 <p>若是將 <span class="math notranslate nohighlight">\(h\)</span> 的機率輸出在一個區間之內，例如在所有球員的場均助攻 <code class="docutils literal notranslate"><span class="pre">apg</span></code> 與場均籃板 <code class="docutils literal notranslate"><span class="pre">rpg</span></code> 均勻切割 50 個資料點，在平面上就可以對應出 2,500 個場均助攻和場均籃板的組合，每個組合都輸入 <span class="math notranslate nohighlight">\(h\)</span> 得到一組機率組合 <span class="math notranslate nohighlight">\(\hat{p}(y=0|X; w)\)</span> 與 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span>；假設將全部 2,500 個資料點的 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span> 視作海拔高度、場均助攻視作經度、場均籃板視作緯度，我們可以描繪出一個填滿等高線圖（Contour-filled plot）。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -685,7 +685,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -709,7 +709,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -727,7 +727,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 <p>從填滿等高線圖中我們可以看出場均籃板與被 <span class="math notranslate nohighlight">\(h\)</span> 預測為前鋒的機率有正向的相關性、場均助攻與被 <span class="math notranslate nohighlight">\(h\)</span> 預測為前鋒的機率有反向的相關性，這一點與場上籃球員的分工相符，擔任中鋒與大前鋒的球員比較擅長爭搶籃板球、擔任後衛的球員比較擅長傳球助攻；而圖中左下到右上有一段帶狀區間，被稱作「決策邊界」（Decision boundary），決策邊界能夠隨著門檻（Threshold）設定往左上角或右下角移動，預設的門檻多半設定在 50%，亦即由 <span class="math notranslate nohighlight">\(h\)</span> 預測出的 <span class="math notranslate nohighlight">\(\hat{p}\)</span> 如果大於 50%，就輸出 <span class="math notranslate nohighlight">\(\hat{y} = 1\)</span>，否則輸出
 <span class="math notranslate nohighlight">\(\hat{y} = 0\)</span>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -757,7 +757,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -781,7 +781,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 \hat{p} = \sigma(Xw) = \frac{1}{1 + e^{-Xw}}
 \end{equation}</span></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -791,7 +791,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -813,7 +813,7 @@ array([1, 0, 0, 1, 1, 1, 0, 1, 0, 1])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -863,7 +863,7 @@ J(w) = -\frac{1}{m}log(1-\sigma(Xw)), \quad if \: y = 0
 \end{equation}</span></p>
 <p>設計以交叉熵函式的巧妙之處在於讓誤分類的成本趨近無限大，亦即當真實的類別 <span class="math notranslate nohighlight">\(y\)</span> 為 1，<span class="math notranslate nohighlight">\(\sigma(Xw)\)</span> 若離 0 比較近，預測為類別 0 的機率較高，則成本將趨近無限大；而當真實的類別 <span class="math notranslate nohighlight">\(y\)</span> 為 0，<span class="math notranslate nohighlight">\(\sigma(Xw)\)</span> 若離 1 比較近，預測為類別 1 的機率較高則成本將趨近無限大。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -889,7 +889,7 @@ J(w) = -\frac{1}{m}log(1-\sigma(Xw)), \quad if \: y = 0
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -996,7 +996,7 @@ w := w - \alpha \frac{1}{m}(X^T(\sigma(Xw) - y))
 <h2>自訂羅吉斯迴歸類別 LogitReg<a class="headerlink" href="#自訂羅吉斯迴歸類別-LogitReg" title="Permalink to this headline">¶</a></h2>
 <p>我們可以依據羅吉斯迴歸的定義自訂預測器類別，檢視迭代後的 <span class="math notranslate nohighlight">\(w\)</span> 是否與 Scikit-Learn 相近、交叉熵是否隨著迭代而下降。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1090,7 +1090,7 @@ w := w - \alpha \frac{1}{m}(X^T(\sigma(Xw) - y))
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1121,7 +1121,7 @@ epoch:  90000 - loss: 0.274680
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1132,7 +1132,7 @@ epoch:  90000 - loss: 0.274680
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1146,7 +1146,7 @@ epoch:  90000 - loss: 0.274680
 <h2>二元分類延伸至多元分類：One versus rest<a class="headerlink" href="#二元分類延伸至多元分類：One-versus-rest" title="Permalink to this headline">¶</a></h2>
 <p>暸解羅吉斯迴歸如何進行二元分類預測任務後，最後將問題還原回本來的多元分類問題，原始資料集中球員的鋒衛位置不只分作前鋒（Forward, F）與後衛（Guard, G）亦有中鋒（Center, C），以及能夠勝任兩個位置的搖擺人（F-G、G-F）等。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1177,7 +1177,7 @@ epoch:  90000 - loss: 0.274680
 \hat{p} = argmax (\hat{p}_{C}, \hat{p}_{C-F}, \hat{p}_{F}, \hat{p}_{F-C}, \hat{p}_{F-G}, \hat{p}_{G}, \hat{p}_{G-F})
 \end{align}</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1204,7 +1204,7 @@ epoch:  90000 - loss: 0.274680
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別只需要在初始化時加入參數 <code class="docutils literal notranslate"><span class="pre">multi_class='ovr'</span></code> 就能面對多元分類問題。這時<code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> 方法輸出的數值陣列外觀為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">m</span></code> 是特徵矩陣的觀測值個數，<code class="docutils literal notranslate"><span class="pre">n</span></code> 則是目標向量的獨一值，也就是類別的個數，以目前的多元分類（C、C-F、F、F-C、F-G、G、G-F）問題來說，<code class="docutils literal notranslate"><span class="pre">n</span></code> 等於 7，第 0 欄是預測為類別 0（C）的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=0|X; w)\)</span>、第 1 欄是預測為類別 1（C-F）的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=1|X; w)\)</span>、第 6 欄是預測為類別
 6（G-F）的機率 <span class="math notranslate nohighlight">\(\hat{p}(y=6|X; w)\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1219,7 +1219,7 @@ epoch:  90000 - loss: 0.274680
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1248,7 +1248,7 @@ array([[0.00948771, 0.10618846, 0.10813516, 0.17693642, 0.43670401,
 </div>
 <p>應用 <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> 函式回傳最大的欄位數，就能夠得到 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1258,7 +1258,7 @@ array([[0.00948771, 0.10618846, 0.10813516, 0.17693642, 0.43670401,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1268,7 +1268,7 @@ array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
 </div>
 <p>最後使用 <code class="docutils literal notranslate"><span class="pre">pos_dict_reversed</span></code> 將整數對應回鋒衛位置的文字外觀。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1278,7 +1278,7 @@ array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1306,7 +1306,7 @@ J = -\frac{1}{m}\sum_{k=1}^{K}y_klog(\hat{P}_k)
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 類別只需要在初始化時加入參數 <code class="docutils literal notranslate"><span class="pre">multi_class='multinomial'</span></code> 就能夠以 Softmax 函式面對多元分類問題。這時<code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> 方法輸出的數值陣列外觀為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">K)</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">m</span></code> 是特徵矩陣的觀測值個數，<code class="docutils literal notranslate"><span class="pre">K</span></code> 則是類別的個數，以相同的多元分類（C、C-F、F、F-C、F-G、G、G-F）問題來說，<code class="docutils literal notranslate"><span class="pre">K</span></code> 等於 7，第 0 欄是預測為類別 0（C）的機率 <span class="math notranslate nohighlight">\(\hat{P}_0\)</span>、第 1 欄是預測為類別 1（C-F）的機率 <span class="math notranslate nohighlight">\(\hat{P}_1\)</span>、第 6 欄是預測為類別 6（G-F）的機率
 <span class="math notranslate nohighlight">\(\hat{P}_6\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1318,7 +1318,7 @@ J = -\frac{1}{m}\sum_{k=1}^{K}y_klog(\hat{P}_k)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1347,7 +1347,7 @@ array([[1.46834231e-03, 1.10515982e-01, 1.34322740e-01, 2.30095688e-01,
 </div>
 <p>應用 <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> 函式回傳最大的欄位數，就能夠得到 <span class="math notranslate nohighlight">\(\hat{y}\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1357,7 +1357,7 @@ array([[1.46834231e-03, 1.10515982e-01, 1.34322740e-01, 2.30095688e-01,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1367,7 +1367,7 @@ array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
 </div>
 <p>最後使用 <code class="docutils literal notranslate"><span class="pre">pos_dict_reversed</span></code> 將整數對應回鋒衛位置的文字外觀。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1377,7 +1377,7 @@ array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1390,7 +1390,7 @@ array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
 <h2>兩種表示類別向量的形式<a class="headerlink" href="#兩種表示類別向量的形式" title="Permalink to this headline">¶</a></h2>
 <p>截至目前為止我們表示類別目標向量 <span class="math notranslate nohighlight">\(y\)</span> 的形式稱為標籤編碼（Label encoder），將類別變數的獨一值用 0 到 <code class="docutils literal notranslate"><span class="pre">n_classes</span> <span class="pre">-</span> <span class="pre">1</span></code> 的整數表示，可以使用 Scikit-Learn 中的 <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> 轉換。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1413,7 +1413,7 @@ array([4, 0, 0, 4, 4, 4, 0, 4, 0, 4])
 </div>
 <p>另外一種表示目標向量 <span class="math notranslate nohighlight">\(y\)</span> 的方法稱為獨熱編碼（One-hot encoder），將類別變數的獨一值用 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n_classes)</span></code> 的稀疏矩陣表示，用 <code class="docutils literal notranslate"><span class="pre">1</span></code> 標註是該類，其餘欄位則用 <code class="docutils literal notranslate"><span class="pre">0</span></code> 標註不是該類，可以使用 Scikit-Learn 中的 <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> 轉換。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
