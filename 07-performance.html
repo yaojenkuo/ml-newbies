@@ -19,7 +19,7 @@
     <script src="_static/sphinx-book-theme.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "center", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="深度學習入門" href="08-deep-learning.html" />
@@ -460,7 +460,7 @@ div.rendered_html tbody tr:hover {
 <h1>表現的評估<a class="headerlink" href="#表現的評估" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -512,7 +512,7 @@ Error_{valid} = \sum_{i} \mid y^{(valid)}_i \neq \hat{y_i}^{(valid)} \mid
 <h2>評估數值預測任務的表現<a class="headerlink" href="#評估數值預測任務的表現" title="Permalink to this headline">¶</a></h2>
 <p>數值預測任務的表現評估以均方誤差來衡量 <span class="math notranslate nohighlight">\(y^{(valid)}\)</span> 與 <span class="math notranslate nohighlight">\(\hat{y}^{(valid)}\)</span> 之間的差異，均方誤差愈大推論 <span class="math notranslate nohighlight">\(h_w\)</span> 跟 <span class="math notranslate nohighlight">\(f\)</span> 的相似度愈低，反之均方誤差愈小推論 <span class="math notranslate nohighlight">\(h\)</span> 與 <span class="math notranslate nohighlight">\(f\)</span> 的相似度愈高。使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code> 函式可以協助我們計算兩個目標向量之間的均方誤差。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -533,7 +533,7 @@ Creating player stats df...
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -549,7 +549,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -559,7 +559,7 @@ Creating player stats df...
 </div>
 <p>亦可以自訂均方誤差的函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -572,7 +572,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -582,7 +582,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -593,7 +593,7 @@ Creating player stats df...
 <p>另外一個也常被用來評估數值預測任務表現的指標是平均絕對誤差（Mean absolute error），平均絕對誤差和均方誤差相同之處在於他們都能精確捕捉預測失準的量值，無論是低估或者高估，經過平方或絕對值的運算都會成為正數被詳實地累積起來；相異之處在於均方誤差對於預測失準較多的離群值（Outliers）具有放大的效果（平方），而平均絕對誤差則不具有這樣類似加權的效果，因此當離群值在任務預測失準所衍生的成本也大幅上升的應用場景中，就比平均絕對誤差更適合使用，表示迴歸模型的選擇和調校上會傾向避免預測失準較多的情況。</p>
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">mean_absolute_error</span></code> 函式可以協助我們計算兩個目標向量之間的平均絕對誤差。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -603,7 +603,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -613,7 +613,7 @@ Creating player stats df...
 </div>
 <p>亦可以自訂平均絕對誤差的函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -626,7 +626,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -636,7 +636,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -690,7 +690,7 @@ Creating player stats df...
 </table>
 <p>前述眼花撩亂的評估指標，其實都能從組成混淆矩陣的四個象限衍生而得，使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> 函式可以協助我們創建兩個目標向量之間正確分類、錯誤分類所組成的混淆矩陣。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -711,7 +711,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -722,7 +722,7 @@ array([[60, 16],
 </div>
 <p>亦可以自訂創建混淆矩陣的函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -738,7 +738,7 @@ array([[60, 16],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -748,7 +748,7 @@ array([[60, 16],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -763,7 +763,7 @@ Accuracy = \frac{TN + TP}{TN + TP + FN + FP}
 \end{equation}</span></p>
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> 函式可以協助我們計算準確率。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -773,7 +773,7 @@ Accuracy = \frac{TN + TP}{TN + TP + FN + FP}
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -783,7 +783,7 @@ Accuracy = \frac{TN + TP}{TN + TP + FN + FP}
 </div>
 <p>準確率的概念直觀，但是在一些狀況中並不這麼適合評估分類器的表現，像是陽性事件發生率極低的應用場景，例如罕見疾病或市場黑天鵝事件的預測任務。如果設計出一個樸素的分類器（Dummy classifier），它以目標向量中出現頻率最高的類別作為預測依據，如果以 1000 個觀測值中僅有 1 個陽性的情況舉例，準確率可以達到 0.999，是一個乍看之下非常漂亮的評估指標。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -796,7 +796,7 @@ Accuracy = \frac{TN + TP}{TN + TP + FN + FP}
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -812,7 +812,7 @@ Recall = \frac{TP}{TP + FN}
 <p>相較準確率，精確率與召回率更專注評估分類器對陽性事件的預測能力，兩個指標愈高，代表模型的表現愈好。精確率如果表現要好除了真陽性高，偽陽性亦要想辦法降低，而召回率同樣若表現要好除了真陽性高，偽陰性亦要想辦法降低，因此在選擇採用精確率與召回率時，常會延伸探討偽陽性或偽陰性所衍生的誤判成本。採用精確率代表的要盡可能降低偽陽性，這表示的是偽陽性的成本高，意味著是誤判為陽性事件的成本高（例如誤診而進行高風險的手術）；採用準確率代表的是要儘可能降低偽陰性，這表示的是偽陰性的成本高，意味著是誤判為陰性事件的成本高（例如誤診而導致超級傳播者沒有隔離而進入社區）。</p>
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">precision_score</span></code> 與 <code class="docutils literal notranslate"><span class="pre">recall_score</span></code> 函式可以協助我們計算精確率與召回率，這時可以看到樸素分類器在精確率和召回率都得到了最低的評估值。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -842,7 +842,7 @@ F_{1} = 2 \cdot \frac{precision \cdot recall}{precision + recall}
 \end{equation}</span></p>
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> 函式可以協助我們計算 F1-score，同樣可以看到樸素分類器依然在 F1-score 獲得了最低的評估值。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -852,7 +852,7 @@ F_{1} = 2 \cdot \frac{precision \cdot recall}{precision + recall}
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -865,7 +865,7 @@ F_{1} = 2 \cdot \frac{precision \cdot recall}{precision + recall}
 <h2>自訂計算評估指標的類別 <code class="docutils literal notranslate"><span class="pre">ClfMetrics</span></code><a class="headerlink" href="#自訂計算評估指標的類別-ClfMetrics" title="Permalink to this headline">¶</a></h2>
 <p>我們亦可以根據混淆矩陣自訂分類器評估指標的類別。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -927,7 +927,7 @@ F_{1} = 2 \cdot \frac{precision \cdot recall}{precision + recall}
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -941,7 +941,7 @@ F_{1} = 2 \cdot \frac{precision \cdot recall}{precision + recall}
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -952,7 +952,7 @@ F_{1} = 2 \cdot \frac{precision \cdot recall}{precision + recall}
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -962,7 +962,7 @@ array([[60, 16],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -972,7 +972,7 @@ array([[60, 16],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -981,7 +981,7 @@ array([[60, 16],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -991,7 +991,7 @@ array([[60, 16],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1000,7 +1000,7 @@ array([[60, 16],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1010,7 +1010,7 @@ array([[60, 16],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1019,7 +1019,7 @@ array([[60, 16],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1029,7 +1029,7 @@ array([[60, 16],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1063,7 +1063,7 @@ Error_{test} = \sum_{i} \mid y^{(test)}_i \neq \hat{y_i}^{(test)} \mid
 個子集合當作驗證資料，其餘當作訓練資料，最後取平均值來評估誤差。</p>
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">KFold</span></code> 類別可以協助我們獲得交叉驗證時訓練與驗證資料的位置。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1098,7 +1098,7 @@ Error_{test} = \sum_{i} \mid y^{(test)}_i \neq \hat{y_i}^{(test)} \mid
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1121,7 +1121,7 @@ Error_{test} = \sum_{i} \mid y^{(test)}_i \neq \hat{y_i}^{(test)} \mid
 </div>
 <p>在梯度遞減開始前隨機初始化的 <span class="math notranslate nohighlight">\(w\)</span> 的訓練誤差是高的，隨著訓練次數增加而漸漸減少，這在數值預測與類別預測任務中我們已經看過不少範例；而增加特徵矩陣的欄位可以使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">PolynomialFeatures</span></code> 類別創建高次項觀察訓練誤差在不同 <code class="docutils literal notranslate"><span class="pre">degree</span></code> 下的訓練誤差，以迴歸模型為例，當訓練誤差很高的時候模型處於「配適不足」（Underfitting）的狀態，像是 <code class="docutils literal notranslate"><span class="pre">degree=0</span></code> 的時候。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1147,7 +1147,7 @@ Error_{test} = \sum_{i} \mid y^{(test)}_i \neq \hat{y_i}^{(test)} \mid
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1202,7 +1202,7 @@ w := w(1 - \alpha \frac{2}{m}\lambda) - \alpha\frac{2}{m}X^T(\hat{y} - y)
 \end{gather}</span></p>
 <p><span class="math notranslate nohighlight">\(\lambda\)</span> 是由使用者決定的參數，當 <span class="math notranslate nohighlight">\(\lambda = 0\)</span> 時代表不抑制係數向量，沒有正規化效果；較大的 <span class="math notranslate nohighlight">\(\lambda\)</span> 會壓抑最適化係數向量的選擇，正規化效果大，藉此在配適不足與過度配適之間進行平衡，當正規化效果過大時，模型又會變得與配適不足的狀態相近。使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">Ridge</span></code> 類別可以協助我們建構具備 L2 正規化效果的迴歸模型，正規化效果由 <code class="docutils literal notranslate"><span class="pre">alpha</span></code> 參數決定，愈大表示正規化效果愈強。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1225,7 +1225,7 @@ w := w(1 - \alpha \frac{2}{m}\lambda) - \alpha\frac{2}{m}X^T(\hat{y} - y)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

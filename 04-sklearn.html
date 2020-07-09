@@ -19,7 +19,7 @@
     <script src="_static/sphinx-book-theme.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "center", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="數值預測的任務" href="05-regression.html" />
@@ -478,7 +478,7 @@ div.rendered_html tbody tr:hover {
 <h1>機器學習入門<a class="headerlink" href="#機器學習入門" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -536,7 +536,7 @@ div.rendered_html tbody tr:hover {
 <h2>五個核心理念<a class="headerlink" href="#五個核心理念" title="Permalink to this headline">¶</a></h2>
 <p>我們使用 NBA 球員的範例資料來演繹 Scikit-Learn 的五個核心理念。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -560,7 +560,7 @@ Creating players df...
 <h3>提供合理的預設參數<a class="headerlink" href="#提供合理的預設參數" title="Permalink to this headline">¶</a></h3>
 <p>初始化 <code class="docutils literal notranslate"><span class="pre">ss</span></code> 轉換器與 <code class="docutils literal notranslate"><span class="pre">lr</span></code> 預測器時可以選擇採用預設參數。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -574,7 +574,7 @@ Creating players df...
 <h3>模組化<a class="headerlink" href="#模組化" title="Permalink to this headline">¶</a></h3>
 <p>可以將 <code class="docutils literal notranslate"><span class="pre">ss</span></code> 轉換器與 <code class="docutils literal notranslate"><span class="pre">lr</span></code> 預測器組裝起來成為一個管線（Pipeline）類別。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -584,7 +584,7 @@ Creating players df...
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -597,7 +597,7 @@ sklearn.pipeline.Pipeline
 <h3>一致性<a class="headerlink" href="#一致性" title="Permalink to this headline">¶</a></h3>
 <p>包含預測器的管線類別具有 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 與 <code class="docutils literal notranslate"><span class="pre">predict</span></code> 方法。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -611,7 +611,7 @@ sklearn.pipeline.Pipeline
 <h3>檢查性<a class="headerlink" href="#檢查性" title="Permalink to this headline">¶</a></h3>
 <p>在訓練完成之後，可以 <code class="docutils literal notranslate"><span class="pre">intercept_</span></code> 屬性提取常數項、以 <code class="docutils literal notranslate"><span class="pre">coef_</span></code> 屬性提取係數項觀察。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -634,7 +634,7 @@ sklearn.pipeline.Pipeline
 <h3>不自行創建類別<a class="headerlink" href="#不自行創建類別" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">lr</span></code> 在訓練完成之後，其 <code class="docutils literal notranslate"><span class="pre">intercept_</span></code> 屬性是 <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>、 <code class="docutils literal notranslate"><span class="pre">coef_</span></code> 屬性則是 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -659,7 +659,7 @@ sklearn.pipeline.Pipeline
 <p>機器學習的資料表達意象有兩個分類：特徵矩陣（Feature matrix）與目標向量（Target vector），特徵矩陣是二維的數值陣列，外型為 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>，意指有 <code class="docutils literal notranslate"><span class="pre">m</span></code> 個觀測值、每個觀測值具有 <code class="docutils literal notranslate"><span class="pre">n</span></code> 個特徵，慣常以 <span class="math notranslate nohighlight">\(X\)</span> 做為標註；目標向量是一維的數值陣列，外型為 <code class="docutils literal notranslate"><span class="pre">(m,)</span></code>，意指有 <code class="docutils literal notranslate"><span class="pre">m</span></code> 個觀測值，慣常以 <span class="math notranslate nohighlight">\(y\)</span> 作為標註。</p>
 <p>舉例來說，前述範例中的 <code class="docutils literal notranslate"><span class="pre">players</span></code> 資料框外觀是：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -668,7 +668,7 @@ sklearn.pipeline.Pipeline
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -678,7 +678,7 @@ sklearn.pipeline.Pipeline
 </div>
 <p>假如我們改以身高（呎）與身高（吋）做為預測體重（磅）的依據：</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -689,7 +689,7 @@ sklearn.pipeline.Pipeline
 </div>
 <p>特徵矩陣與目標向量的維度數及其外觀就分別為：</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -709,7 +709,7 @@ sklearn.pipeline.Pipeline
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -740,7 +740,7 @@ sklearn.pipeline.Pipeline
 </ul>
 <p>一如「機器學習的資料表達」所述，資料獲取功能所回傳的特徵矩陣 <span class="math notranslate nohighlight">\(X\)</span> 符合 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code> 外觀、目標向量 <span class="math notranslate nohighlight">\(y\)</span> 符合 <code class="docutils literal notranslate"><span class="pre">(m,)</span></code> 外觀；其中在載入玩具資料集與現實世界資料集中，Scikit-Learn 預設是以 <code class="docutils literal notranslate"><span class="pre">bunch</span></code> 這樣類似 <code class="docutils literal notranslate"><span class="pre">dict</span></code> 的資料結構回傳，指定參數 <code class="docutils literal notranslate"><span class="pre">return_X_y=True</span></code> 能夠直接獲得 <span class="math notranslate nohighlight">\(X\)</span> 與 <span class="math notranslate nohighlight">\(y\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -761,7 +761,7 @@ sklearn.pipeline.Pipeline
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -782,7 +782,7 @@ sklearn.pipeline.Pipeline
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -804,7 +804,7 @@ sklearn.pipeline.Pipeline
 </div>
 <p>在資料轉換的環節，<code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing</span></code> 提供一種稱為轉換器（Transformer）的自定義類別，初始化後可以透過 <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> 方法將輸入資料轉換為指定的輸出格式。常用的轉換器有高次項特徵與標準化，其中高次項特徵轉換器可以為特徵矩陣中的特徵生成截距項（即 <span class="math notranslate nohighlight">\(x_0 = 1\)</span>）、高次項與交叉項：</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -816,7 +816,7 @@ sklearn.pipeline.Pipeline
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -826,7 +826,7 @@ sklearn.pipeline.Pipeline
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -844,7 +844,7 @@ array([[ 6,  0],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -854,7 +854,7 @@ array([[ 6,  0],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -870,7 +870,7 @@ array([[  1.,   6.,   0.,  36.,   0.,   0.],
 </div>
 <p>而標準化轉換器則是可以為特徵矩陣中的特徵進行量度的標準化，像是最小最大標準化（Min-max scaler）或者常態標準化（Standard scaler）。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -883,7 +883,7 @@ array([[  1.,   6.,   0.,  36.,   0.,   0.],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -892,7 +892,7 @@ array([[  1.,   6.,   0.,  36.,   0.,   0.],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -910,7 +910,7 @@ array([[ 6,  0],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -919,7 +919,7 @@ array([[ 6,  0],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -937,7 +937,7 @@ array([[0.5       , 0.        ],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -946,7 +946,7 @@ array([[0.5       , 0.        ],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -965,7 +965,7 @@ array([[-0.15164926, -1.88887461],
 </div>
 <p>在資料預測的環節，<code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing</span></code> 提供一種稱為預測器（Predictor）的自定義類別，初始化後可以透過 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 方法對訓練資料進行「配適」，透過 <code class="docutils literal notranslate"><span class="pre">predict</span></code> 方法對驗證或測試資料進行「預測」。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -976,7 +976,7 @@ array([[-0.15164926, -1.88887461],
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -997,7 +997,7 @@ array([[-0.15164926, -1.88887461],
 <p>測試資料（Test data）是不具有實際值或標籤的待預測資料，作用是輸入訓練完成、驗證結果良好的 <span class="math notranslate nohighlight">\(h\)</span>，藉此達成資料預測目的；就像求學時參加的大型考試一般。</p>
 <p>以 <a class="reference external" href="https://www.kaggle.com/">Kaggle</a> 網站所下載回來的資料為例，我們會將具有實際值或標籤的已實現歷史資料 <code class="docutils literal notranslate"><span class="pre">train.csv</span></code> 分割為訓練與驗證資料；不具有實際值或標籤的待預測資料 <code class="docutils literal notranslate"><span class="pre">test.csv</span></code> 就是測試資料，兩個資料在維度上的差別就是實際值或標籤的已實現歷史資料：目標向量 <span class="math notranslate nohighlight">\(y\)</span>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1018,7 +1018,7 @@ array([[-0.15164926, -1.88887461],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1028,7 +1028,7 @@ array([[-0.15164926, -1.88887461],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[25]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1038,7 +1038,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 <p>使用 Scikit-Learn 包裝妥善的函式 <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> 可以將輸入分割為訓練與驗證資料，常見的觀測值比例由 <code class="docutils literal notranslate"><span class="pre">6:4</span></code> 到 <code class="docutils literal notranslate"><span class="pre">9:1</span></code> 不等，原則是訓練資料筆數應該大過於驗證資料筆數，透過函式中的 <code class="docutils literal notranslate"><span class="pre">test_size</span></code> 參數來設定驗證資料的比例。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1047,7 +1047,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1056,7 +1056,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[27]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1125,7 +1125,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1134,7 +1134,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[28]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1204,7 +1204,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 <p>分割訓練與驗證資料的原則有二，先做資料集的隨機排序，像是我們玩撲克牌時所操作的洗牌（Shuffle），再來是依據 <code class="docutils literal notranslate"><span class="pre">test_size</span></code> 參數將具有實際值或標籤的已實現歷史資料水平切割，上方分配給驗證資料、下方分配給訓練資料；隨機排序是為避免訓練過程 <span class="math notranslate nohighlight">\(h\)</span> 的配適受到資料源本來的排序樣態所影響；依據這兩個原則自行定義一個 <code class="docutils literal notranslate"><span class="pre">trainTestSplit</span></code> 函式看是否可以獲得與前述相同的分割結果。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1223,7 +1223,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1232,7 +1232,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1241,7 +1241,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[31]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1310,7 +1310,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1319,7 +1319,7 @@ Index([&#39;Survived&#39;], dtype=&#39;object&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[32]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">

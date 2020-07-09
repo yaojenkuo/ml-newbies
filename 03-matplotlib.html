@@ -19,7 +19,7 @@
     <script src="_static/sphinx-book-theme.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "center", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="機器學習入門" href="04-sklearn.html" />
@@ -488,7 +488,7 @@ div.rendered_html tbody tr:hover {
 <h1>資料探索<a class="headerlink" href="#資料探索" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -506,7 +506,7 @@ div.rendered_html tbody tr:hover {
 <p>Matplotlib 是 Python 實踐資料視覺化的核心套件，建構於 NumPy 所提供的 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> 陣列類別與 SciPy 框架之上，於 2002 年由 John Hunter 構思出作為 IPython 的一環，以類似 Matlab 的語法和樣式來作圖，Matplotlib 套件在 2003 年發佈 0.1.0 版，它相當幸運地在早期階段就被哈伯太空望遠鏡團隊採用作為繪圖軟體，也因為獲得了強而有力的財務支援，在功能和規模開展的過程顯得相當順遂。Matplotlib
 主打強項是支援多種主流作業系統、繪圖後端引擎與輸出格式，這使得它成為軟體工程師或資料分析師的生態圈中不可或缺的第三方套件。我們可以執行 Python 的載入指令（<code class="docutils literal notranslate"><span class="pre">import</span></code>）後印出 Matplotlib 的版本號來確認環境中是否安裝了 Matplotlib 可供使用。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -548,7 +548,7 @@ pip install matplotlib
 </ol>
 <p>我們繪製一個排版外觀 2x1 的畫布呈現這兩種不同的作圖語法風格。首先是 Matlab 風格，對本來就利用 Matlab 作資料分析的使用者非常熟稔，它採用靜態模式介面（Stateful interface），<code class="docutils literal notranslate"><span class="pre">plt</span></code> 物件可以指向當下建構出的圖形（gcf, get current figure）與軸（gca, get current axis），如以下範例所示。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -572,7 +572,7 @@ pip install matplotlib
 </div>
 <p>第二種是物件導向風格，我們在作圖之前必須分別宣告 <code class="docutils literal notranslate"><span class="pre">fig</span></code> 與 <code class="docutils literal notranslate"><span class="pre">ax</span></code> 兩個物件，然後再呼叫個別方法，繪製出與上述相同排版外觀的作圖結果。由於在未來將常遭遇繪製排版外觀 <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></code> 的畫布，因此我們將主要使用「物件導向風格」來繪製 Matplotlib 的圖形。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -596,7 +596,7 @@ pip install matplotlib
 <h2>輸出 Matplotlib 作圖<a class="headerlink" href="#輸出-Matplotlib-作圖" title="Permalink to this headline">¶</a></h2>
 <p>當我們希望將作圖結果輸出為圖片，可以使用 <code class="docutils literal notranslate"><span class="pre">fig.savefig()</span></code> 存為圖檔，Matplotlib 支援的格式可以經由 <code class="docutils literal notranslate"><span class="pre">fig.canvas.get_supported_filetypes()</span></code> 得知。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -606,7 +606,7 @@ pip install matplotlib
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -636,7 +636,7 @@ pip install matplotlib
 </div>
 <p>將剛才以物件導向風格繪製的圖以常見的 png 格式輸出，讀者可以在 Jupyter Notebook 的工作目錄找到 my_figure.png。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -655,7 +655,7 @@ pip install matplotlib
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -691,7 +691,7 @@ my_figure.png
 <h2>觀察數值資料相關性的需求<a class="headerlink" href="#觀察數值資料相關性的需求" title="Permalink to this headline">¶</a></h2>
 <p>我們使用散佈圖（Scatter plot）用作探索兩組數值資料相關情況，藉著圖形可以觀察兩組數值資料之間是否有負相關、正相關或者無相關之特徵。呼叫 <code class="docutils literal notranslate"><span class="pre">ax.scatter()</span></code> 再依序傳入 X 軸、Y 軸的數列就完成繪圖。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -716,7 +716,7 @@ my_figure.png
 <h2>觀察類別資料排序的需求<a class="headerlink" href="#觀察類別資料排序的需求" title="Permalink to this headline">¶</a></h2>
 <p>我們使用長條圖（Bar plot）用作探索類別資料排序情況之圖形，藉著圖形可以一目瞭然哪個類別的摘要數值最高、最低。呼叫 <code class="docutils literal notranslate"><span class="pre">ax.bar()</span></code> 傳入和摘要相同長度的 X 軸位置數列與摘要數列就能完成繪圖。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -745,7 +745,7 @@ my_figure.png
 <h2>觀察數值資料分佈的需求<a class="headerlink" href="#觀察數值資料分佈的需求" title="Permalink to this headline">¶</a></h2>
 <p>我們使用直方圖（Histogram plot）用作探索數值資料分佈情況之圖形，藉著圖形可以一目瞭然數值是左傾（Left-skewed）、右傾（Right-skewed）或者其餘的外觀。呼叫 <code class="docutils literal notranslate"><span class="pre">ax.hist()</span></code> 傳入數列就能完成繪圖。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -769,7 +769,7 @@ my_figure.png
 <h2>觀察數學函式外觀的需求<a class="headerlink" href="#觀察數學函式外觀的需求" title="Permalink to this headline">¶</a></h2>
 <p>我們使用線圖（Line plot）用作探索數學函式外觀之圖形，藉著圖形可以一目瞭然函式在某個區間的外觀，遠比在腦海中想像公式還要具體。呼叫 <code class="docutils literal notranslate"><span class="pre">ax.plot()</span></code> 依序放置輸入數學函式的數列、數學函式輸出的數列就能完成繪圖。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -798,7 +798,7 @@ my_figure.png
 Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 \end{equation}</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -824,7 +824,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>填滿等高線圖（Contour-filled plot）在機器學習的視覺化中另外用途是決策邊界（Decision boundary）的呈現，常搭配散佈圖來描述資料特徵與類別預測之間的關聯。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -847,7 +847,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 <h2>顯示二維數值陣列的需求<a class="headerlink" href="#顯示二維數值陣列的需求" title="Permalink to this headline">¶</a></h2>
 <p>一張解析度為 <span class="math notranslate nohighlight">\(w \times h\)</span> 的灰階圖片可以用一個外觀 <code class="docutils literal notranslate"><span class="pre">(w,</span> <span class="pre">h)</span></code> 的二維數值陣列來表示圖片中 <span class="math notranslate nohighlight">\(w \times h\)</span> 個點的像素（Pixel）強度，而呼叫 <code class="docutils literal notranslate"><span class="pre">ax.imshow()</span></code> 可以將其顯示成為圖片，以著名的手寫數字資料集 <a class="reference external" href="http://yann.lecun.com/exdb/mnist/">MNIST</a> 為例，每張手寫數字圖片都是 <code class="docutils literal notranslate"><span class="pre">(28,</span> <span class="pre">28)</span></code> 外觀的二維數值陣列、共 784 個像素。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -858,7 +858,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -867,7 +867,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -898,7 +898,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </ul>
 <p>利用軸物件的 <code class="docutils literal notranslate"><span class="pre">set_title()</span></code> 方法可以加入標題。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -925,7 +925,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>利用軸物件的 <code class="docutils literal notranslate"><span class="pre">set_xlabel()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">set_ylabel()</span></code> 方法分別加入 X 軸與 Y 軸標籤。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -948,7 +948,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>利用軸物件的 <code class="docutils literal notranslate"><span class="pre">set_xticks()</span></code>、<code class="docutils literal notranslate"><span class="pre">set_xticklabels()</span></code>、<code class="docutils literal notranslate"><span class="pre">set_yticks()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">set_yticklabels()</span></code> 方法分別加入 X 軸與 Y 軸標籤刻度。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -973,7 +973,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>利用軸物件的 <code class="docutils literal notranslate"><span class="pre">set_xlim()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">set_ylim()</span></code> 方法調整圖形的 X 軸和 Y 軸的上下限。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -999,7 +999,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>利用軸物件的 <code class="docutils literal notranslate"><span class="pre">text()</span></code> 方法為圖形添加文字說明。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1027,7 +1027,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>圖例能夠以軸物件的 <code class="docutils literal notranslate"><span class="pre">legend()</span></code> 方法搭配作圖時的 <code class="docutils literal notranslate"><span class="pre">label</span></code> 參數創建。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1052,7 +1052,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>特定圖形例如等高線圖（Contour plot）可以在等高線上加入海拔高度數值說明數字；填滿等高線圖（Contour-filled plot）可以加入海拔高度數值說明色條。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1078,7 +1078,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1102,7 +1102,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 <h2>如何在圖形中加入中文字<a class="headerlink" href="#如何在圖形中加入中文字" title="Permalink to this headline">¶</a></h2>
 <p>中文的使用者在為圖形添加元素時會碰上中文無法顯示生成為空格的問題，這是因為 matplotlib 預設的字體不支援中文，解決方式是另外指定支援中文的字體，例如 macOS 常用的細黑體（STHeiti Light.ttc）或者 Windows 常用的微軟正黑體（msjh.ttf），透過 <code class="docutils literal notranslate"><span class="pre">matplotlib.font_manager</span></code> 所提供的 <code class="docutils literal notranslate"><span class="pre">FontProperties()</span></code> 函式傳入能夠支援繁體中文字體的檔案路徑。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1142,7 +1142,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 <h2>如何繪製子圖<a class="headerlink" href="#如何繪製子圖" title="Permalink to this headline">¶</a></h2>
 <p>子圖（subplots）是資料科學經常採用的技巧，藉由將視覺化在同一個畫布上並列呈現，進而輕鬆地比較組別之間的差別，這時可以改用 <code class="docutils literal notranslate"><span class="pre">plt.subplots(m,</span> <span class="pre">n)</span></code> 同時創建畫布物件和 <span class="math notranslate nohighlight">\(m \times n\)</span> 個軸物件，多個軸物件會擺置在一個外觀 <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code> 的 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1170,7 +1170,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 <p>接著就能夠像索引數值陣列中的數值一般，運用 <code class="docutils literal notranslate"><span class="pre">[m,</span> <span class="pre">n]</span></code> 的語法對位於 <code class="docutils literal notranslate"><span class="pre">[m,</span> <span class="pre">n]</span></code> 位置的軸物件呼叫作圖方法或者添加元素。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1214,7 +1214,7 @@ Z = 2 (e^{-X^{2} - Y^{2}} - e^{-(X-1)^2 - (Y-1)^2})
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

@@ -19,7 +19,7 @@
     <script src="_static/sphinx-book-theme.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "left", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "jax": ["input/TeX", "output/HTML-CSS"], "displayAlign": "center", "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="附錄 A" href="09-appendix-a.html" />
@@ -468,7 +468,7 @@ div.rendered_html tbody tr:hover {
 <h1>深度學習入門<a class="headerlink" href="#深度學習入門" title="Permalink to this headline">¶</a></h1>
 <p>我們先載入這個章節範例程式碼中會使用到的第三方套件、模組或者其中的部分類別、函式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -551,7 +551,7 @@ TensorFlow 2.0 其他的核心功能模組，包含資料管理、超參數訓�
 </ol>
 <p>使用 Keras 利用 <code class="docutils literal notranslate"><span class="pre">player_stats</span></code> 資料中的 <code class="docutils literal notranslate"><span class="pre">apg</span></code> 與 <code class="docutils literal notranslate"><span class="pre">rpg</span></code> 來預測 <code class="docutils literal notranslate"><span class="pre">pos</span></code>。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -573,7 +573,7 @@ Creating player stats df...
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -592,7 +592,7 @@ Creating player stats df...
 <p>創建一個最淺、具有三層結構的深度學習模型，輸入層有兩個單位負責接收球員的場均助攻、場均籃板，隱藏層有四個單位，輸出層有一個單位輸出球員預測為前鋒的機率。這個結構的指派，間接地定義了在「輸入至隱藏」的階段將會有特徵 <span class="math notranslate nohighlight">\(W^{(1)} = [w_0, w_1, w_2, w_3, w_4, w_5, w_6, w_7]\)</span> 以及 <span class="math notranslate nohighlight">\(B^{(1)} = [b_0, b_1, b_2, b_3]\)</span>、在「隱藏至輸出」的階段將會有特徵 <span class="math notranslate nohighlight">\(W^{(2)} = [w_8, w_{9}, w_{10}, w_{11}]\)</span> 以及 <span class="math notranslate nohighlight">\(B^{(2)} = [b_4]\)</span>，這個深度學習模型總共有 17 個係數會在迭代訓練過程中最適化。</p>
 <p><img alt="總共有 17 個係數" src="_images/08-deep-learning_01_1.png" /></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -606,7 +606,7 @@ Creating player stats df...
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -634,7 +634,7 @@ _________________________________________________________________
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -644,7 +644,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -674,7 +674,7 @@ Epoch 5/5
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -683,7 +683,7 @@ Epoch 5/5
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -692,7 +692,7 @@ Epoch 5/5
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -776,7 +776,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 <h2>自訂深度學習類別 DeepLearning<a class="headerlink" href="#自訂深度學習類別-DeepLearning" title="Permalink to this headline">¶</a></h2>
 <p>我們可以前向傳播與反向傳播的定義自訂 DeepLearning 類別，檢視迭代後是否也能最適化各層的 <span class="math notranslate nohighlight">\(W\)</span> 與 <span class="math notranslate nohighlight">\(B\)</span>，首先是依據使用者的輸入初始化深度學習模型的結構。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -792,7 +792,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 </div>
 <p>接著定義前向傳播方法 <code class="docutils literal notranslate"><span class="pre">forward_propagation</span></code>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -821,7 +821,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 </div>
 <p>然後定義反向傳播方法 <code class="docutils literal notranslate"><span class="pre">backward_propagation</span></code>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -855,7 +855,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 </div>
 <p>接著應用梯度遞減定義每一層的權重與誤差的更新方法 <code class="docutils literal notranslate"><span class="pre">gradient_descent</span></code>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -868,7 +868,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 </div>
 <p>最後是訓練的方法 <code class="docutils literal notranslate"><span class="pre">fit</span></code>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -897,7 +897,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 </div>
 <p>再加上定義誤差函式交叉熵 <code class="docutils literal notranslate"><span class="pre">cross_entropy</span></code> 以及模型的評估指標 <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -918,7 +918,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 </div>
 <p>將前述的方法整合到 <code class="docutils literal notranslate"><span class="pre">DeepLearning</span></code> 類別中。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1089,7 +1089,7 @@ B^{(i)} := B^{(i)} - \alpha \frac{\partial J(W, B)}{\partial B^{(i)}}
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1116,7 +1116,7 @@ Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1138,7 +1138,7 @@ Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1171,7 +1171,7 @@ Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
 <h2>MNIST 資料與時裝 MNIST 資料<a class="headerlink" href="#MNIST-資料與時裝-MNIST-資料" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://yann.lecun.com/exdb/mnist/">MNIST</a> 是電腦視覺（Computer vision）的「哈囉世界」（“Hello world”）資料。自從 1999 年釋出以來，手寫數字圖片資料集成為區隔類別預測任務的基準，儘管隨著機器學習、深度學習技術的推陳出新，手寫數字圖片依然是研究人員和學生用來測試模型基準的首選，可以透過 <code class="docutils literal notranslate"><span class="pre">tensorflow.keras.datasets.mnist</span></code> 的 <code class="docutils literal notranslate"><span class="pre">load_data()</span></code> 方法載入。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1190,7 +1190,7 @@ Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
 </div>
 <p><a class="reference external" href="https://github.com/zalandoresearch/fashion-mnist">時裝 MNIST</a> 是由 <a class="reference external" href="https://zalando.com/">Zalando</a> 釋出的時裝灰階圖片資料集，讀者可以將它當作電腦視覺與深度學習的第二個「哈囉世界」，透過 <code class="docutils literal notranslate"><span class="pre">tensorflow.keras.datasets.fashion_mnist</span></code> 的 <code class="docutils literal notranslate"><span class="pre">load_data()</span></code> 方法載入。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1220,7 +1220,7 @@ Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1238,7 +1238,7 @@ Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
 </div>
 <p>任意搭建一個不同層數、單位數、啟動函式與最適化演算方法（Optimizer）的深度學習模型。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1253,7 +1253,7 @@ Iteration:  90000 - cost: 0.293302 - accuracy: 89.02%
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1285,7 +1285,7 @@ _________________________________________________________________
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1294,7 +1294,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1323,7 +1323,7 @@ Epoch 5/5
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[25]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1332,7 +1332,7 @@ Epoch 5/5
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1362,7 +1362,7 @@ Epoch 5/5
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
