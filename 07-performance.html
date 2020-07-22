@@ -809,7 +809,7 @@ Accuracy = \frac{TN + TP}{TN + TP + FN + FP}
 Precision = \frac{TP}{TP + FP} \\
 Recall = \frac{TP}{TP + FN}
 \end{align}</span></p>
-<p>相較準確率，精確率與召回率更專注評估分類器對陽性事件的預測能力，兩個指標愈高，代表模型的表現愈好。精確率如果表現要好除了真陽性高，偽陽性亦要想辦法降低，而召回率同樣若表現要好除了真陽性高，偽陰性亦要想辦法降低，因此在選擇採用精確率與召回率時，常會延伸探討偽陽性或偽陰性所衍生的誤判成本。採用精確率代表的要盡可能降低偽陽性，這表示的是偽陽性的成本高，意味著是誤判為陽性事件的成本高（例如誤診而進行高風險的手術）；採用準確率代表的是要儘可能降低偽陰性，這表示的是偽陰性的成本高，意味著是誤判為陰性事件的成本高（例如誤診而導致超級傳播者沒有隔離而進入社區）。</p>
+<p>相較準確率，精確率與召回率更專注評估分類器對陽性事件的預測能力，兩個指標愈高，代表模型的表現愈好。精確率如果表現要好除了真陽性高，偽陽性亦要想辦法降低，而召回率同樣若表現要好除了真陽性高，偽陰性亦要想辦法降低，因此在選擇採用精確率與召回率時，常會延伸探討偽陽性或偽陰性所衍生的誤判成本。採用精確率代表的要盡可能降低偽陽性，這表示的是偽陽性的成本高，意味著是誤判為陽性事件的成本高（例如誤診而進行高風險的手術）；採用召回率代表的是要儘可能降低偽陰性，這表示的是偽陰性的成本高，意味著是誤判為陰性事件的成本高（例如誤診而導致超級傳播者沒有隔離而進入社區）。</p>
 <p>使用 Scikit-Learn 定義好的 <code class="docutils literal notranslate"><span class="pre">precision_score</span></code> 與 <code class="docutils literal notranslate"><span class="pre">recall_score</span></code> 函式可以協助我們計算精確率與召回率，這時可以看到樸素分類器在精確率和召回率都得到了最低的評估值。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -836,7 +836,7 @@ Recall = \frac{TP}{TP + FN}
 <p><span class="math">\begin{equation}
 F_{\beta} = (1 + \beta^2) \cdot \frac{precision \cdot recall}{(\beta^2 \cdot precision) + recall}
 \end{equation}</span></p>
-<p><span class="math notranslate nohighlight">\(\beta\)</span> 係數的值可以表示對精確率或召回率的相對重視程度，如果偽陽性的成本遠高於偽陰性的成本，代表百分百重視精確率，這時代入 <span class="math notranslate nohighlight">\(\beta = 0\)</span> F-score 就會是精確率；如果偽陰性的成本遠高於偽陽性的成本，代表百分百重視召回率，這時代入 <span class="math notranslate nohighlight">\(\beta = \infty\)</span> F-score 就會是召回率；如果偽陽性的成本和偽陰性的成本相當，代表兩個指標同等重要，這時代入 <span class="math notranslate nohighlight">\(\beta = 1\)</span> F-score 就被稱為 F1-score，指標愈高，代表模型的表現愈好。</p>
+<p><span class="math notranslate nohighlight">\(\beta\)</span> 係數的值可以表示對精確率或召回率的相對重視程度，如果偽陽性的成本遠高於偽陰性的成本，代表百分百重視精確率，這時代入 <span class="math notranslate nohighlight">\(\beta = 0\)</span>，F-score 就會是精確率；如果偽陰性的成本遠高於偽陽性的成本，代表百分百重視召回率，這時代入 <span class="math notranslate nohighlight">\(\beta = \infty\)</span>，F-score 就會是召回率；如果偽陽性的成本和偽陰性的成本相當，代表兩個指標同等重要，這時代入 <span class="math notranslate nohighlight">\(\beta = 1\)</span>，F-score 就被稱為 F1-score，指標愈高，代表模型的表現愈好。</p>
 <p><span class="math">\begin{equation}
 F_{1} = 2 \cdot \frac{precision \cdot recall}{precision + recall}
 \end{equation}</span></p>
