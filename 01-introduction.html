@@ -592,7 +592,7 @@ array([ 0.28763377, -0.12276065,  0.34811166, ...,  1.85008303,
 </div>
 <div class="section" id="函式">
 <h3>函式<a class="headerlink" href="#函式" title="Permalink to this headline">¶</a></h3>
-<p>單純將使用 <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">np.log()</span></code> 所創建的 <span class="math notranslate nohighlight">\(p\)</span> 與 <span class="math notranslate nohighlight">\(-log(1-p)\)</span>、<span class="math notranslate nohighlight">\(-log(p)\)</span> 印出，同樣也不太容易很快地觀察出這是其中一個描述對式損失的函式。對數損失函式在分類模型扮演重要的角色，後續章節會再細談。</p>
+<p>單純將使用 <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> 與 <code class="docutils literal notranslate"><span class="pre">np.log()</span></code> 所創建的 <span class="math notranslate nohighlight">\(p\)</span> 與 <span class="math notranslate nohighlight">\(-log(1-p)\)</span>、<span class="math notranslate nohighlight">\(-log(p)\)</span> 印出，同樣也不太容易很快地觀察出這是其中一個描述對數損失的函式。對數損失函式在分類模型扮演重要的角色，後續章節會再細談。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -907,7 +907,7 @@ True
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[[</span><span class="s1">&#39;apg&#39;</span><span class="p">,</span> <span class="s1">&#39;rpg&#39;</span><span class="p">]]</span>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[[</span><span class="s1">&#39;apg&#39;</span><span class="p">,</span> <span class="s1">&#39;rpg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="n">player_stats</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pos_dict_reversed</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">values</span>
 <span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
