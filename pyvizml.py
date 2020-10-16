@@ -360,8 +360,8 @@ class ClfMetrics:
                 cm[i, j] = n_obs
         self._tn = cm[0, 0]
         self._tp = cm[1, 1]
-        self._fn = cm[0, 1]
-        self._fp = cm[1, 0]
+        self._fn = cm[1, 0]
+        self._fp = cm[0, 1]
         return cm
     def accuracy_score(self):
         """
@@ -473,7 +473,7 @@ class DeepLearning:
         Y_hat = self._A_current.copy()
         Y_train = self._y_train.copy().reshape(1, self._m)
         dA_previous = - (np.divide(Y_train, Y_hat) - np.divide(1 - Y_train, 1 - Y_hat))
-        for i in reversed(range(dl._n_layers - 1)):
+        for i in reversed(range(self._n_layers - 1)):
             dA_current = dA_previous
             A_previous = self._cache["A{}".format(i)]
             Z_current = self._cache["Z{}".format(i+1)]
